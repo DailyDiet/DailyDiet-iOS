@@ -17,7 +17,9 @@ target 'DailyDiet' do
 	pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :tag => '4.2.0'
 	pod "VisualEffectView"
 	pod 'BRYXBanner'
-
+	pod 'RAMAnimatedTabBarController'
+	pod 'BATabBarController', '~> 2.0.0'
+	pod 'FontAwesome.swift'
 
 
 end

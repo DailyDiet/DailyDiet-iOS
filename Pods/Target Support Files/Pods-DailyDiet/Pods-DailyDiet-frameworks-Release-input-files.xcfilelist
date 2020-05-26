@@ -1,11 +1,15 @@
 ${PODS_ROOT}/Target Support Files/Pods-DailyDiet/Pods-DailyDiet-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/BATabBarController/BATabBarController.framework
 ${BUILT_PRODUCTS_DIR}/BRYXBanner/BRYXBanner.framework
+${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
 ${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework
+${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/Spring/Spring.framework
 ${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework

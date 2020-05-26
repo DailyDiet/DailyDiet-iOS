@@ -8,30 +8,66 @@ let BaseURL = "dailydiet-api.herokuapp.com"
 
 enum URLs: APIConfiguration {
     
-    case bmi(weight: Int, height: Int)
-
+    case calculateBmi(weight: Int, height: Int)
+    case calculateCalorie(goal: String, gender: String, height: Int, weight: Int, age: Int, activity: String)
+    case signup(fullName: String, email: String, password: String)
+    case confirmSignup
+    case signIn(email: String, password: String)
+    case auth
+    case resendConfirmationLink
+    case changePassword(oldPassword: String, newPassword: String)
+    case signOut
+    case userInfo
+    case getRecipe(foodID: Int)
+    case foodInfo(foodID: Int)
+    
+    
     var METHOD: HTTPMethod {
         switch self {
-        case .bmi:
-            return .post
-        default:
+        case .confirmSignup, .resendConfirmationLink, .getRecipe, .foodInfo:
             return .get
+        case .auth:
+            return .put
+        case .changePassword, .signOut, .userInfo:
+            return .patch
+        default:
+            return .post
         }
     }
 
     var FULL_PATH_URL: String {
         switch self {
-            
+        case .calculateBmi:
+            return BaseURL + "/calculate/bmi"
+        case .calculateCalorie:
+            return BaseURL + "/calculate/calorie"
+        case .signup:
+            return BaseURL + "/users/signup"
+        case .confirmSignup:
+            return BaseURL + "/users/signup/confirmation/\(StoringData.token)"
+        case .signIn:
+            return BaseURL + "/users/signin"
+        case .auth:
+            return BaseURL + "/users/auth"
+        case .resendConfirmationLink:
+            return BaseURL + "/users/signup/resendConfrimation"
+        case .changePassword:
+            return BaseURL + "/users/signup/modify"
+        case .signOut:
+            return BaseURL + "/users/signout"
+        case .userInfo:
+            return BaseURL + "/users/get_user"
+        case .getRecipe(let foodID):
+            return BaseURL + "/foods/recipe/\(foodID)"
+        case .foodInfo(let foodID):
+            return BaseURL + "/foods/\(foodID)"
         }
     }
 
     var PARAMETERS: Parameters?
     {
         switch self {
-        case .bmi(let weight,let height: <#T##Int#>)
-            return [NetworkConstant.APIParameterKey.ConfirmEmail.email : email]
-        case .confirmEmailAddressForResetPassword(let email):
-            return [NetworkConstant.APIParameterKey.ConfirmEmail.email : email]
+            
         default:
             return [:]
         }
@@ -52,100 +88,83 @@ enum URLs: APIConfiguration {
         urlRequest = URLRequest(url: (urlComponents?.url)!)
 
         switch self {
-        case .login(let username, let password):
-            let json: [String: String] = [
-                "Grant_Type" : "password",
-                "UserName" : username,
-                "Password" : password,
-                "Client_id" : "Catalog",
-                "Client_secret" : "db258e47-@WSX-47b7-1qaz-91033ba08e7d"
+        case .calculateBmi(let weight, let height):
+            let json: [String: Int] = [
+                "height": height,
+                "weight": weight
             ]
             Log.i("HTTP Body =>  \(json)")
-            let data = "UserName=\(username)&Password=\(password)&Grant_Type=password&Client_id=Catalog&Client_secret=db258e47-@WSX-47b7-1qaz-91033ba08e7d".data(using: .utf8)!
-            urlRequest.httpBody = data
-//            do {
-//                urlRequest.httpBody = data
-//            } catch let error {
-//                Log.e(error.localizedDescription)
-//            }
-        case .changePassword(let userName, let oldPassword, let newPassword, let confirmNewPassword):
-            let json: [String: Any] = [
-                NetworkConstant.APIBodyKey.ChangePassword.username : userName,
-                NetworkConstant.APIBodyKey.ChangePassword.oldPassword : oldPassword,
-                NetworkConstant.APIBodyKey.ChangePassword.newPassword : newPassword,
-                NetworkConstant.APIBodyKey.ChangePassword.confirmPassword : confirmNewPassword
-            ]
-            Log.i("HTTP Body =>  \(json)")
-
             do {
-                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-            } catch let error {
-                Log.e(error.localizedDescription)
-            }
-
-        case .resetPassword(let userName, let password, let confirmPassword, let code):
+                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
+              } catch let error {
+                  Log.e(error.localizedDescription)
+              }
+        case .calculateCalorie(let goal, let gender, let height, let weight, let age, let activity):
             let json: [String: Any] = [
-                NetworkConstant.APIBodyKey.ResetPassword.username : userName,
-                NetworkConstant.APIBodyKey.ResetPassword.verifyCode : code,
-                NetworkConstant.APIBodyKey.ResetPassword.newPassword : password,
-                NetworkConstant.APIBodyKey.ResetPassword.confirmPassword : confirmPassword
+                "goal": goal,
+                "gender": gender,
+                "height": height,
+                "weight": weight,
+                "age": age,
+                "activity": activity
             ]
             Log.i("HTTP Body =>  \(json)")
-
             do {
-                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-            } catch let error {
-                Log.e(error.localizedDescription)
-            }
-        case .registerCompany(let password, let confirmPassword, let companyEmail, let companyName, let phoneNumber, let confirmCode):
+                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
+              } catch let error {
+                  Log.e(error.localizedDescription)
+              }
+        case .signup(let fullName, let email, let password):
             let json: [String: Any] = [
-                NetworkConstant.APIBodyKey.RegisterCompany.password : password,
-                NetworkConstant.APIBodyKey.RegisterCompany.confirmPassword : confirmPassword,
-                NetworkConstant.APIBodyKey.RegisterCompany.companyEmail : companyEmail,
-                NetworkConstant.APIBodyKey.RegisterCompany.companyName : companyName,
-                NetworkConstant.APIBodyKey.RegisterCompany.phoneNumber : phoneNumber,
-                NetworkConstant.APIBodyKey.RegisterCompany.confirmCode : confirmCode,
+                "full_name": fullName,
+                "email": email,
+                "password": password,
+                "confirm_password": password
             ]
             Log.i("HTTP Body =>  \(json)")
-
             do {
-                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-            } catch let error {
-                Log.e(error.localizedDescription)
-            }
-//        case .getCompanyInfo:
-//            let json: [String: Any] = [
-//                NetworkConstant.APIBodyKey.GetCompanyInfo.accept : NetworkConstant.APIBodyValue.GetCompanyInfo.textPlain
-//            ]
-//            Log.i("HTTP Body =>  \(json)")
-//
-//            do {
-//                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-//            } catch let error {
-//                Log.e(error.localizedDescription)
-//            }
+                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
+              } catch let error {
+                  Log.e(error.localizedDescription)
+              }
+        case .signIn(let email, let password):
+            let json: [String: Any] = [
+                "email": email,
+                "password": password
+            ]
+            Log.i("HTTP Body =>  \(json)")
+            do {
+                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
+              } catch let error {
+                  Log.e(error.localizedDescription)
+              }
+        case .changePassword(let oldPassword, let newPassword):
+                let json: [String: Any] = [
+                    "old_password": oldPassword,
+                    "new_password": newPassword,
+                    "confirm_password": newPassword
+                ]
+                Log.i("HTTP Body =>  \(json)")
+                do {
+                      urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
+                  } catch let error {
+                      Log.e(error.localizedDescription)
+                  }
         default:
             break
         }
+        
 
-        let token: String = UserDefaultsHelper.get(key: .token) ?? ""
+        let token: String = StoringData.token
         switch self {
-        case .login:
-//            urlRequest.allHTTPHeaderFields = [NetworkConstant.HTTPHeaderField.contentType : NetworkConstant.ContentType.urlencoded]
-            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
-        case .changePassword:
-            urlRequest.setValue(NetworkConstant.APIBodyValue.ChangePassword.applicationJsonPatch , forHTTPHeaderField: NetworkConstant.APIBodyKey.ChangePassword.contentType)
-            urlRequest.setValue(NetworkConstant.APIBodyValue.ChangePassword.applicatioJson, forHTTPHeaderField: NetworkConstant.APIBodyKey.ChangePassword.accept)
-            urlRequest.setValue(token, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
-        case .resetPassword:
-            urlRequest.setValue(NetworkConstant.APIBodyValue.ChangePassword.applicationJsonPatch , forHTTPHeaderField: NetworkConstant.APIBodyKey.ChangePassword.contentType)
-            urlRequest.setValue(NetworkConstant.APIBodyValue.ChangePassword.applicatioJson, forHTTPHeaderField: NetworkConstant.APIBodyKey.ChangePassword.accept)
-        case .getCompanyInfo:
-            urlRequest.setValue(token, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
-        case .getSubscriptionConfigAsync:
-            urlRequest.setValue(token, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
+        case .auth:
+            urlRequest.setValue("Bearer \(StoringData.refreshToken)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
+        case .signIn, .signup, .calculateCalorie, .calculateBmi, .changePassword:
+            urlRequest.setValue(NetworkConstant.ContentType.urlencoded, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
+        case .userInfo:
+            urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
         default:
-            urlRequest.setValue(NetworkConstant.ContentType.json, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
+            urlRequest.setValue(token, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
         }
 
         

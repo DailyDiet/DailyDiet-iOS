@@ -2,12 +2,6 @@ import UIKit
 
 extension String {
 
-    func chunkFormatted(withChunkSize chunkSize: Int = 4,
-        withSeparator separator: Character = "-") -> String {
-        return filter { $0 != separator }.chunk(n: chunkSize)
-            .map{ String($0) }.joined(separator: String(separator))
-    }
-    
     /// Encode String to Base 64
     func fromBase64() -> String? {
         guard let data = Data(base64Encoded: self) else {

@@ -1,14 +1,19 @@
 PODS:
   - Alamofire (5.2.0)
+  - BATabBarController (2.0.2):
+    - SnapKit
   - BRYXBanner (0.8.4)
+  - FontAwesome.swift (1.9.0)
   - IQKeyboardManagerSwift (6.5.5)
   - Parchment (2.3.0)
+  - RAMAnimatedTabBarController (5.2.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - SnapKit (5.0.1)
   - Spring (1.0.6)
   - SwiftValidator (4.0.0)
   - SwiftyBeaver (1.9.1)
@@ -18,9 +23,12 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - BATabBarController (~> 2.0.0)
   - BRYXBanner
+  - FontAwesome.swift
   - IQKeyboardManagerSwift
   - Parchment
+  - RAMAnimatedTabBarController
   - RxCocoa
   - RxSwift
   - Spring (from `https://github.com/MengTo/Spring.git`)
@@ -33,12 +41,16 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - BATabBarController
     - BRYXBanner
+    - FontAwesome.swift
     - IQKeyboardManagerSwift
     - Parchment
+    - RAMAnimatedTabBarController
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SnapKit
     - SwiftyBeaver
     - SwiftyJSON
     - SwiftyTimer
@@ -61,12 +73,16 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: c1ca147559e730bfb2182c8c7aafbdd90a867987
+  BATabBarController: 7f50519b3743b4e779c71a8e147ac9e8c50e0c7d
   BRYXBanner: 4fbd266f96ce000e4c6cc9a0558c446bd88d9801
+  FontAwesome.swift: a403b88cec950511745ba8f2decd1b6a07346d13
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Parchment: 72a7eb8072454a9500a53dd84776e04fba24e740
+  RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
   SwiftyBeaver: a1f5691458561414bcfab51874b2b7445451602b
@@ -74,6 +90,6 @@ SPEC CHECKSUMS:
   SwiftyTimer: 02dd6cf10cbc71cbf67cec494f6e5eb782102543
   VisualEffectView: 8c05bdc77490d84aabfa9fd17b1ffd6476da0e2c
 
-PODFILE CHECKSUM: 6f396c0504a9676c4c5f7533ad474534080fbaf0
+PODFILE CHECKSUM: c6a97387c78bf871030f4190d7e5c4ccee49d510
 
 COCOAPODS: 1.9.1
