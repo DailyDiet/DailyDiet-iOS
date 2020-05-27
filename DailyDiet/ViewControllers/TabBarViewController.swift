@@ -5,56 +5,74 @@
 //  Created by ali on 5/25/20.
 //  Copyright © 2020 Alireza. All rights reserved.
 //
-import BATabBarController
+import Parchment
 import UIKit
-import FontAwesome_swift
 
 class TabBarViewController: BaseViewController {
     
+    @IBOutlet var tabBarView: UIView!
+    
+    var titles: [String] = []
+    var viewControllers: [UIViewController] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupTabbar()
+        setupTabBar()
     }
     
-    func setupTabbar(){
+    func makeArrays() -> ([String], [UIViewController]){
         Log.i()
-        let vc2 = HomeViewController.instantiateFromStoryboardName(storyboardName: .Home)
-        let vc1 = SearchViewController.instantiateFromStoryboardName(storyboardName: .Home)
-        let vc3 = DashboardViewController.instantiateFromStoryboardName(storyboardName: .Home)
+        var titlesArray: [String] = []
+        var viewControllerArray: [UIViewController] = []
         
-        let option1 = NSMutableAttributedString(string: "Search")
-        let option2 = NSMutableAttributedString(string: "Home")
-        let option3 = NSMutableAttributedString(string: "Dashboard")
         
-        option1.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: option1.length))
-        option2.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: option2.length))
-        option3.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: option3.length))
+        let homeVC = HomeViewController.instantiateFromStoryboardName(storyboardName: .Home)
+        titlesArray.append("Home")
+        viewControllerArray.append(homeVC)
         
-        let tabBarItem  = BATabBarItem(image: UIImage.fontAwesomeIcon(name: .search, style: .solid, textColor: .gray, size: CGSize(width: 25, height: 25)), selectedImage: UIImage.fontAwesomeIcon(name: .search, style: .solid, textColor: .black, size: CGSize(width: 25, height: 25)), title: option1)
-        let tabBarItem2 = BATabBarItem(image: UIImage(named: "logo")!, selectedImage: UIImage(named: "logo")!, title: option2)
-        let tabBarItem3  = BATabBarItem(image: UIImage.fontAwesomeIcon(name: .home, style: .solid, textColor: .gray, size: CGSize(width: 25, height: 25)), selectedImage: UIImage.fontAwesomeIcon(name: .home, style: .solid, textColor: .black, size: CGSize(width: 25, height: 25)), title: option3)
+        let dashboardVC = DashboardViewController.instantiateFromStoryboardName(storyboardName: .Home)
+        titlesArray.append("Dashboard")
+        viewControllers.append(dashboardVC)
 
         
-        
-        let baTabBarController = BATabBarController()
-        baTabBarController.viewControllers = [vc1, vc2, vc3]
-        baTabBarController.tabBarItems = [tabBarItem, tabBarItem2, tabBarItem3]
-        baTabBarController.tabBarBackgroundColor = .gray85
-        baTabBarController.tabBarItemStrokeColor = .brandGreen
-        baTabBarController.hidesBottomBarWhenPushed = true
-        baTabBarController.delegate = self
-        self.view.addSubview(baTabBarController.view)
+        return (titlesArray, viewControllerArray)
     }
     
+    func setupTabBar(){
+        Log.i()
+            (titles, viewControllers) = makeArrays()
+        let pagingViewController = MainPagingViewController(viewControllers: viewControllers)
+        pagingViewController.configure(backgroundColor: .gray85, indicatorColor: .brandGreen)
+            pagingViewController.dataSource = self
+            pagingViewController.delegate = self
+            pagingViewController.menuItemSpacing = 15
+            pagingViewController.setItemSize(width: screenWidth, n: viewControllers.count)
+            addChild(pagingViewController)
+            tabBarView.addSubview(pagingViewController.view)
+            tabBarView.constrainToEdges(pagingViewController.view)
+            pagingViewController.didMove(toParent: self)
+            pagingViewController.select(index: (viewControllers.count - 1), animated: true)
+    }
+    
+    @IBAction func searchBarDidTap(_ sender: Any) {
+        SegueHelper.pushViewController(sourceViewController: self, destinationViewController: SearchViewController.instantiateFromStoryboardName(storyboardName: .Home))
+    }
     
 }
 
 
-extension TabBarViewController: BATabBarControllerDelegate {
-    func tabBarController(_ tabBarController: BATabBarController, didSelect: UIViewController) {
-        
-    }
+extension TabBarViewController: PagingViewControllerDataSource, PagingViewControllerDelegate {
+    
+     func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
+               return PagingIndexItem(index: index, title: titles[index])
+       }
+    
+       func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
+               return viewControllers.count
+       }
+    
+       func pagingViewController(_: PagingViewController, viewControllerAt index: Int) -> UIViewController {
+               return viewControllers[index]
+       }
     
 }
-

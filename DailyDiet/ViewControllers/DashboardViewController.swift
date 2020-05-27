@@ -7,24 +7,39 @@
 //
 
 import UIKit
+import Spring
 
 class DashboardViewController: BaseViewController {
-
+    
+    @IBOutlet var modifyPasswordButton: DesignableButton!
+    @IBOutlet var signInButton: DesignableButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+    }
 
-        // Do any additional setup after loading the view.
+    
+    override func configureViews() {
+        if StoringData.isLoggedIn {
+            modifyPasswordButton.isHidden = false
+            signInButton.setTitle("Sign out", for: .normal)
+        } else {
+            modifyPasswordButton.isHidden = true
+            signInButton.setTitle("Sign in", for: .normal)
+        }
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension DashboardViewController {
+    
+    @IBAction func signInButtonDidTap(_ sender: Any) {
+        
     }
-    */
-
+    
+    @IBAction func modifyPasswordButtonDidTap(_ sender: Any) {
+        
+    }
 }

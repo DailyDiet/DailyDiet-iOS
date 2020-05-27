@@ -9,7 +9,7 @@
 import UIKit
 
 enum StoryboardName: String {
-    case Main, UserAction, Home
+    case Main, Home
 
 
     var instance: UIStoryboard {
