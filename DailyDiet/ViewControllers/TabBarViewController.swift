@@ -32,7 +32,7 @@ class TabBarViewController: BaseViewController {
         
         let dashboardVC = DashboardViewController.instantiateFromStoryboardName(storyboardName: .Home)
         titlesArray.append("Dashboard")
-        viewControllers.append(dashboardVC)
+        viewControllerArray.append(dashboardVC)
 
         
         return (titlesArray, viewControllerArray)
