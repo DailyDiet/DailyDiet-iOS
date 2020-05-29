@@ -35,6 +35,18 @@ extension UIView {
         maskLayer.path = maskPath.cgPath
         layer.mask = maskLayer
     }
+    
+    func makeTopRound(width: Int = 5, height: Int = 5) {
+        Log.i()
+
+        let maskPath = UIBezierPath(roundedRect: bounds,
+            byRoundingCorners: [.topLeft, .topRight],
+            cornerRadii: CGSize(width: width, height: height))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = maskPath.cgPath
+        layer.mask = maskLayer
+    }
 
     func addTopBorder(borderColor: UIColor, borderHeight: CGFloat) {
         let border = CALayer()

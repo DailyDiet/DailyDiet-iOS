@@ -12,11 +12,13 @@
 		F50E1852248050B9009BEE50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1851248050B9009BEE50 /* LoginViewController.swift */; };
 		F50E1854248050E5009BEE50 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */; };
 		F5549E2E248111AC00A3BCF4 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */; };
-		F5549E332481483F00A3BCF4 /* PlanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E322481483F00A3BCF4 /* PlanResultViewController.swift */; };
+		F5549E332481483F00A3BCF4 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E322481483F00A3BCF4 /* DietViewController.swift */; };
 		F5549E352481486400A3BCF4 /* NutritionCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */; };
 		F5549E3724814B5000A3BCF4 /* Plan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5549E3624814B5000A3BCF4 /* Plan.storyboard */; };
 		F5549E3924814BEA00A3BCF4 /* UserAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5549E3824814BEA00A3BCF4 /* UserAction.storyboard */; };
 		F5549E3C2481513A00A3BCF4 /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E3B2481513A00A3BCF4 /* Diet.swift */; };
+		F5549E3E2481528E00A3BCF4 /* DietTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E3D2481528E00A3BCF4 /* DietTableViewCell.swift */; };
+		F5549E402481643F00A3BCF4 /* DietInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E3F2481643F00A3BCF4 /* DietInfoViewController.swift */; };
 		F5936AE3247ACAE400B8A1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5936AE2247ACAE400B8A1E9 /* AppDelegate.swift */; };
 		F5936AE5247ACAE400B8A1E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5936AE4247ACAE400B8A1E9 /* SceneDelegate.swift */; };
 		F5936AEC247ACAE600B8A1E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5936AEB247ACAE600B8A1E9 /* Assets.xcassets */; };
@@ -74,11 +76,13 @@
 		F50E1851248050B9009BEE50 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
-		F5549E322481483F00A3BCF4 /* PlanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanResultViewController.swift; sourceTree = "<group>"; };
+		F5549E322481483F00A3BCF4 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCalculatorViewController.swift; sourceTree = "<group>"; };
 		F5549E3624814B5000A3BCF4 /* Plan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Plan.storyboard; sourceTree = "<group>"; };
 		F5549E3824814BEA00A3BCF4 /* UserAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAction.storyboard; sourceTree = "<group>"; };
 		F5549E3B2481513A00A3BCF4 /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
+		F5549E3D2481528E00A3BCF4 /* DietTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTableViewCell.swift; sourceTree = "<group>"; };
+		F5549E3F2481643F00A3BCF4 /* DietInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietInfoViewController.swift; sourceTree = "<group>"; };
 		F5936ADF247ACAE400B8A1E9 /* DailyDiet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDiet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5936AE2247ACAE400B8A1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5936AE4247ACAE400B8A1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */,
+				F5549E3D2481528E00A3BCF4 /* DietTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -200,7 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */,
-				F5549E322481483F00A3BCF4 /* PlanResultViewController.swift */,
+				F5549E322481483F00A3BCF4 /* DietViewController.swift */,
+				F5549E3F2481643F00A3BCF4 /* DietInfoViewController.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -467,6 +473,7 @@
 				F5936B21247AD0E200B8A1E9 /* String.swift in Sources */,
 				F5936B20247AD0E200B8A1E9 /* Date.swift in Sources */,
 				F5936B01247ACFF000B8A1E9 /* URLs.swift in Sources */,
+				F5549E3E2481528E00A3BCF4 /* DietTableViewCell.swift in Sources */,
 				F5EAF41C247C2D0B00269810 /* TabBarViewController.swift in Sources */,
 				F5549E2E248111AC00A3BCF4 /* SignUPViewController.swift in Sources */,
 				F5936B08247AD07600B8A1E9 /* Log.swift in Sources */,
@@ -476,10 +483,11 @@
 				F5936B37247AD2B900B8A1E9 /* StoryboardName.swift in Sources */,
 				F50E1850247FF526009BEE50 /* SearchFoodCollectionViewCell.swift in Sources */,
 				F5EAF422247C2E0700269810 /* SearchViewController.swift in Sources */,
-				F5549E332481483F00A3BCF4 /* PlanResultViewController.swift in Sources */,
+				F5549E332481483F00A3BCF4 /* DietViewController.swift in Sources */,
 				F5936B25247AD0E200B8A1E9 /* UIImage.swift in Sources */,
 				F5936B49247AE2D100B8A1E9 /* BMI.swift in Sources */,
 				F5936B2D247AD0E200B8A1E9 /* UIColor.swift in Sources */,
+				F5549E402481643F00A3BCF4 /* DietInfoViewController.swift in Sources */,
 				F5936B2B247AD0E200B8A1E9 /* UIButton.swift in Sources */,
 				F5936B2A247AD0E200B8A1E9 /* UITextField.swift in Sources */,
 				F5936B07247AD07600B8A1E9 /* MainPagingViewController.swift in Sources */,
