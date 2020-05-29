@@ -19,6 +19,7 @@ PODS:
   - SwiftyBeaver (1.9.1)
   - SwiftyJSON (5.0.0)
   - SwiftyTimer (2.1.0)
+  - TPKeyboardAvoiding (1.3.3)
   - VisualEffectView (4.0.2)
 
 DEPENDENCIES:
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - SwiftyBeaver
   - SwiftyJSON
   - SwiftyTimer
+  - TPKeyboardAvoiding
   - VisualEffectView
 
 SPEC REPOS:
@@ -54,6 +56,7 @@ SPEC REPOS:
     - SwiftyBeaver
     - SwiftyJSON
     - SwiftyTimer
+    - TPKeyboardAvoiding
     - VisualEffectView
 
 EXTERNAL SOURCES:
@@ -88,8 +91,9 @@ SPEC CHECKSUMS:
   SwiftyBeaver: a1f5691458561414bcfab51874b2b7445451602b
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwiftyTimer: 02dd6cf10cbc71cbf67cec494f6e5eb782102543
+  TPKeyboardAvoiding: 6dd3fe3268b8f2627beb7ff3d82a3cacbdf66a36
   VisualEffectView: 8c05bdc77490d84aabfa9fd17b1ffd6476da0e2c
 
-PODFILE CHECKSUM: c6a97387c78bf871030f4190d7e5c4ccee49d510
+PODFILE CHECKSUM: d7d0b0668670b7c0f0e22a82ce5677d987d920d9
 
 COCOAPODS: 1.9.1

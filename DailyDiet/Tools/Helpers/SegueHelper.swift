@@ -7,6 +7,8 @@ class SegueHelper: NSObject {
     class func pushViewController(sourceViewController: UIViewController, destinationViewController: UIViewController) {
         Log.i("sourceViewController => \(sourceViewController.restorationIdentifier ?? "Nil") ,destinationViewController => \(destinationViewController.restorationIdentifier ?? "Nil")")
 
+        
+        
         sourceViewController.navigationController?.pushViewController(destinationViewController, animated: true)
     }
 

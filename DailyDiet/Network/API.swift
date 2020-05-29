@@ -23,6 +23,10 @@ class API {
         return request(URLs.calculateBmi(weight: weight, height: height))
     }
     
+    static func changePassword(oldPassword: String, newPassword: String) -> Observable<EmptyResponse> {
+        return request(URLs.changePassword(oldPassword: oldPassword, newPassword: newPassword))
+    }
+    
     
     
     private static func request<T: Codable> (_ urlConvertible: URLRequestConvertible) -> Observable<T> {

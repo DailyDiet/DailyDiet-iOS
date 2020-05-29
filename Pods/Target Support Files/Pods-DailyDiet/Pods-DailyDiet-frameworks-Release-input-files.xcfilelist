@@ -15,4 +15,5 @@ ${BUILT_PRODUCTS_DIR}/SwiftValidator/SwiftValidator.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework
+${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework
 ${BUILT_PRODUCTS_DIR}/VisualEffectView/VisualEffectView.framework

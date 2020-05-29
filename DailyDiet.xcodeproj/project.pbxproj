@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		02F97D82D7DD3FCD05E18E10 /* Pods_DailyDiet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC996F4ADA8F260880EA09F /* Pods_DailyDiet.framework */; };
+		F50E1850247FF526009BEE50 /* SearchFoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */; };
+		F50E1852248050B9009BEE50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1851248050B9009BEE50 /* LoginViewController.swift */; };
+		F50E1854248050E5009BEE50 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */; };
 		F5936AE3247ACAE400B8A1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5936AE2247ACAE400B8A1E9 /* AppDelegate.swift */; };
 		F5936AE5247ACAE400B8A1E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5936AE4247ACAE400B8A1E9 /* SceneDelegate.swift */; };
 		F5936AE7247ACAE400B8A1E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5936AE6247ACAE400B8A1E9 /* ViewController.swift */; };
@@ -62,6 +65,9 @@
 		4AC996F4ADA8F260880EA09F /* Pods_DailyDiet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyDiet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5EC1F19692EA4FD3667FE3 /* Pods-DailyDiet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDiet.release.xcconfig"; path = "Target Support Files/Pods-DailyDiet/Pods-DailyDiet.release.xcconfig"; sourceTree = "<group>"; };
 		EFA658285D1A79924F1D887F /* Pods-DailyDiet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDiet.debug.xcconfig"; path = "Target Support Files/Pods-DailyDiet/Pods-DailyDiet.debug.xcconfig"; sourceTree = "<group>"; };
+		F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		F50E1851248050B9009BEE50 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		F5936ADF247ACAE400B8A1E9 /* DailyDiet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDiet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5936AE2247ACAE400B8A1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5936AE4247ACAE400B8A1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +150,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F50E184E247FF4F2009BEE50 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F5936AD6247ACAE400B8A1E9 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +185,7 @@
 				F5936B47247AE2C300B8A1E9 /* Model */,
 				F5936B04247AD06D00B8A1E9 /* Tools */,
 				F5936B03247AD00200B8A1E9 /* Network */,
+				F50E184E247FF4F2009BEE50 /* Cells */,
 				F5936AF7247ACE6700B8A1E9 /* ViewControllers */,
 				F5936AF8247ACE7400B8A1E9 /* StoryBoards */,
 				F5936AEB247ACAE600B8A1E9 /* Assets.xcassets */,
@@ -189,6 +204,8 @@
 				F5EAF41F247C2D2000269810 /* DashboardViewController.swift */,
 				F5EAF421247C2E0700269810 /* SearchViewController.swift */,
 				F5EAF423247CD72700269810 /* SplashViewController.swift */,
+				F50E1851248050B9009BEE50 /* LoginViewController.swift */,
+				F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -406,6 +423,7 @@
 				F5936B46247AD3AD00B8A1E9 /* StringHelper.swift in Sources */,
 				F5936B45247AD3AD00B8A1E9 /* SegueHelper.swift in Sources */,
 				F5936B37247AD2B900B8A1E9 /* StoryboardName.swift in Sources */,
+				F50E1850247FF526009BEE50 /* SearchFoodCollectionViewCell.swift in Sources */,
 				F5EAF422247C2E0700269810 /* SearchViewController.swift in Sources */,
 				F5936B25247AD0E200B8A1E9 /* UIImage.swift in Sources */,
 				F5936B49247AE2D100B8A1E9 /* BMI.swift in Sources */,
@@ -416,6 +434,7 @@
 				F5936B07247AD07600B8A1E9 /* MainPagingViewController.swift in Sources */,
 				F5936B3B247AD38000B8A1E9 /* StoringData.swift in Sources */,
 				F5936B2F247AD0E200B8A1E9 /* UIFont.swift in Sources */,
+				F50E1852248050B9009BEE50 /* LoginViewController.swift in Sources */,
 				F5936B29247AD0E200B8A1E9 /* UIView.swift in Sources */,
 				F5936B44247AD3AD00B8A1E9 /* InteractionPanToClose.swift in Sources */,
 				F5936B30247AD0E200B8A1E9 /* UIViewController.swift in Sources */,
@@ -431,6 +450,7 @@
 				F5936AE5247ACAE400B8A1E9 /* SceneDelegate.swift in Sources */,
 				F5EAF41E247C2D1500269810 /* HomeViewController.swift in Sources */,
 				F5936B59247AF01C00B8A1E9 /* FoodInfo.swift in Sources */,
+				F50E1854248050E5009BEE50 /* ChangePasswordViewController.swift in Sources */,
 				F5936B57247AEFC000B8A1E9 /* Recipe.swift in Sources */,
 				F5936B4F247AE9FF00B8A1E9 /* MessageResponse.swift in Sources */,
 				F5936B53247AEC3700B8A1E9 /* Auth.swift in Sources */,

@@ -5,11 +5,10 @@ class DialogueHelper {
 
     
 
-    static func showStatusBarErrorMessage(errorMessageStr: String, _ color: UIColor = .systemOrange)  {
+    static func showStatusBarErrorMessage(message: String, title: String = "", _ color: UIColor = .systemOrange)  {
     Log.i()
         DispatchQueue.main.async {
-            let banner = Banner(title: "", subtitle: errorMessageStr, image: nil, backgroundColor: color)
-            banner.titleLabel.font = .IRANSansMobile_Bold(size: 15)
+            let banner = Banner(title: title, subtitle: message, image: nil, backgroundColor: color)
             banner.preferredStatusBarStyle = .lightContent
             banner.detailLabel.textAlignment = .center
             banner.dismissesOnTap = true

@@ -27,7 +27,7 @@ class TabBarViewController: BaseViewController {
         
         
         let homeVC = HomeViewController.instantiateFromStoryboardName(storyboardName: .Home)
-        titlesArray.append("Home")
+        titlesArray.append("Plan")
         viewControllerArray.append(homeVC)
         
         let dashboardVC = DashboardViewController.instantiateFromStoryboardName(storyboardName: .Home)
