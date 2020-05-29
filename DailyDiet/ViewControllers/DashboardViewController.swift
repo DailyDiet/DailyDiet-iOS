@@ -35,11 +35,23 @@ class DashboardViewController: BaseViewController {
 
 extension DashboardViewController {
     
-    @IBAction func signInButtonDidTap(_ sender: Any) {
+    func doSignOutAction(){
+        Log.i()
+        StoringData.isLoggedIn = false
+        StoringData.password = ""
+        StoringData.email = ""
+    }
+    
+    func doSignInAction(){
+        Log.i()
         
     }
     
-    @IBAction func modifyPasswordButtonDidTap(_ sender: Any) {
-        
+    @IBAction func signInButtonDidTap(_ sender: Any) {
+        if StoringData.isLoggedIn {
+            
+        } else {
+            
+        }
     }
 }

@@ -5,7 +5,7 @@ import UIKit
 extension UIColor{
     static let brandLightOrange = UIColor(displayP3Red: 255/255, green: 243/255, blue: 229/255, alpha: 1)
     static let brandOrange = UIColor(displayP3Red: 255/255, green: 140/255, blue: 0/255, alpha: 1)
-    static let brandBlue = UIColor(displayP3Red: 31/255, green: 190/255, blue: 220/255, alpha: 1)
+    static let brandBlue = UIColor(displayP3Red: 53/255, green: 121/255, blue: 246/255, alpha: 1)
     static let brandGreen = UIColor(displayP3Red: 45/255, green: 146/255, blue: 38/255, alpha: 1)
     static let textDarkGray = UIColor(displayP3Red: 77/255, green: 77/255, blue: 77/255, alpha: 1)
     static let gray85 = UIColor(displayP3Red: 214/255, green: 214/255, blue: 214/255, alpha: 1)

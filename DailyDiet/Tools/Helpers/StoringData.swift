@@ -2,19 +2,29 @@
 import Foundation
 import UIKit
 enum UserDefaultKeys:String {
-    case hasShownInstructions = "hasShownInstructions"
+    case email = "email"
+    case password = "password"
     case hasLoggedIn = "hasLoggedIn"
     case keyboardDistances = "keyboardDistance"
     case refreshToken = "RefreshToken"
     case token = "Token"
 }
 class StoringData {
-    static var hasShownInstructions:Bool {
+    static var password: String {
         get{
-            return UserDefaults.standard.bool(forKey: UserDefaultKeys.hasShownInstructions.rawValue)
+            return UserDefaults.standard.string(forKey: UserDefaultKeys.password.rawValue) ?? ""
         }
         set (newValue) {
-            UserDefaults.standard.setValue(newValue, forKey: UserDefaultKeys.hasShownInstructions.rawValue)
+            UserDefaults.standard.setValue(newValue, forKey: UserDefaultKeys.password.rawValue)
+        }
+    }
+    
+    static var email: String {
+        get{
+            return UserDefaults.standard.string(forKey: UserDefaultKeys.email.rawValue) ?? ""
+        }
+        set (newValue) {
+            UserDefaults.standard.setValue(newValue, forKey: UserDefaultKeys.email.rawValue)
         }
     }
     
