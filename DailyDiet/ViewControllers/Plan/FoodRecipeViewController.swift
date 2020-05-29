@@ -8,11 +8,15 @@
 
 import UIKit
 
-class DietInfoViewController: BaseViewController {
+class FoodRecipeViewController: BaseViewController {
+    
+    @IBOutlet var tabBarView: UIView!
+    
+    var foodRecipe: Recipe!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     

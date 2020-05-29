@@ -15,6 +15,7 @@ class DietViewController: BaseViewController {
     
     var dietList: [DietElement] = []
     var heightList: [CGFloat] = []
+    var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,11 @@ class DietViewController: BaseViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.deselectRow(at: selectedIndex, animated: false)
     }
     
     
@@ -46,7 +52,7 @@ extension DietViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DietTableViewCell", for: indexPath) as! DietTableViewCell
         let cellData = dietList[indexPath.row]
-        cell.nameLabel.text = cellData
+//        let dataJSON =
         
         if cell.isExpand {
             heightList[indexPath.row] = 370
@@ -61,5 +67,13 @@ extension DietViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return heightList[indexPath.row]
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellData = dietList[indexPath.row]
+        selectedIndex = indexPath
+        let foodRecepieVC = 
+        SegueHelper
     }
 }

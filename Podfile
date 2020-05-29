@@ -21,6 +21,8 @@ target 'DailyDiet' do
 	pod 'BATabBarController', '~> 2.0.0'
 	pod 'FontAwesome.swift'
   	pod 'TPKeyboardAvoiding'
+	pod 'SDWebImage/MapKit'
+
 
 
 end
