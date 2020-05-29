@@ -27,6 +27,21 @@ class API {
         return request(URLs.changePassword(oldPassword: oldPassword, newPassword: newPassword))
     }
     
+    static func signIn(email: String, password: String) -> Observable<SignIn> {
+        return request(URLs.signIn(email: email, password: password))
+    }
+    
+    static func signUP(name: String, email: String, password: String) -> Observable<MessageResponse> {
+        return request(URLs.signup(fullName: name, email: email, password: password))
+    }
+    
+    static func signOut() -> Observable<EmptyResponse> {
+        return request(URLs.signOut)
+    }
+    
+    static func refreshToken() -> Observable<Auth> {
+        return request(URLs.auth)
+    }
     
     
     private static func request<T: Codable> (_ urlConvertible: URLRequestConvertible) -> Observable<T> {
@@ -44,6 +59,10 @@ class API {
                         observer.onNext(value)
                         observer.onCompleted()
                     case .failure(let error):
+                        if response.response!.statusCode == 204 {
+                            observer.onNext(EmptyResponse() as! T)
+                            observer.onCompleted()
+                        } else {
                         switch error {
                         case .responseSerializationFailed(let reason):
                             if case .inputDataNilOrZeroLength = reason  {
@@ -56,11 +75,13 @@ class API {
 
                             if let data = response.data {
                                 let responseJSON = try? JSON(data: data)
+                                
                                 observer.onError(NSError(domain: "Error", code: response.response!.statusCode, userInfo: responseJSON?.dictionaryObject))
                             }
                             Log.e("FAILURE => ERROR DESCRIPTION => \(String(describing: error.errorDescription))")
                             observer.onError(error)
                         }
+                    }
                     }
             }
             return Disposables.create()

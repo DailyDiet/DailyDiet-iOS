@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import RxSwift
 import SwiftyTimer
 
 class SplashViewController: BaseViewController {
+    
+    
+    var APIDisposableRefreshToken: Disposable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +24,38 @@ class SplashViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        Timer.after(4.second) {
-            DispatchQueue.main.async {
-                self.navigationController?.viewControllers = [TabBarViewController.instantiateFromStoryboardName(storyboardName: .Home)]
-            }
-        }
+        APIDisposableRefreshToken?.dispose()
+        APIDisposableRefreshToken = nil
+        APIDisposableRefreshToken = API.refreshToken()
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .subscribe(onNext: { (response) in
+                Log.i("refreshToken => onNext => \(response)")
+                DispatchQueue.main.async {
+                    StoringData.token = response.accessToken
+                    StoringData.isLoggedIn = true
+                    self.navigationController?.viewControllers = [TabBarViewController.instantiateFromStoryboardName(storyboardName: .Home)]
+                }
+                
+                //Login OK
+            }, onError: { (error) in
+                Log.e("refreshToken => onError => \(error) => \((error as NSError).domain)")
+                DispatchQueue.main.async {
+                    StoringData.token = ""
+                    StoringData.refreshToken = ""
+                    StoringData.isLoggedIn = false
+                    self.navigationController?.viewControllers = [TabBarViewController.instantiateFromStoryboardName(storyboardName: .Home)]
+                }
+
+            })
+//
+//
+//
+//        Timer.after(4.second) {
+//            DispatchQueue.main.async {
+//                self.navigationController?.viewControllers = [TabBarViewController.instantiateFromStoryboardName(storyboardName: .Home)]
+//            }
+//        }
     }
     
     

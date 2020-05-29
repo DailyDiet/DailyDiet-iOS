@@ -4,7 +4,7 @@ import Foundation
 import Alamofire
 
 
-let BaseURL = "dailydiet-api.herokuapp.com"
+let BaseURL = "https://dailydiet-api.herokuapp.com"
 
 enum URLs: APIConfiguration {
     
@@ -115,41 +115,46 @@ enum URLs: APIConfiguration {
                   Log.e(error.localizedDescription)
               }
         case .signup(let fullName, let email, let password):
-            let json: [String: Any] = [
-                "full_name": fullName,
-                "email": email,
-                "password": password,
-                "confirm_password": password
-            ]
-            Log.i("HTTP Body =>  \(json)")
-            do {
-                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-              } catch let error {
-                  Log.e(error.localizedDescription)
-              }
+//            let json: [String: Any] = [
+//                "full_name": fullName,
+//                "email": email,
+//                "password": password,
+//                "confirm_password": password
+//            ]
+//            Log.i("HTTP Body =>  \(json)")
+//            do {
+//                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
+//              } catch let error {
+//                  Log.e(error.localizedDescription)
+//              }
+            urlRequest.httpBody = "full_name=\(fullName)&email=\(email)&password=\(password)&confirm_password=\(password)".data(using: .utf8)!
+
         case .signIn(let email, let password):
-            let json: [String: Any] = [
-                "email": email,
-                "password": password
-            ]
-            Log.i("HTTP Body =>  \(json)")
-            do {
-                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-              } catch let error {
-                  Log.e(error.localizedDescription)
-              }
+//            let json: [String: Any] = [
+//                "email": email,
+//                "password": password
+//            ]
+//            Log.i("HTTP Body =>  \(json)")
+            
+            urlRequest.httpBody = "email=\(email)&password=\(password)".data(using: .utf8)!
+//            do {
+//                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
+//              } catch let error {
+//                  Log.e(error.localizedDescription)
+//              }
         case .changePassword(let oldPassword, let newPassword):
-                let json: [String: Any] = [
-                    "old_password": oldPassword,
-                    "new_password": newPassword,
-                    "confirm_password": newPassword
-                ]
-                Log.i("HTTP Body =>  \(json)")
-                do {
-                      urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-                  } catch let error {
-                      Log.e(error.localizedDescription)
-                  }
+//                let json: [String: Any] = [
+//                    "old_password": oldPassword,
+//                    "new_password": newPassword,
+//                    "confirm_password": newPassword
+//                ]
+//                Log.i("HTTP Body =>  \(json)")
+//                do {
+//                      urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
+//                  } catch let error {
+//                      Log.e(error.localizedDescription)
+//                  }
+            urlRequest.httpBody = "old_password=\(oldPassword)&new_password=\(newPassword)&confirm_password=\(newPassword)".data(using: .utf8)!
         default:
             break
         }
@@ -159,8 +164,11 @@ enum URLs: APIConfiguration {
         switch self {
         case .auth:
             urlRequest.setValue("Bearer \(StoringData.refreshToken)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
-        case .signIn, .signup, .calculateCalorie, .calculateBmi, .changePassword:
+        case .signIn, .signup, .calculateCalorie, .calculateBmi:
             urlRequest.setValue(NetworkConstant.ContentType.urlencoded, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
+        case .changePassword:
+            urlRequest.setValue(NetworkConstant.ContentType.urlencoded, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
+            urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
         case .userInfo:
             urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
         default:

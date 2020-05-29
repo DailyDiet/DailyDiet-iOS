@@ -8,16 +8,26 @@
 import Parchment
 import UIKit
 
+
+protocol ChangeTabBarDelegate {
+    func changeTabBarIndex(index: Int)
+}
+
+
 class TabBarViewController: BaseViewController {
     
     @IBOutlet var tabBarView: UIView!
     
+    static var changeTabBarDelegate: ChangeTabBarDelegate!
+    var pagingViewController: MainPagingViewController!
     var titles: [String] = []
     var viewControllers: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
+        
+        TabBarViewController.changeTabBarDelegate = self
     }
     
     func makeArrays() -> ([String], [UIViewController]){
@@ -41,7 +51,7 @@ class TabBarViewController: BaseViewController {
     func setupTabBar(){
         Log.i()
             (titles, viewControllers) = makeArrays()
-        let pagingViewController = MainPagingViewController(viewControllers: viewControllers)
+        pagingViewController = MainPagingViewController(viewControllers: viewControllers)
         pagingViewController.configure(backgroundColor: .gray85, indicatorColor: .brandGreen)
             pagingViewController.dataSource = self
             pagingViewController.delegate = self
@@ -51,7 +61,7 @@ class TabBarViewController: BaseViewController {
             tabBarView.addSubview(pagingViewController.view)
             tabBarView.constrainToEdges(pagingViewController.view)
             pagingViewController.didMove(toParent: self)
-            pagingViewController.select(index: (viewControllers.count - 1), animated: true)
+            pagingViewController.select(index: 0, animated: true)
     }
     
     @IBAction func searchBarDidTap(_ sender: Any) {
@@ -75,4 +85,10 @@ extension TabBarViewController: PagingViewControllerDataSource, PagingViewContro
                return viewControllers[index]
        }
     
+}
+
+extension TabBarViewController: ChangeTabBarDelegate {
+    func changeTabBarIndex(index: Int) {
+        pagingViewController.select(index: index, animated: true)
+    }
 }

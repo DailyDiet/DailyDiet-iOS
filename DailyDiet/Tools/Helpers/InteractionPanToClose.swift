@@ -18,7 +18,7 @@ class InteractionPanToClose: UIPercentDrivenInteractiveTransition {
     
     var panGestureRecognizer: UIPanGestureRecognizer!
     var tapGestureRecognizer: UITapGestureRecognizer!
-
+    
     func rotateDialogOut() {
         let rotationAngle = CGFloat(Int(arc4random_uniform(60)) - 30) * CGFloat.pi / 180.0
         
@@ -37,17 +37,20 @@ class InteractionPanToClose: UIPercentDrivenInteractiveTransition {
             self.dialogView.transform = .identity
         }
         animator.startAnimation()
-
+        
     }
     
-    func animateDialogeDisappear() {
+    func animateDialogeDisappear(completion: @escaping () -> Void) {
         
         UIView.animate(withDuration: 0.5, animations: {
-              self.rotateDialogOut()
-          }) { (finished) in
-              self.viewController.dismiss(animated: true, completion: nil)
-          }
-
+            self.rotateDialogOut()
+        }) { (finished) in
+            self.viewController.dismiss(animated: true, completion: nil)
+            completion()
+        }
+        
+        
+        
     }
     
     func setGestureRecognizer() {
