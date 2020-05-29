@@ -13,6 +13,9 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - SDWebImage/Core (5.8.0)
+  - SDWebImage/MapKit (5.8.0):
+    - SDWebImage/Core
   - SnapKit (5.0.1)
   - Spring (1.0.6)
   - SwiftValidator (4.0.0)
@@ -32,6 +35,7 @@ DEPENDENCIES:
   - RAMAnimatedTabBarController
   - RxCocoa
   - RxSwift
+  - SDWebImage/MapKit
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, tag `4.2.0`)
   - SwiftyBeaver
@@ -52,6 +56,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SDWebImage
     - SnapKit
     - SwiftyBeaver
     - SwiftyJSON
@@ -85,6 +90,7 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SwiftValidator: 249b6b3ae3b294266c5b9de134d94f18f2d5aa47
@@ -94,6 +100,6 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: 6dd3fe3268b8f2627beb7ff3d82a3cacbdf66a36
   VisualEffectView: 8c05bdc77490d84aabfa9fd17b1ffd6476da0e2c
 
-PODFILE CHECKSUM: d7d0b0668670b7c0f0e22a82ce5677d987d920d9
+PODFILE CHECKSUM: ef06b55a4027d35d552113ac38b53bf359ac5db1
 
 COCOAPODS: 1.9.1
