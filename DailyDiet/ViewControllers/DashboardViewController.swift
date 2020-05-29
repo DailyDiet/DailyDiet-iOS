@@ -89,7 +89,7 @@ extension DashboardViewController: PresentViewDelegate {
     func showView(viewType: PresentView) {
         switch viewType {
         case .ChangePassword:
-            let changePasswordVC = ChangePasswordViewController.instantiateFromStoryboardName(storyboardName: .Home)
+            let changePasswordVC = ChangePasswordViewController.instantiateFromStoryboardName(storyboardName: .UserAction)
             changePasswordVC.modalPresentationStyle = .fullScreen
             SegueHelper.presentViewController(sourceViewController: self, destinationViewController: changePasswordVC)
         case .SignIn:

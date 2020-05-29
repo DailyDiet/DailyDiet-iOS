@@ -48,14 +48,6 @@ class SplashViewController: BaseViewController {
                 }
 
             })
-//
-//
-//
-//        Timer.after(4.second) {
-//            DispatchQueue.main.async {
-//                self.navigationController?.viewControllers = [TabBarViewController.instantiateFromStoryboardName(storyboardName: .Home)]
-//            }
-//        }
     }
     
     

@@ -11,17 +11,22 @@ import UIKit
 
 protocol ChangeTabBarDelegate {
     func changeTabBarIndex(index: Int)
+    func setBMI(bmi: Float, bmiStatus: String)
+    func updateTabBar()
 }
 
 
 class TabBarViewController: BaseViewController {
     
     @IBOutlet var tabBarView: UIView!
+    @IBOutlet var bmiLabel: UILabel!
     
     static var changeTabBarDelegate: ChangeTabBarDelegate!
     var pagingViewController: MainPagingViewController!
     var titles: [String] = []
     var viewControllers: [UIViewController] = []
+    
+    static var isPlanGenerated: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,38 +35,44 @@ class TabBarViewController: BaseViewController {
         TabBarViewController.changeTabBarDelegate = self
     }
     
+    override func configureViews() {
+        bmiLabel.isHidden = true
+    }
+    
     func makeArrays() -> ([String], [UIViewController]){
         Log.i()
         var titlesArray: [String] = []
         var viewControllerArray: [UIViewController] = []
         
-        
-        let homeVC = HomeViewController.instantiateFromStoryboardName(storyboardName: .Home)
+        let planResultVC = PlanResultViewController.instantiateFromStoryboardName(storyboardName: .Plan)
         titlesArray.append("Plan")
+        viewControllerArray.append(planResultVC)
+        
+        let homeVC = HomeViewController.instantiateFromStoryboardName(storyboardName: .Plan)
+        titlesArray.append("Home")
         viewControllerArray.append(homeVC)
         
-        let dashboardVC = DashboardViewController.instantiateFromStoryboardName(storyboardName: .Home)
+        let dashboardVC = DashboardViewController.instantiateFromStoryboardName(storyboardName: .UserAction)
         titlesArray.append("Dashboard")
         viewControllerArray.append(dashboardVC)
-
         
         return (titlesArray, viewControllerArray)
     }
     
     func setupTabBar(){
         Log.i()
-            (titles, viewControllers) = makeArrays()
+        (titles, viewControllers) = makeArrays()
         pagingViewController = MainPagingViewController(viewControllers: viewControllers)
         pagingViewController.configure(backgroundColor: .gray85, indicatorColor: .brandGreen)
-            pagingViewController.dataSource = self
-            pagingViewController.delegate = self
-            pagingViewController.menuItemSpacing = 15
-            pagingViewController.setItemSize(width: screenWidth, n: viewControllers.count)
-            addChild(pagingViewController)
-            tabBarView.addSubview(pagingViewController.view)
-            tabBarView.constrainToEdges(pagingViewController.view)
-            pagingViewController.didMove(toParent: self)
-            pagingViewController.select(index: 0, animated: true)
+        pagingViewController.dataSource = self
+        pagingViewController.delegate = self
+        pagingViewController.menuItemSpacing = 15
+        pagingViewController.setItemSize(width: screenWidth, n: viewControllers.count)
+        addChild(pagingViewController)
+        tabBarView.addSubview(pagingViewController.view)
+        tabBarView.constrainToEdges(pagingViewController.view)
+        pagingViewController.didMove(toParent: self)
+        pagingViewController.select(index: 1, animated: true)
     }
     
     @IBAction func searchBarDidTap(_ sender: Any) {
@@ -73,22 +84,32 @@ class TabBarViewController: BaseViewController {
 
 extension TabBarViewController: PagingViewControllerDataSource, PagingViewControllerDelegate {
     
-     func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
-               return PagingIndexItem(index: index, title: titles[index])
-       }
+    func pagingViewController(_: PagingViewController, pagingItemAt index: Int) -> PagingItem {
+        return PagingIndexItem(index: index, title: titles[index])
+    }
     
-       func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
-               return viewControllers.count
-       }
+    func numberOfViewControllers(in pagingViewController: PagingViewController) -> Int {
+        return viewControllers.count
+    }
     
-       func pagingViewController(_: PagingViewController, viewControllerAt index: Int) -> UIViewController {
-               return viewControllers[index]
-       }
+    func pagingViewController(_: PagingViewController, viewControllerAt index: Int) -> UIViewController {
+        return viewControllers[index]
+    }
     
 }
 
 extension TabBarViewController: ChangeTabBarDelegate {
+    func setBMI(bmi: Float, bmiStatus: String) {
+        bmiLabel.isHidden = false
+        bmiLabel.text = "BMI: \(bmi) (\(bmiStatus))"
+    }
+    
     func changeTabBarIndex(index: Int) {
         pagingViewController.select(index: index, animated: true)
+    }
+    
+    func updateTabBar() {
+        setupTabBar()
+        
     }
 }

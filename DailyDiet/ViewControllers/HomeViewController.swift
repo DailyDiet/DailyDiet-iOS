@@ -10,6 +10,9 @@ import UIKit
 
 class HomeViewController: BaseViewController {
 
+    @IBOutlet var calorieAmountLabel: UILabel!
+    @IBOutlet var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,9 +20,18 @@ class HomeViewController: BaseViewController {
     }
 
     @IBAction func notSureButtonDidTap(_ sender: Any) {
+        //        SegueHelper.presentViewController(sourceViewController: self, destinationViewController: )
     }
     
+    @IBAction func calorieStepperValueChanged(_ sender: UIStepper) {
+        calorieAmountLabel.text = String(Int(sender.value).formattedWithSeparator)
+    }
     
     @IBAction func generateButtonDidTap(_ sender: Any) {
+        
     }
 }
+
+
+
+
