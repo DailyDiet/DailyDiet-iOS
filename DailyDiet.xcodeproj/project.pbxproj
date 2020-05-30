@@ -11,6 +11,7 @@
 		F50E1850247FF526009BEE50 /* SearchFoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */; };
 		F50E1852248050B9009BEE50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1851248050B9009BEE50 /* LoginViewController.swift */; };
 		F50E1854248050E5009BEE50 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */; };
+		F51276A82482192700662A0E /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51276A72482192700662A0E /* DropDown.swift */; };
 		F5549E2E248111AC00A3BCF4 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */; };
 		F5549E332481483F00A3BCF4 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E322481483F00A3BCF4 /* DietViewController.swift */; };
 		F5549E352481486400A3BCF4 /* NutritionCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */; };
@@ -19,6 +20,12 @@
 		F5549E3C2481513A00A3BCF4 /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E3B2481513A00A3BCF4 /* Diet.swift */; };
 		F5549E3E2481528E00A3BCF4 /* DietTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E3D2481528E00A3BCF4 /* DietTableViewCell.swift */; };
 		F5549E402481643F00A3BCF4 /* FoodRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E3F2481643F00A3BCF4 /* FoodRecipeViewController.swift */; };
+		F5549E42248184F000A3BCF4 /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E41248184F000A3BCF4 /* IngredientsViewController.swift */; };
+		F5549E452481851B00A3BCF4 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E442481851B00A3BCF4 /* DirectionsViewController.swift */; };
+		F5549E472481893C00A3BCF4 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E462481893C00A3BCF4 /* IngredientTableViewCell.swift */; };
+		F5549E492481895500A3BCF4 /* DirectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E482481895500A3BCF4 /* DirectionTableViewCell.swift */; };
+		F5549E4B24819D6A00A3BCF4 /* DietTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E4A24819D6A00A3BCF4 /* DietTypeCollectionViewCell.swift */; };
+		F5549E4D2481A8DA00A3BCF4 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E4C2481A8DA00A3BCF4 /* BMIViewController.swift */; };
 		F5936AE3247ACAE400B8A1E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5936AE2247ACAE400B8A1E9 /* AppDelegate.swift */; };
 		F5936AE5247ACAE400B8A1E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5936AE4247ACAE400B8A1E9 /* SceneDelegate.swift */; };
 		F5936AEC247ACAE600B8A1E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5936AEB247ACAE600B8A1E9 /* Assets.xcassets */; };
@@ -75,6 +82,7 @@
 		F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		F50E1851248050B9009BEE50 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		F51276A72482192700662A0E /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
 		F5549E322481483F00A3BCF4 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCalculatorViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +91,12 @@
 		F5549E3B2481513A00A3BCF4 /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
 		F5549E3D2481528E00A3BCF4 /* DietTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTableViewCell.swift; sourceTree = "<group>"; };
 		F5549E3F2481643F00A3BCF4 /* FoodRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecipeViewController.swift; sourceTree = "<group>"; };
+		F5549E41248184F000A3BCF4 /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		F5549E442481851B00A3BCF4 /* DirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
+		F5549E462481893C00A3BCF4 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		F5549E482481895500A3BCF4 /* DirectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionTableViewCell.swift; sourceTree = "<group>"; };
+		F5549E4A24819D6A00A3BCF4 /* DietTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietTypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		F5549E4C2481A8DA00A3BCF4 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 		F5936ADF247ACAE400B8A1E9 /* DailyDiet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDiet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5936AE2247ACAE400B8A1E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5936AE4247ACAE400B8A1E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,7 +182,10 @@
 			isa = PBXGroup;
 			children = (
 				F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */,
+				F5549E4A24819D6A00A3BCF4 /* DietTypeCollectionViewCell.swift */,
 				F5549E3D2481528E00A3BCF4 /* DietTableViewCell.swift */,
+				F5549E462481893C00A3BCF4 /* IngredientTableViewCell.swift */,
+				F5549E482481895500A3BCF4 /* DirectionTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -207,8 +224,18 @@
 				F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */,
 				F5549E322481483F00A3BCF4 /* DietViewController.swift */,
 				F5549E3F2481643F00A3BCF4 /* FoodRecipeViewController.swift */,
+				F5549E43248184F500A3BCF4 /* Recipe */,
 			);
 			path = Plan;
+			sourceTree = "<group>";
+		};
+		F5549E43248184F500A3BCF4 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				F5549E41248184F000A3BCF4 /* IngredientsViewController.swift */,
+				F5549E442481851B00A3BCF4 /* DirectionsViewController.swift */,
+			);
+			path = Recipe;
 			sourceTree = "<group>";
 		};
 		F5936AD6247ACAE400B8A1E9 = {
@@ -252,6 +279,7 @@
 			children = (
 				F5936B38247AD2EC00B8A1E9 /* BaseViewController.swift */,
 				F5EAF423247CD72700269810 /* SplashViewController.swift */,
+				F5549E4C2481A8DA00A3BCF4 /* BMIViewController.swift */,
 				F5549E302481480100A3BCF4 /* TabBar */,
 				F5549E312481482900A3BCF4 /* Search */,
 				F5549E2F248147F900A3BCF4 /* User Action */,
@@ -265,9 +293,9 @@
 			children = (
 				F5936B6B247AF7CB00B8A1E9 /* LaunchScreen.storyboard */,
 				F5936B6A247AF7CB00B8A1E9 /* Main.storyboard */,
+				F5549E3824814BEA00A3BCF4 /* UserAction.storyboard */,
 				F5EAF419247C28E900269810 /* Home.storyboard */,
 				F5549E3624814B5000A3BCF4 /* Plan.storyboard */,
-				F5549E3824814BEA00A3BCF4 /* UserAction.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -290,6 +318,7 @@
 				F5936B36247AD2B900B8A1E9 /* StoryboardName.swift */,
 				F5936B06247AD07600B8A1E9 /* Log.swift */,
 				F5936B05247AD07600B8A1E9 /* MainPagingViewController.swift */,
+				F51276A72482192700662A0E /* DropDown.swift */,
 				F5936B3C247AD38700B8A1E9 /* Helpers */,
 				F5936B09247AD0D100B8A1E9 /* Extension */,
 			);
@@ -463,21 +492,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5549E42248184F000A3BCF4 /* IngredientsViewController.swift in Sources */,
 				F5549E352481486400A3BCF4 /* NutritionCalculatorViewController.swift in Sources */,
 				F5936B4D247AE97700B8A1E9 /* Calorie.swift in Sources */,
 				F5EAF420247C2D2000269810 /* DashboardViewController.swift in Sources */,
 				F5936B2C247AD0E200B8A1E9 /* Formatter.swift in Sources */,
+				F5549E4D2481A8DA00A3BCF4 /* BMIViewController.swift in Sources */,
 				F5936B34247AD0E200B8A1E9 /* Numeric.swift in Sources */,
 				F5936B26247AD0E200B8A1E9 /* UIApplication.swift in Sources */,
 				F5936AFF247ACFF000B8A1E9 /* NetworkConstants.swift in Sources */,
 				F5936B21247AD0E200B8A1E9 /* String.swift in Sources */,
 				F5936B20247AD0E200B8A1E9 /* Date.swift in Sources */,
+				F5549E472481893C00A3BCF4 /* IngredientTableViewCell.swift in Sources */,
 				F5936B01247ACFF000B8A1E9 /* URLs.swift in Sources */,
 				F5549E3E2481528E00A3BCF4 /* DietTableViewCell.swift in Sources */,
 				F5EAF41C247C2D0B00269810 /* TabBarViewController.swift in Sources */,
 				F5549E2E248111AC00A3BCF4 /* SignUPViewController.swift in Sources */,
 				F5936B08247AD07600B8A1E9 /* Log.swift in Sources */,
 				F5936B23247AD0E200B8A1E9 /* UISegmentedControl.swift in Sources */,
+				F5549E452481851B00A3BCF4 /* DirectionsViewController.swift in Sources */,
 				F5936B46247AD3AD00B8A1E9 /* StringHelper.swift in Sources */,
 				F5936B45247AD3AD00B8A1E9 /* SegueHelper.swift in Sources */,
 				F5936B37247AD2B900B8A1E9 /* StoryboardName.swift in Sources */,
@@ -487,6 +520,7 @@
 				F5936B25247AD0E200B8A1E9 /* UIImage.swift in Sources */,
 				F5936B49247AE2D100B8A1E9 /* BMI.swift in Sources */,
 				F5936B2D247AD0E200B8A1E9 /* UIColor.swift in Sources */,
+				F5549E492481895500A3BCF4 /* DirectionTableViewCell.swift in Sources */,
 				F5549E402481643F00A3BCF4 /* FoodRecipeViewController.swift in Sources */,
 				F5936B2B247AD0E200B8A1E9 /* UIButton.swift in Sources */,
 				F5936B2A247AD0E200B8A1E9 /* UITextField.swift in Sources */,
@@ -501,6 +535,7 @@
 				F5936AE3247ACAE400B8A1E9 /* AppDelegate.swift in Sources */,
 				F5936B39247AD2EC00B8A1E9 /* BaseViewController.swift in Sources */,
 				F5936B00247ACFF000B8A1E9 /* NetworkInterceptor.swift in Sources */,
+				F5549E4B24819D6A00A3BCF4 /* DietTypeCollectionViewCell.swift in Sources */,
 				F5936B02247ACFF000B8A1E9 /* APIConfiguration.swift in Sources */,
 				F5936B31247AD0E200B8A1E9 /* PagingViewController.swift in Sources */,
 				F5936B55247AEF1E00B8A1E9 /* UserInfo.swift in Sources */,
@@ -509,6 +544,7 @@
 				F5936B51247AEB9A00B8A1E9 /* SignIn.swift in Sources */,
 				F5936AE5247ACAE400B8A1E9 /* SceneDelegate.swift in Sources */,
 				F5EAF41E247C2D1500269810 /* HomeViewController.swift in Sources */,
+				F51276A82482192700662A0E /* DropDown.swift in Sources */,
 				F5936B59247AF01C00B8A1E9 /* FoodInfo.swift in Sources */,
 				F50E1854248050E5009BEE50 /* ChangePasswordViewController.swift in Sources */,
 				F5936B57247AEFC000B8A1E9 /* Recipe.swift in Sources */,

@@ -20,7 +20,7 @@ class DietViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         for i in 0..<dietList.count {
-            heightList[i] = 265
+            heightList.append(265)
         }
         
         tableView.delegate = self
@@ -73,7 +73,8 @@ extension DietViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellData = dietList[indexPath.row]
         selectedIndex = indexPath
-        let foodRecepieVC = 
-        SegueHelper
+        let foodRecepieVC = FoodRecipeViewController.instantiateFromStoryboardName(storyboardName: .Plan)
+//        foodRecepieVC.foodID = cellData.foodID
+        SegueHelper.pushViewController(sourceViewController: self, destinationViewController: foodRecepieVC)
     }
 }

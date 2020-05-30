@@ -44,7 +44,7 @@ class TabBarViewController: BaseViewController {
         var titlesArray: [String] = []
         var viewControllerArray: [UIViewController] = []
         
-        let planResultVC = PlanResultViewController.instantiateFromStoryboardName(storyboardName: .Plan)
+        let planResultVC = DietViewController.instantiateFromStoryboardName(storyboardName: .Plan)
         titlesArray.append("Plan")
         viewControllerArray.append(planResultVC)
         
