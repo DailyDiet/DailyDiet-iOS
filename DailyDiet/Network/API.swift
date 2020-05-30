@@ -23,6 +23,10 @@ class API {
         return request(URLs.calculateBmi(weight: weight, height: height))
     }
     
+    static func calculateCalorie(goal: String, gender: String, height: Int, weight: Int, age: Int, activity: String) -> Observable<Calorie> {
+        return request(URLs.calculateCalorie(goal: goal, gender: gender, height: height, weight: weight, age: age, activity: activity))
+    }
+    
     static func changePassword(oldPassword: String, newPassword: String) -> Observable<EmptyResponse> {
         return request(URLs.changePassword(oldPassword: oldPassword, newPassword: newPassword))
     }

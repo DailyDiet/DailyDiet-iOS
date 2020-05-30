@@ -68,7 +68,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath) as!  SearchFoodCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchFoodCollectionViewCell", for: indexPath) as!  SearchFoodCollectionViewCell
         let cellData = searchResult[indexPath.row]
         
         cell.iconImageView.sd_setImage(with: URL(string: cellData.primaryThumbnail))

@@ -11,7 +11,7 @@ import UIKit
 
 protocol ChangeTabBarDelegate {
     func changeTabBarIndex(index: Int)
-    func setBMI(bmi: Float, bmiStatus: String)
+    func setBMI(bmi: Double, bmiStatus: String)
     func updateTabBar()
 }
 
@@ -99,7 +99,8 @@ extension TabBarViewController: PagingViewControllerDataSource, PagingViewContro
 }
 
 extension TabBarViewController: ChangeTabBarDelegate {
-    func setBMI(bmi: Float, bmiStatus: String) {
+    
+    func setBMI(bmi: Double, bmiStatus: String) {
         bmiLabel.isHidden = false
         bmiLabel.text = "BMI: \(bmi) (\(bmiStatus))"
     }

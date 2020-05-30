@@ -15,13 +15,19 @@ enum DietType: String {
     case vegan, noGluten, olive, paleo, sandwich, broccoli
 }
 
+protocol CalorieDelegate {
+    func setCalorie(calorie: Int)
+}
+
 class HomeViewController: BaseViewController {
     
     @IBOutlet var mealsCountDropdown: iOSDropDown!
     @IBOutlet var calorieAmountLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var generateButton: DesignableButton!
+    @IBOutlet var calorieStepper: UIStepper!
 
+    static var delegate: CalorieDelegate!
     var selectedItem: IndexPath!
     var selectedDietType: DietType!
     var mealsCount: Int = 1
@@ -41,6 +47,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        HomeViewController.delegate = self
     }
     
     
@@ -67,7 +74,9 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func notSureButtonDidTap(_ sender: Any) {
-        //        SegueHelper.presentViewController(sourceViewController: self, destinationViewController: )
+        let BMIVC = BMIViewController.instantiateFromStoryboardName(storyboardName: .Home)
+        BMIVC.dietType = selectedDietType.rawValue
+        SegueHelper.presentViewController(sourceViewController: self, destinationViewController: BMIVC)
     }
     
     @IBAction func calorieStepperValueChanged(_ sender: UIStepper) {
@@ -100,7 +109,6 @@ class HomeViewController: BaseViewController {
                     TabBarViewController.changeTabBarDelegate.changeTabBarIndex(index: 0)
                 }
                 
-                //Login OK
             }, onError: { (error) in
                 Log.e("getDiet => onError => \(error) => \((error as NSError).domain)")
                 let customError = (error as NSError)
@@ -127,8 +135,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellData = dietTypeList[indexPath.row]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DietTypeCollectionViewCell", for: indexPath) as? DietTypeCollectionViewCell else {
-            // we failed to get a PersonCell – bail out!
-            fatalError("Unable to dequeue PersonCell.")
+            fatalError("Unable to dequeue Cell.")
         }
         
         cell.iconImageView.image = UIImage(named: cellData)
@@ -151,5 +158,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
-
-
+extension HomeViewController: CalorieDelegate {
+    func setCalorie(calorie: Int) {
+        calorieAmountLabel.text = "\(calorie)"
+        calorieStepper.value = Double(calorie)
+    }
+}
