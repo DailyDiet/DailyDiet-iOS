@@ -171,7 +171,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XTz-eX-xm9">
                                 <rect key="frame" x="0.0" y="145" width="320" height="423"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fI5-Bl-e7e">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fI5-Bl-e7e">
                                     <size key="itemSize" width="138" height="187"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -190,10 +190,15 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fwi-DU-X15">
                                                             <rect key="frame" x="3" y="3" width="122" height="115"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="115" id="1Eq-uA-RFy"/>
+                                                                <constraint firstAttribute="width" constant="122" id="1ew-Zw-kvg"/>
+                                                            </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVM-cG-bEJ">
                                                             <rect key="frame" x="5" y="123" width="118" height="49"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="width" constant="118" id="mVa-AW-l4h"/>
                                                                 <constraint firstAttribute="height" constant="49" id="zrC-bq-Led"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -231,6 +236,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="138" height="187"/>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="fwi-DU-X15" id="m1R-1B-7Lw"/>
+                                            <outlet property="nameLabel" destination="kVM-cG-bEJ" id="TZ6-Tx-IUm"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -253,6 +262,10 @@
                         <viewLayoutGuide key="safeArea" id="Ysw-oj-sCA"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="N8s-pE-wZr"/>
+                    <connections>
+                        <outlet property="collectionView" destination="XTz-eX-xm9" id="YhV-79-7F9"/>
+                        <outlet property="searchTextField" destination="5M6-cT-hfs" id="CJU-hK-OJv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0T-ET-2NN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

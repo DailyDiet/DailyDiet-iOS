@@ -76,7 +76,7 @@ class HomeViewController: BaseViewController {
     
     @IBAction func generateButtonDidTap(_ sender: Any) {
         generateButton.isEnabled = false
-        generateButton.backgroundColor = .gray95
+        generateButton.backgroundColor = .darkGray
         let calorie = (calorieAmountLabel.text ?? "100").replacingOccurrences(of: ",", with: "")
         
         APIDisposableDiet?.dispose()

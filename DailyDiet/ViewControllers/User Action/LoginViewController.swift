@@ -53,10 +53,9 @@ extension LoginViewController {
     func doSignInAction(){
         Log.i()
         isFieldsFilled = (emailTextField.text != "") && (passwordTextField.text != "")
-        
         if isFieldsFilled {
         signInButton.isEnabled = false
-            signInButton.backgroundColor = .darkGray
+        signInButton.backgroundColor = .darkGray
         APIDisposabelSignIn?.dispose()
         APIDisposabelSignIn = nil
         APIDisposabelSignIn = API.signIn(email: emailTextField.text!, password: passwordTextField.text!)
@@ -101,6 +100,8 @@ extension LoginViewController {
                     DialogueHelper.showStatusBarErrorMessage(message: "Error")
                 }
             })
+        } else {
+            showFillTheFieldsError()
         }
     }
     

@@ -730,7 +730,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L77-fJ-8Id">
                                                                 <rect key="frame" x="45" y="0.0" width="280" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -762,7 +762,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sm9-ig-Qw7">
                                                                 <rect key="frame" x="45" y="0.0" width="280" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                                             </textField>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.open" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lMd-C9-VWw">
                                                                 <rect key="frame" x="0.0" y="-1.5" width="40" height="43"/>
@@ -897,7 +897,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Ag-8w-u9c">
                                                                 <rect key="frame" x="45" y="0.0" width="280" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                                                             </textField>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.open" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mnX-LE-e7S">
                                                                 <rect key="frame" x="0.0" y="-1.5" width="40" height="43"/>

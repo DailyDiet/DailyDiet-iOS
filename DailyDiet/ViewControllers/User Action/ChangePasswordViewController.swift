@@ -43,10 +43,10 @@ class ChangePasswordViewController: BaseViewController {
             passwordsMatches = true
         }
         allFieldsFilled = (oldPasswordTextField.text != "") && (newPasswordTextField.text != "") && (confirmNewPasswordTextField.text != "")
-        
+        self.resignFirstResponder()
         if passwordsMatches && allFieldsFilled {
             requestRecoveryButton.isEnabled = false
-            requestRecoveryButton.backgroundColor = .gray95
+            requestRecoveryButton.backgroundColor = .darkGray
             
             APIDisposableChangePassword?.dispose()
             APIDisposableChangePassword = nil

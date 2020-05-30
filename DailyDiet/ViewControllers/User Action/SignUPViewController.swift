@@ -17,8 +17,8 @@ class SignUPViewController: BaseViewController {
     
     @IBOutlet var emaiImageView: UIImageView!
     @IBOutlet var usernameImageView: UIImageView!
-
-
+    
+    
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var confirmPasswordTextField: UITextField!
@@ -27,6 +27,7 @@ class SignUPViewController: BaseViewController {
     
     var APIDisposabelSignIn: Disposable!
     var isFieldsFilled: Bool = false
+    var APIDisposabelSignUp: Disposable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class SignUPViewController: BaseViewController {
         usernameImageView.image = UIImage.fontAwesomeIcon(name: .userPlus, style: .solid, textColor: .black, size: CGSize(width: 40, height: 40))
     }
     
-
+    
 }
 
 //MARK: - Actions
@@ -56,7 +57,57 @@ extension SignUPViewController {
     
     func doSignUpAction(){
         Log.i()
+        isFieldsFilled = (emailTextField.text != "") && (passwordTextField.text != "") && (usernameTextField.text != "") && (confirmPasswordTextField.text != "")
         
+        if isFieldsFilled {
+            signUpButton.isEnabled = false
+            signUpButton.backgroundColor = .darkGray
+            APIDisposabelSignUp?.dispose()
+            APIDisposabelSignUp = nil
+            APIDisposabelSignUp = API.signUP(name: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!)
+                .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                .subscribe(onNext: { (response) in
+                    Log.i("signUP => onNext => \(response)")
+                    DispatchQueue.main.async {
+                        self.signUpButton.isEnabled = true
+                        self.signUpButton.backgroundColor = .brandBlue
+                        
+                        self.panToClose.animateDialogeDisappear {
+                            DialogueHelper.showStatusBarErrorMessage(message: "Please check your inbox for the verification email", title: "Registered Successfully", image: UIImage.fontAwesomeIcon(name: .envelopeOpen, style: .solid,textColor: .black, size: CGSize(width: 30, height: 30)), .brandGreen)
+                            DashboardViewController.presentDelegate.showView(viewType: .SignIn)
+                        }
+                    }
+                    
+                    //Login OK
+                }, onError: { (error) in
+                    Log.e("signUP => onError => \(error) => \((error as NSError).domain)")
+                    let customError = (error as NSError)
+                    DispatchQueue.main.async {
+                        self.signUpButton.isEnabled = true
+                        self.signUpButton.backgroundColor = .brandBlue
+                        
+                        let errorList = customError.userInfo["errors"] as? [String : [String]]
+                        if let emailError = errorList?["email"]?[0] {
+                            DialogueHelper.showStatusBarErrorMessage(message: emailError)
+                        }
+                        if let confirmError = errorList?["confirm_password"]?[0]{
+                            DialogueHelper.showStatusBarErrorMessage(message: confirmError)
+                        }
+                        if let passwordError = errorList?["password"]?[0]{
+                            DialogueHelper.showStatusBarErrorMessage(message: passwordError)
+                        }
+                    }
+                    
+                })
+        } else {
+            showFillTheFieldsError()
+        }
+    }
+    
+    func showFillTheFieldsError(){
+        Log.i()
+        DialogueHelper.showStatusBarErrorMessage(message: "Fill the fields")
     }
     
     @IBAction func signUpButtonDidTap(_ sender: Any) {

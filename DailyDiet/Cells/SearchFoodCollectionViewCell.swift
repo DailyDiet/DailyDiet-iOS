@@ -9,5 +9,6 @@
 import UIKit
 
 class SearchFoodCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
 }
