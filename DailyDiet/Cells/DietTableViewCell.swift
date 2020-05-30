@@ -17,6 +17,7 @@ class DietTableViewCell: UITableViewCell {
     @IBOutlet var detailView: UIView!
     @IBOutlet var moreButton: UIButton!
     
+    @IBOutlet var detailViewHeight: NSLayoutConstraint!
     @IBOutlet var proteinLabel: UILabel!
     @IBOutlet var fiberLabel: UILabel!
     @IBOutlet var fatLabel: UILabel!
@@ -30,7 +31,7 @@ class DietTableViewCell: UITableViewCell {
         detailView.makeBottomRound()
         
         
-        moreButton.setImage(UIImage.fontAwesomeIcon(name: .infoCircle, style: .regular, textColor: .black, size: CGSize(width: 25, height: 25)), for: .normal)
+        
     }
 
 

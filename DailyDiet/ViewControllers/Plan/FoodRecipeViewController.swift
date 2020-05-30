@@ -43,9 +43,10 @@ class FoodRecipeViewController: BaseViewController {
                     self.foodRecipe = response
                     
                     self.nameLabel.text = self.foodRecipe.foodName
-                    self.preparationTimeLabel.text = "\(self.foodRecipe.cookTime) mins to cook"
+                    self.cookTimeLabel.text = "\(self.foodRecipe.cookTime) mins to cook"
                     self.preparationTimeLabel.text = "\(self.foodRecipe.prepTime) mins to prep"
                     self.foodImageView.sd_setImage(with: URL(string: self.foodRecipe.primaryThumbnail))
+                    self.setupTabBar()
                 }
                 
                 //Login OK
@@ -53,26 +54,15 @@ class FoodRecipeViewController: BaseViewController {
                 Log.e("signIn => onError => \(error) => \((error as NSError).domain)")
                 let customError = (error as NSError)
                 DispatchQueue.main.async {
-                    
+                    if let errorMessage = customError.userInfo["error"] as? String {
+                        DialogueHelper.showStatusBarErrorMessage(message: errorMessage)
+                    } else {
                     DialogueHelper.showStatusBarErrorMessage(message: "Failed to load recipe")
+                    }
                     SegueHelper.popViewController(viewController: self)
+                    
                 }
                 
-                switch customError.code {
-                case 403:
-                    if let errorMessage = customError.userInfo["error"] as? String {
-                        if errorMessage == "Email or Password does not match." {
-                            DialogueHelper.showStatusBarErrorMessage(message: errorMessage)
-                        }
-                    }
-                case 400:
-                    if let errorJson = customError.userInfo["errors"] as? JSON {
-                        let errorMessage = errorJson.dictionary?["email"]?.string
-                        DialogueHelper.showStatusBarErrorMessage(message: errorMessage ?? "Error")
-                    }
-                default:
-                    DialogueHelper.showStatusBarErrorMessage(message: "Error")
-                }
             })
         
     }
@@ -82,15 +72,15 @@ class FoodRecipeViewController: BaseViewController {
         var titlesArray: [String] = []
         var viewControllerArray: [UIViewController] = []
         
-        let directionVC = DirectionsViewController.instantiateFromStoryboardName(storyboardName: .Plan)
-        directionVC.directionList = foodRecipe.directions
-        titlesArray.append("Directions")
-        viewControllerArray.append(directionVC)
-        
         let ingredientsVC = IngredientsViewController.instantiateFromStoryboardName(storyboardName: .Plan)
         titlesArray.append("Ingredients")
         ingredientsVC.ingredientList = foodRecipe.ingredients
         viewControllerArray.append(ingredientsVC)
+        
+        let directionVC = DirectionsViewController.instantiateFromStoryboardName(storyboardName: .Plan)
+        directionVC.directionList = foodRecipe.directions
+        titlesArray.append("Directions")
+        viewControllerArray.append(directionVC)
         
         return (titlesArray, viewControllerArray)
     }
@@ -99,7 +89,7 @@ class FoodRecipeViewController: BaseViewController {
         Log.i()
         (titles, viewControllers) = makeArrays()
         let pagingViewController = MainPagingViewController(viewControllers: viewControllers)
-        pagingViewController.configure(backgroundColor: .gray85, indicatorColor: .brandGreen)
+        pagingViewController.configure(backgroundColor: .clear, indicatorColor: .darkGray)
         pagingViewController.dataSource = self
         pagingViewController.delegate = self
         pagingViewController.menuItemSpacing = 15
@@ -108,7 +98,7 @@ class FoodRecipeViewController: BaseViewController {
         tabBarView.addSubview(pagingViewController.view)
         tabBarView.constrainToEdges(pagingViewController.view)
         pagingViewController.didMove(toParent: self)
-        pagingViewController.select(index: 1, animated: true)
+        pagingViewController.select(index: 0, animated: true)
     }
 
     @IBAction func closeButtonDidTap(_ sender: Any) {

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Spring
+import RxSwift
+import SwiftyJSON
 
 enum DietType: String {
     case vegan, noGluten, olive, paleo, sandwich, broccoli
@@ -17,10 +20,13 @@ class HomeViewController: BaseViewController {
     @IBOutlet var mealsCountDropdown: iOSDropDown!
     @IBOutlet var calorieAmountLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
-    
+    @IBOutlet var generateButton: DesignableButton!
+
     var selectedItem: IndexPath!
     var selectedDietType: DietType!
     var mealsCount: Int = 1
+    
+    var APIDisposableDiet: Disposable!
     
     var dietTypeList: [String] = [
         DietType.sandwich.rawValue,
@@ -37,8 +43,11 @@ class HomeViewController: BaseViewController {
         collectionView.dataSource = self
     }
     
+    
+    
     override func configureViews() {
         setupDropDown()
+        generateButton.backgroundColor = .brandGreen
     }
     
     func setupDropDown(){
@@ -49,6 +58,7 @@ class HomeViewController: BaseViewController {
         mealsCountDropdown.textAlignment = .left
         mealsCountDropdown.isSearchEnable = false
         mealsCountDropdown.selectedIndex = 0
+        mealsCountDropdown.text = "1 meals"
         mealsCount = Int(String("1 meals".split(separator: " ")[0]))!
         
         mealsCountDropdown.didSelect { (selectedText, index, id) in
@@ -65,7 +75,45 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func generateButtonDidTap(_ sender: Any) {
+        generateButton.isEnabled = false
+        generateButton.backgroundColor = .gray95
+        let calorie = (calorieAmountLabel.text ?? "100").replacingOccurrences(of: ",", with: "")
         
+        APIDisposableDiet?.dispose()
+        APIDisposableDiet = nil
+        APIDisposableDiet = API.getDiet(mealsCount: mealsCount, calorie: Int(calorie    )!)
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .subscribe(onNext: { (response) in
+                Log.i("getDiet => onNext => \(response)")
+                DispatchQueue.main.async {
+                    self.generateButton.isEnabled = true
+                    self.generateButton.backgroundColor = .brandGreen
+                    
+                    var lst: [DietElement] = []
+                    for item in response.diet {
+                        if Diet.getDietJSON(item: item) != nil {
+                            lst.append(Diet.getDietJSON(item: item)!)
+                        }
+                    }
+                    DietViewController.dietList = lst
+                    TabBarViewController.changeTabBarDelegate.changeTabBarIndex(index: 0)
+                }
+                
+                //Login OK
+            }, onError: { (error) in
+                Log.e("getDiet => onError => \(error) => \((error as NSError).domain)")
+                let customError = (error as NSError)
+                DispatchQueue.main.async {
+                    self.generateButton.isEnabled = true
+                    self.generateButton.backgroundColor = .brandGreen
+                }
+                if customError.code == 404{
+                    DialogueHelper.showStatusBarErrorMessage(message: "Diet Not Fount")
+                } else {
+                    DialogueHelper.showStatusBarErrorMessage(message: "Failed to load diet data")
+                }
+            })
     }
 }
 

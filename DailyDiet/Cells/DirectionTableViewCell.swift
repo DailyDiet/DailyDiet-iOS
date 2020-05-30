@@ -12,8 +12,8 @@ class DirectionTableViewCell: UITableViewCell {
 
     @IBOutlet var stepLabel: UILabel!
     @IBOutlet var detailLabel: UILabel!
-    
-    
+    @IBOutlet var detailLabelHeight: NSLayoutConstraint!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

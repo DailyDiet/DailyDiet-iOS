@@ -58,8 +58,9 @@ class ChangePasswordViewController: BaseViewController {
                     DispatchQueue.main.async {
                         self.requestRecoveryButton.isEnabled = true
                         self.requestRecoveryButton.backgroundColor = .brandBlue
-                        
+                        self.panToClose.animateDialogeDisappear() {
                         DialogueHelper.showStatusBarErrorMessage(message: "Password changed successfully", .brandGreen)
+                        }
                     }
                     
                     //Login OK

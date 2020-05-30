@@ -20,11 +20,12 @@ enum URLs: APIConfiguration {
     case userInfo
     case getRecipe(foodID: Int)
     case foodInfo(foodID: Int)
+    case getDiet(mealsCount: Int, calorie: Int)
     
     
     var METHOD: HTTPMethod {
         switch self {
-        case .confirmSignup, .resendConfirmationLink, .getRecipe, .foodInfo:
+        case .confirmSignup, .resendConfirmationLink, .getRecipe, .foodInfo, .getDiet:
             return .get
         case .auth:
             return .put
@@ -61,6 +62,17 @@ enum URLs: APIConfiguration {
             return BaseURL + "/foods/recipe/\(foodID)"
         case .foodInfo(let foodID):
             return BaseURL + "/foods/\(foodID)"
+        case .getDiet(let mealsCount,  let calorie):
+            switch mealsCount {
+            case 1:
+                return BaseURL + "/foods/yevade/\(calorie)"
+            case 2:
+                return BaseURL + "/foods/dovade/\(calorie)"
+            case 3:
+                return BaseURL + "/foods/sevade/\(calorie)"
+            default:
+                return ""
+            }
         }
     }
 
@@ -171,6 +183,8 @@ enum URLs: APIConfiguration {
             urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
         case .userInfo:
             urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
+        case .getDiet:
+            break
         default:
             urlRequest.setValue(token, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
         }

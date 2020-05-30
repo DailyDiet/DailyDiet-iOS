@@ -47,6 +47,9 @@ class API {
         return request(URLs.getRecipe(foodID: foodID))
     }
     
+    static func getDiet(mealsCount: Int, calorie: Int) -> Observable<Diet> {
+        return request(URLs.getDiet(mealsCount: mealsCount, calorie: calorie))
+    }
     
     private static func request<T: Codable> (_ urlConvertible: URLRequestConvertible) -> Observable<T> {
         Log.i()
