@@ -11,5 +11,7 @@ import Spring
 
 class DietTypeCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var iconImageView: DesignableImageView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var containerView: DesignableView!
 }

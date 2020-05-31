@@ -623,52 +623,79 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uq9-Q7-0Lh" customClass="DesignableView" customModule="Spring">
-                                            <rect key="frame" x="20" y="312" width="374" height="272"/>
+                                            <rect key="frame" x="20" y="302" width="374" height="292"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GTg-qs-ozk">
-                                                    <rect key="frame" x="5" y="10" width="364" height="70"/>
+                                                    <rect key="frame" x="5" y="10" width="364" height="90"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="opG-BN-s8X"/>
+                                                        <constraint firstAttribute="height" constant="90" id="opG-BN-s8X"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vD0-Ev-h0n">
-                                                        <size key="itemSize" width="97" height="81"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vD0-Ev-h0n">
+                                                        <size key="itemSize" width="60" height="60"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DietTypeCollectionViewCell" id="xel-k7-sJd" customClass="DietTypeCollectionViewCell" customModule="DailyDiet" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="5" width="60" height="60"/>
+                                                            <rect key="frame" x="0.0" y="5" width="80" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gE7-OX-pa3">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MxQ-sz-050" customClass="DesignableImageView" customModule="Spring">
-                                                                        <rect key="frame" x="5" y="5" width="50" height="50"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckV-cj-V6W" customClass="DesignableView" customModule="Spring">
+                                                                        <rect key="frame" x="5" y="5" width="70" height="70"/>
+                                                                        <subviews>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MxQ-sz-050">
+                                                                                <rect key="frame" x="7.5" y="5" width="55" height="45"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="55" id="IRM-Pq-aCs"/>
+                                                                                    <constraint firstAttribute="height" constant="45" id="k7t-iy-5eY"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="TdF-Aw-scE">
+                                                                                <rect key="frame" x="0.0" y="55" width="70" height="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="55" id="IRM-Pq-aCs"/>
-                                                                            <constraint firstAttribute="height" constant="45" id="k7t-iy-5eY"/>
+                                                                            <constraint firstItem="MxQ-sz-050" firstAttribute="centerX" secondItem="ckV-cj-V6W" secondAttribute="centerX" id="DnX-bF-XMr"/>
+                                                                            <constraint firstItem="TdF-Aw-scE" firstAttribute="top" secondItem="MxQ-sz-050" secondAttribute="bottom" constant="5" id="EWm-q7-fNd"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="TdF-Aw-scE" secondAttribute="bottom" id="jtm-2g-kD9"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="TdF-Aw-scE" secondAttribute="trailing" id="rcu-A1-IhS"/>
+                                                                            <constraint firstItem="MxQ-sz-050" firstAttribute="top" secondItem="ckV-cj-V6W" secondAttribute="top" constant="5" id="sQO-8b-pkp"/>
+                                                                            <constraint firstItem="TdF-Aw-scE" firstAttribute="leading" secondItem="ckV-cj-V6W" secondAttribute="leading" id="uvq-Yy-HW9"/>
                                                                         </constraints>
-                                                                    </imageView>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="MxQ-sz-050" secondAttribute="bottom" constant="5" id="3lx-1x-Xg0"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="MxQ-sz-050" secondAttribute="trailing" constant="5" id="OmO-eR-2Jb"/>
-                                                                    <constraint firstItem="MxQ-sz-050" firstAttribute="top" secondItem="gE7-OX-pa3" secondAttribute="top" constant="5" id="cQE-cf-hif"/>
-                                                                    <constraint firstItem="MxQ-sz-050" firstAttribute="leading" secondItem="gE7-OX-pa3" secondAttribute="leading" constant="5" id="gBg-zb-4K2"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ckV-cj-V6W" secondAttribute="trailing" constant="5" id="U9p-3i-ykn"/>
+                                                                    <constraint firstItem="ckV-cj-V6W" firstAttribute="top" secondItem="gE7-OX-pa3" secondAttribute="top" constant="5" id="hSG-t9-ypF"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="ckV-cj-V6W" secondAttribute="bottom" constant="5" id="kUl-gk-BhL"/>
+                                                                    <constraint firstItem="ckV-cj-V6W" firstAttribute="leading" secondItem="gE7-OX-pa3" secondAttribute="leading" constant="5" id="vX0-Et-J6Q"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="60" height="60"/>
+                                                            <size key="customSize" width="80" height="80"/>
                                                             <connections>
-                                                                <outlet property="iconImageView" destination="MxQ-sz-050" id="Rdc-sR-ubu"/>
+                                                                <outlet property="containerView" destination="ckV-cj-V6W" id="vKh-eo-PLo"/>
+                                                                <outlet property="iconImageView" destination="MxQ-sz-050" id="OqZ-Nf-VHA"/>
+                                                                <outlet property="nameLabel" destination="TdF-Aw-scE" id="asS-MW-sIx"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="20000" stepValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZJm-G1-MV8">
-                                                    <rect key="frame" x="275" y="90" width="94" height="32"/>
+                                                    <rect key="frame" x="275" y="110" width="94" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="vrw-s5-k25"/>
                                                         <constraint firstAttribute="width" constant="94" id="yke-1q-OW4"/>
@@ -678,7 +705,7 @@
                                                     </connections>
                                                 </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to eat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="MQ2-GO-FnC">
-                                                    <rect key="frame" x="5" y="98" width="80" height="16"/>
+                                                    <rect key="frame" x="5" y="118" width="80" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="O9j-Qv-3r5"/>
                                                     </constraints>
@@ -687,7 +714,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="FDo-lD-m8E">
-                                                    <rect key="frame" x="5" y="162" width="12.5" height="18"/>
+                                                    <rect key="frame" x="5" y="182" width="12.5" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="12.333333333333336" id="FY9-xL-00V"/>
                                                     </constraints>
@@ -696,13 +723,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gxr-NF-TOM">
-                                                    <rect key="frame" x="205.5" y="97" width="9.5" height="18"/>
+                                                    <rect key="frame" x="205.5" y="117" width="9.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4o-nA-HMJ">
-                                                    <rect key="frame" x="142.5" y="127" width="89" height="18"/>
+                                                    <rect key="frame" x="142.5" y="147" width="89" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="88.666666666666657" id="2Vq-Ul-nTy"/>
                                                         <constraint firstAttribute="height" constant="18" id="T9Z-X0-jag"/>
@@ -716,7 +743,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPB-12-jym" customClass="iOSDropDown" customModule="DailyDiet" customModuleProvider="target">
-                                                    <rect key="frame" x="184" y="155" width="180" height="32"/>
+                                                    <rect key="frame" x="184" y="175" width="180" height="32"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="180" id="hwR-i4-Qd9"/>
@@ -728,7 +755,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWG-Gr-P9N" customClass="DesignableButton" customModule="Spring">
-                                                    <rect key="frame" x="20" y="212" width="334" height="35"/>
+                                                    <rect key="frame" x="20" y="232" width="334" height="35"/>
                                                     <color key="backgroundColor" red="0.32549019610000002" green="0.64705882349999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="tf3-bp-Jic"/>
@@ -746,7 +773,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="45u-e7-2qc">
-                                                    <rect key="frame" x="220" y="97" width="45" height="18"/>
+                                                    <rect key="frame" x="220" y="117" width="45" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="FnP-b8-odP"/>
                                                     </constraints>
@@ -821,7 +848,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nkN-pY-V9M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="991.875" y="353.87323943661971"/>
+            <point key="canvasLocation" x="991.304347826087" y="353.57142857142856"/>
         </scene>
     </scenes>
     <resources>

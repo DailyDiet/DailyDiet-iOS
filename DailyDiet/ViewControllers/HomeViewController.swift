@@ -39,13 +39,13 @@ class HomeViewController: BaseViewController {
     
     var APIDisposableDiet: Disposable!
     
-    var dietTypeList: [String] = [
-        DietType.sandwich.rawValue,
-        DietType.paleo.rawValue,
-        DietType.broccoli.rawValue,
-        DietType.vegan.rawValue,
-        DietType.noGluten.rawValue,
-        DietType.olive.rawValue
+    var dietTypeList: [DietType] = [
+        DietType.sandwich,
+        DietType.paleo,
+        DietType.broccoli,
+        DietType.vegan,
+        DietType.noGluten,
+        DietType.olive
     ]
     
     var collectionList: [String] = ["vegan", "noGluten", "olive", "paleo", "sandwich", "broccoli"]
@@ -54,6 +54,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+//        collectionView.de
         HomeViewController.delegate = self
     }
     
@@ -133,7 +134,7 @@ class HomeViewController: BaseViewController {
 }
 
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dietTypeList.count
@@ -146,7 +147,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         cell.iconImageView.image = UIImage(named: cellData)
-        cell.iconImageView.cornerRadius = 5
+        cell.nameLabel.text = dietTypeList[indexPath.row].rawValue.uppercased()
+        cell.containerView.backgroundColor = .white
         
         return cell
     }
@@ -155,14 +157,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cellData = dietTypeList[indexPath.row]
         if selectedItem != nil {
             if let cell = collectionView.cellForItem(at: selectedItem) as? DietTypeCollectionViewCell{
-            cell.iconImageView.backgroundColor = .white
+            cell.containerView.backgroundColor = .white
+            cell.nameLabel.textColor = .black
             }
         }
         selectedItem = indexPath
-        selectedDietType = DietType(rawValue: cellData)
+        selectedDietType = cellData
         let cell = collectionView.cellForItem(at: indexPath) as! DietTypeCollectionViewCell
-        cell.iconImageView.backgroundColor = .brandGreen
-        
+        cell.containerView.backgroundColor = .brandGreen
+        cell.nameLabel.textColor = .white
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 80, height: 80)
     }
 }
 
