@@ -639,25 +639,25 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DietTypeCollectionViewCell" id="xel-k7-sJd" customClass="DietTypeCollectionViewCell" customModule="DailyDiet" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="5" width="80" height="80"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gE7-OX-pa3">
-                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckV-cj-V6W" customClass="DesignableView" customModule="Spring">
-                                                                        <rect key="frame" x="5" y="5" width="70" height="70"/>
+                                                                        <rect key="frame" x="5" y="5" width="80" height="80"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MxQ-sz-050">
-                                                                                <rect key="frame" x="7.5" y="5" width="55" height="45"/>
+                                                                                <rect key="frame" x="12.5" y="5" width="55" height="45"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="55" id="IRM-Pq-aCs"/>
                                                                                     <constraint firstAttribute="height" constant="45" id="k7t-iy-5eY"/>
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="TdF-Aw-scE">
-                                                                                <rect key="frame" x="0.0" y="55" width="70" height="15"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <rect key="frame" x="0.0" y="55" width="80" height="25"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -685,7 +685,7 @@
                                                                     <constraint firstItem="ckV-cj-V6W" firstAttribute="leading" secondItem="gE7-OX-pa3" secondAttribute="leading" constant="5" id="vX0-Et-J6Q"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="80" height="80"/>
+                                                            <size key="customSize" width="90" height="90"/>
                                                             <connections>
                                                                 <outlet property="containerView" destination="ckV-cj-V6W" id="vKh-eo-PLo"/>
                                                                 <outlet property="iconImageView" destination="MxQ-sz-050" id="OqZ-Nf-VHA"/>

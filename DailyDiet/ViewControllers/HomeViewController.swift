@@ -37,6 +37,8 @@ class HomeViewController: BaseViewController {
     var selectedDietType: DietType? = nil
     var mealsCount: Int = 1
     
+    var cellWidth: [CGFloat] = []
+    
     var APIDisposableDiet: Disposable!
     
     var dietTypeList: [DietType] = [
@@ -56,6 +58,10 @@ class HomeViewController: BaseViewController {
         collectionView.dataSource = self
 //        collectionView.de
         HomeViewController.delegate = self
+        
+        for _ in 0..<dietTypeList.count {
+            cellWidth.append(100)
+        }
     }
     
     
@@ -148,6 +154,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         cell.iconImageView.image = UIImage(named: cellData)
         cell.nameLabel.text = dietTypeList[indexPath.row].rawValue.uppercased()
+        cell.nameLabel.sizeToFit()
+        cellWidth[indexPath.row] = cell.nameLabel.frame.width + 10
+        collectionView.reloadItems(at: [indexPath])
         cell.containerView.backgroundColor = .white
         
         return cell
@@ -169,7 +178,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
+        return CGSize(width: 120, height: 90)
     }
 }
 
