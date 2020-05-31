@@ -101,8 +101,10 @@ extension TabBarViewController: PagingViewControllerDataSource, PagingViewContro
 extension TabBarViewController: ChangeTabBarDelegate {
     
     func setBMI(bmi: Double, bmiStatus: String) {
-        bmiLabel.isHidden = false
-        bmiLabel.text = "BMI: \(bmi) (\(bmiStatus))"
+        DispatchQueue.main.async {
+            self.bmiLabel.isHidden = false
+            self.bmiLabel.text = "BMI: \(bmi) (\(bmiStatus))"
+        }
     }
     
     func changeTabBarIndex(index: Int) {

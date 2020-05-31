@@ -12,7 +12,12 @@ import RxSwift
 import SwiftyJSON
 
 enum DietType: String {
-    case vegan, noGluten, olive, paleo, sandwich, broccoli
+    case vegan = "Vegan"
+    case noGluten = "Ketogenic"
+    case olive = "Mediterranean"
+    case paleo
+    case sandwich = "Anything"
+    case broccoli = "Vegetarian"
 }
 
 protocol CalorieDelegate {
@@ -29,7 +34,7 @@ class HomeViewController: BaseViewController {
 
     static var delegate: CalorieDelegate!
     var selectedItem: IndexPath!
-    var selectedDietType: DietType!
+    var selectedDietType: DietType? = nil
     var mealsCount: Int = 1
     
     var APIDisposableDiet: Disposable!
@@ -42,6 +47,8 @@ class HomeViewController: BaseViewController {
         DietType.noGluten.rawValue,
         DietType.olive.rawValue
     ]
+    
+    var collectionList: [String] = ["vegan", "noGluten", "olive", "paleo", "sandwich", "broccoli"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +82,7 @@ class HomeViewController: BaseViewController {
     
     @IBAction func notSureButtonDidTap(_ sender: Any) {
         let BMIVC = BMIViewController.instantiateFromStoryboardName(storyboardName: .Home)
-        BMIVC.dietType = selectedDietType.rawValue
+        BMIVC.dietType = selectedDietType?.rawValue ?? "Not Selected"
         SegueHelper.presentViewController(sourceViewController: self, destinationViewController: BMIVC)
     }
     
@@ -133,7 +140,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellData = dietTypeList[indexPath.row]
+        let cellData = collectionList[indexPath.row]
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DietTypeCollectionViewCell", for: indexPath) as? DietTypeCollectionViewCell else {
             fatalError("Unable to dequeue Cell.")
         }
@@ -147,8 +154,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cellData = dietTypeList[indexPath.row]
         if selectedItem != nil {
-            let cell = collectionView.cellForItem(at: selectedItem) as! DietTypeCollectionViewCell
+            if let cell = collectionView.cellForItem(at: selectedItem) as? DietTypeCollectionViewCell{
             cell.iconImageView.backgroundColor = .white
+            }
         }
         selectedItem = indexPath
         selectedDietType = DietType(rawValue: cellData)
@@ -160,7 +168,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension HomeViewController: CalorieDelegate {
     func setCalorie(calorie: Int) {
-        calorieAmountLabel.text = "\(calorie)"
-        calorieStepper.value = Double(calorie)
+        DispatchQueue.main.async {
+            self.calorieAmountLabel.text = "\(calorie)"
+            self.calorieStepper.value = Double(calorie)
+        }
     }
 }

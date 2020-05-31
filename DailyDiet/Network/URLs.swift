@@ -101,31 +101,9 @@ enum URLs: APIConfiguration {
 
         switch self {
         case .calculateBmi(let weight, let height):
-            let json: [String: Int] = [
-                "height": height,
-                "weight": weight
-            ]
-            Log.i("HTTP Body =>  \(json)")
-            do {
-                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-              } catch let error {
-                  Log.e(error.localizedDescription)
-              }
+            urlRequest.httpBody = "height=\(height)&weight=\(weight)".data(using: .utf8)!
         case .calculateCalorie(let goal, let gender, let height, let weight, let age, let activity):
-            let json: [String: Any] = [
-                "goal": goal,
-                "gender": gender,
-                "height": height,
-                "weight": weight,
-                "age": age,
-                "activity": activity
-            ]
-            Log.i("HTTP Body =>  \(json)")
-            do {
-                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-              } catch let error {
-                  Log.e(error.localizedDescription)
-              }
+            urlRequest.httpBody = "goal=\(goal)&gender=\(gender)&height=\(height)&weight=\(weight)&age=\(age)&activity=\(activity)".data(using: .utf8)!
         case .signup(let fullName, let email, let password):
 //            let json: [String: Any] = [
 //                "full_name": fullName,
@@ -140,32 +118,9 @@ enum URLs: APIConfiguration {
 //                  Log.e(error.localizedDescription)
 //              }
             urlRequest.httpBody = "full_name=\(fullName)&email=\(email)&password=\(password)&confirm_password=\(password)".data(using: .utf8)!
-
         case .signIn(let email, let password):
-//            let json: [String: Any] = [
-//                "email": email,
-//                "password": password
-//            ]
-//            Log.i("HTTP Body =>  \(json)")
-            
             urlRequest.httpBody = "email=\(email)&password=\(password)".data(using: .utf8)!
-//            do {
-//                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-//              } catch let error {
-//                  Log.e(error.localizedDescription)
-//              }
         case .changePassword(let oldPassword, let newPassword):
-//                let json: [String: Any] = [
-//                    "old_password": oldPassword,
-//                    "new_password": newPassword,
-//                    "confirm_password": newPassword
-//                ]
-//                Log.i("HTTP Body =>  \(json)")
-//                do {
-//                      urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-//                  } catch let error {
-//                      Log.e(error.localizedDescription)
-//                  }
             urlRequest.httpBody = "old_password=\(oldPassword)&new_password=\(newPassword)&confirm_password=\(newPassword)".data(using: .utf8)!
         default:
             break

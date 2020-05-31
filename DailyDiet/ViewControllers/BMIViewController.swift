@@ -94,6 +94,14 @@ class BMIViewController: BaseViewController, UIGestureRecognizerDelegate {
                 break
             }
         }
+        
+        activityLabelDropDown.listDidAppear {
+            for textField in [self.ageTextField, self.heightTextField, self.weightTextField] {
+                if textField!.isFirstResponder {
+                    textField?.resignFirstResponder()
+                }
+            }
+        }
     }
     
     func configureSegmentedControls(){
@@ -109,6 +117,10 @@ class BMIViewController: BaseViewController, UIGestureRecognizerDelegate {
         dietTypeLabel.text = dietType.uppercased()
         configureDropDown()
         configureSegmentedControls()
+        
+        ageTextField.keyboardType = .asciiCapableNumberPad
+        weightTextField.keyboardType = .asciiCapableNumberPad
+        heightTextField.keyboardType = .asciiCapableNumberPad
     }
     
     func showFillTheFieldsError(){
@@ -120,7 +132,12 @@ class BMIViewController: BaseViewController, UIGestureRecognizerDelegate {
         isFieldsFilled = (heightTextField.text != "") && (weightTextField.text != "") && (ageTextField.text != "")
         if !isFieldsFilled {
             showFillTheFieldsError()
+            return
         }
+        
+        ageTextField.endEditing(true)
+        weightTextField.endEditing(true)
+        heightTextField.endEditing(true)
         
         if gender != nil  {
             generateButton.backgroundColor = .darkGray
@@ -254,11 +271,11 @@ extension BMIViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField {
         case heightTextField:
-            height = Int(heightTextField.text ?? "0")!
+            height = Int(heightTextField.text ?? "0") ?? 0
         case weightTextField:
-            weight = Int(weightTextField.text ?? "0")!
+            weight = Int(weightTextField.text ?? "0") ?? 0
         case ageTextField:
-            age = Int(ageTextField.text ?? "0")!
+            age = Int(ageTextField.text ?? "0") ?? 0
         default:
             textField.resignFirstResponder()
         }

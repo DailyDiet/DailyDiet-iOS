@@ -813,6 +813,7 @@
                     </view>
                     <connections>
                         <outlet property="calorieAmountLabel" destination="Gxr-NF-TOM" id="Fyz-RX-or8"/>
+                        <outlet property="calorieStepper" destination="ZJm-G1-MV8" id="9lf-jr-M1F"/>
                         <outlet property="collectionView" destination="GTg-qs-ozk" id="ZzD-0f-YgA"/>
                         <outlet property="generateButton" destination="rWG-Gr-P9N" id="tc5-at-vHg"/>
                         <outlet property="mealsCountDropdown" destination="dPB-12-jym" id="XpS-qI-b4v"/>
