@@ -1,10 +1,10 @@
 #!/bin/sh
 
 
-gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Certificates.p12 ./.github/secrets/Certificates.p12.gpg
+gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Certificates.p12 ./secrets/Certificates.p12.gpg
 
 
-gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/DailyDiet_Dist_profile.mobileprovision ./.github/secrets/DailyDiet_Dist_profile.mobileprovision.gpg
+gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/DailyDiet_Dist_profile.mobileprovision ./secrets/DailyDiet_Dist_profile.mobileprovision.gpg
 
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
@@ -13,7 +13,7 @@ cp ./.github/secrets/DailyDiet_Dist_profile.mobileprovision ~/Library/MobileDevi
 
 
 security create-keychain -p "" build.keychain
-security import ./.github/secrets/Certificates.p12 -t agg -k ~/Library/Keychains/build.keychain -P "" -A
+security import ./secrets/Certificates.p12 -t agg -k ~/Library/Keychains/build.keychain -P "" -A
 
 security list-keychains -s ~/Library/Keychains/build.keychain
 security default-keychain -s ~/Library/Keychains/build.keychain
