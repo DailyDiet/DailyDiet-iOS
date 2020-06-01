@@ -16,25 +16,12 @@ jobs:
         env:
             IOS_KEYS: ${{ secrets.IOS_KEYS }}
         run: ./secrets/decrypt_secrets.sh
-#      - name: Archiving project
-#        env:
-#          PR_NUMBER: $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-#        run: ./scripts/archive_app.sh
         - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_11.3.app
         - name: Xcode version
         run: /usr/bin/xcodebuild -version
         - name: Build archive
-        run: |
-        xcodebuild -sdk iphoneos -project DailyDiet/DailyDiet.xcworkspace \
-        -configuration Release -scheme DailyDiet \
-        -derivedDataPath DerivedData \
-        -archivePath DerivedData/Archive/DailyDiet archive
-        - name: Export Archive
-        run: |
-        xcodebuild -exportArchive \
-        -archivePath $PWD/build/DailyDiet.xcarchive \
-        clean archive | xcpretty
+        run: ./scripts/archive_app.sh
         - name: Exporting .ipa
         run: ./scripts/export_ipa.sh
         - name: Publishing app
