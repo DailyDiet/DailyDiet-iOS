@@ -30,16 +30,14 @@ jobs:
         shell: bash
       - name: Setup provisioning profile
         run: ./secrets/decrypt_secrets.sh
-#         env:
-#           IOS_PROFILE_KEY: ${{ secrets.IOS_KEYS }}
       - name: Build app
         run: |
           cd ios && xcodebuild archive \
-            -workspace appname.xcworkspace \
+            -workspace DailyDiet.xcworkspace \
             -scheme DailyDiet \
             -sdk iphoneos13.2 \
             -configuration Release \
-            -archivePath $PWD/build/appname.xcarchive \
+            -archivePath $PWD/build/DailyDiet.xcarchive \
             IPHONEOS_DEPLOYMENT_TARGET=11.0
             PROVISIONING_PROFILE="DailyDiet/DailyDiet.entitlements" \
             CODE_SIGN_IDENTITY="alirezaT12 Developer"
