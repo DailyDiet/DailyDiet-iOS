@@ -1,10 +1,10 @@
 #!/bin/sh
 
 
-gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Certificates.p12 ./secrets/Certificates.p12.gpg
+gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./secrets/Certificates.p12 ./secrets/Certificates.p12.gpg
 
 
-gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/DailyDiet_Dist_profile.mobileprovision ./secrets/DailyDiet_Dist_profile.mobileprovision.gpg
+gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./secrets/DailyDiet_Dist_profile.mobileprovision ./secrets/DailyDiet_Dist_profile.mobileprovision.gpg
 
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
