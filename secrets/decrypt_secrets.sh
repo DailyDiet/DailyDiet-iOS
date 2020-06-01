@@ -9,11 +9,11 @@ mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 cp ./secrets/profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/86ce4d81-fd7e-46b2-ae6a-3092b4af6cd7.mobileprovision
 
 
-security create-keychain -p "" build2.keychain
-security import ./secrets/Certificates.p12 -t agg -k ~/Library/Keychains/build2.keychain -P "" -A
+security create-keychain -p "$IOS_PROFILE_KEY" build3.keychain
+security import ./secrets/Certificates.p12 -t agg -k ~/Library/Keychains/build3.keychain -P "$IOS_PROFILE_KEY" -A
 
-security list-keychains -s ~/Library/Keychains/build2.keychain
-security default-keychain -s ~/Library/Keychains/build2.keychain
-security unlock-keychain -p "" ~/Library/Keychains/build2.keychain
+security list-keychains -s ~/Library/Keychains/build3.keychain
+security default-keychain -s ~/Library/Keychains/build3.keychain
+security unlock-keychain -p "$IOS_PROFILE_KEY" ~/Library/Keychains/build3.keychain
 
-security set-key-partition-list -S apple-tool:,apple: -s -k "" ~/Library/Keychains/build2.keychain
+security set-key-partition-list -S apple-tool:,apple: -s -k "$IOS_PROFILE_KEY" ~/Library/Keychains/build3.keychain
