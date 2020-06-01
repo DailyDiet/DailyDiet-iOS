@@ -14,8 +14,8 @@ jobs:
       - name: Install gpg
         run: brew install gnupg
         
-      - name: Switch XCode Version
-        run: sudo xcode-select -s /Applications/Xcode_11.2.app
+#       - name: Switch XCode Version
+#         run: sudo xcode-select -s /Applications/Xcode_11.2.app
         
       - name: Cache Pods dependencies
         uses: actions/cache@v1
@@ -34,18 +34,17 @@ jobs:
           IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
       - name: Build app
         run: |
-          cd ios && xcodebuild archive \
+          cd xcodebuild archive \
             -workspace DailyDiet.xcworkspace \
             -scheme DailyDiet \
             -sdk iphoneos13.2 \
             -configuration Release \
             -archivePath $PWD/build/DailyDiet.xcarchive \
             IPHONEOS_DEPLOYMENT_TARGET=11.0
-            PROVISIONING_PROFILE="DailyDiet/DailyDiet.entitlements" \
-            CODE_SIGN_IDENTITY="alirezaT12 Developer"
+            CODE_SIGN_IDENTITY="iPhone Distribution: Aref Tarrah (AJLMAG95WU)"
       - name: Export app
         run: |
-          cd ios && xcodebuild \
+          cd xcodebuild \
             -exportArchive \
             -archivePath $PWD/build/DailyDiet.xcarchive \
             -exportOptionsPlist $PWD/ci.plist \
