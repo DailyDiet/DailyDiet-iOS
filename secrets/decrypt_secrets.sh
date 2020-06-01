@@ -9,7 +9,7 @@ mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 cp ./secrets/profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/86ce4d81-fd7e-46b2-ae6a-3092b4af6cd7.mobileprovision
 
 
-security create-keychain -p "" build2.keychain
+security delete-keychain -p "" build.keychain
 security import ./secrets/Certificates.p12 -t agg -k ~/Library/Keychains/build2.keychain -P "" -A
 
 security list-keychains -s ~/Library/Keychains/build2.keychain
