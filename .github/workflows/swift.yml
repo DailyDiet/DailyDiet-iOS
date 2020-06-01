@@ -45,7 +45,7 @@ jobs:
             CODE_SIGN_IDENTITY="alirezaT12 Developer"
       - name: Export app
         run: |
-          cd ios && xcodebuild \
+          cd xcodebuild \
             -exportArchive \
             -archivePath $PWD/build/DailyDiet.xcarchive \
             -exportOptionsPlist $PWD/ci.plist \
