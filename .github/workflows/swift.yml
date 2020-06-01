@@ -26,18 +26,17 @@ jobs:
             ${{ runner.OS }}-pods-cache-
       - name: Install pod dependencies
         run: |
-          cd ios
           pod install
         shell: bash
       - name: Setup provisioning profile
-        run: ./.github/secrets/decrypt_secrets.sh
+        run: ./secrets/decrypt_secrets.sh
         env:
-          IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
+          IOS_PROFILE_KEY: ${{ secrets.IOS_KEYS }}
       - name: Build app
         run: |
           cd ios && xcodebuild archive \
             -workspace appname.xcworkspace \
-            -scheme appname \
+            -scheme DailyDiet \
             -sdk iphoneos13.2 \
             -configuration Release \
             -archivePath $PWD/build/appname.xcarchive \
