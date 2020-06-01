@@ -21,6 +21,7 @@ class TabBarViewController: BaseViewController {
     @IBOutlet var tabBarView: UIView!
     @IBOutlet var bmiLabel: UILabel!
     
+    static var isBMICalculated: Bool = false
     static var changeTabBarDelegate: ChangeTabBarDelegate!
     var pagingViewController: MainPagingViewController!
     var titles: [String] = []
@@ -36,7 +37,9 @@ class TabBarViewController: BaseViewController {
     }
     
     override func configureViews() {
-        bmiLabel.isHidden = true
+        if !TabBarViewController.isBMICalculated {
+            bmiLabel.isHidden = true
+        }
     }
     
     func makeArrays() -> ([String], [UIViewController]){
@@ -102,6 +105,7 @@ extension TabBarViewController: ChangeTabBarDelegate {
     
     func setBMI(bmi: Double, bmiStatus: String) {
         DispatchQueue.main.async {
+            TabBarViewController.isBMICalculated = true
             self.bmiLabel.isHidden = false
             self.bmiLabel.text = "BMI: \(bmi) (\(bmiStatus))"
         }
@@ -113,6 +117,5 @@ extension TabBarViewController: ChangeTabBarDelegate {
     
     func updateTabBar() {
         setupTabBar()
-        
     }
 }

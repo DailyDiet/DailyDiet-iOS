@@ -35,9 +35,16 @@ extension DirectionsViewController: UITableViewDelegate, UITableViewDataSource {
         let cellData = directionList[indexPath.row]
         cell.stepLabel.text = "Step \(indexPath.row + 1)"
         cell.detailLabel.text = cellData.text
-        cell.detailLabel.sizeToFit()
-        cell.detailLabelHeight.constant = cell.detailLabel.frame.height
-        heightList[indexPath.row] = cell.detailLabel.frame.height + 20
+
+        cell.detailLabel.numberOfLines = 0
+        let maximumLabelSize: CGSize = CGSize(width: 280, height: 9999)
+        let expectedLabelSize: CGSize = cell.detailLabel.sizeThatFits(maximumLabelSize)
+        var newFrame: CGRect = cell.detailLabel.frame
+        newFrame.size.height = expectedLabelSize.height
+        cell.detailLabel.frame = newFrame
+
+        cell.containerViewHeight.constant = newFrame.height + 20
+        heightList[indexPath.row] = cell.detailLabel.frame.height + 40
             
         tableView.beginUpdates()
         tableView.endUpdates()

@@ -11,7 +11,11 @@ struct NetworkConstant {
     }
     
     struct APIParameterKey{
-
+        struct Search {
+            static let query = "query"
+            static let page = "page"
+            static let perPage = "per_page"
+        }
     }
 
     struct APIBodyKey{

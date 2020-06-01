@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,17 +60,65 @@
                                     <constraint firstAttribute="height" constant="50" id="iWg-ki-7Vt"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V11-CP-qSW">
+                                <rect key="frame" x="10" y="119" width="394" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lm3-iS-Hww">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQa-GA-EYQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="238" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYv-sn-vWw">
+                                                <rect key="frame" x="248" y="0.0" width="146" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8K1-Z2-gyH">
+                                        <rect key="frame" x="0.0" y="50" width="394" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYC-SS-JnE">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoK-rK-vLe">
+                                                <rect key="frame" x="197" y="0.0" width="197" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="JEv-Uj-sfN"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ydt-64-s5N" firstAttribute="leading" secondItem="C0l-uH-DfX" secondAttribute="leading" constant="10" id="Fft-Rj-74R"/>
+                            <constraint firstItem="V11-CP-qSW" firstAttribute="trailing" secondItem="ydt-64-s5N" secondAttribute="trailing" id="N4p-rA-dWw"/>
+                            <constraint firstItem="V11-CP-qSW" firstAttribute="top" secondItem="ydt-64-s5N" secondAttribute="bottom" constant="20" id="gVK-ZA-NdY"/>
                             <constraint firstItem="C0l-uH-DfX" firstAttribute="trailing" secondItem="ydt-64-s5N" secondAttribute="trailing" constant="10" id="hxJ-dw-2QQ"/>
                             <constraint firstItem="ydt-64-s5N" firstAttribute="top" secondItem="C0l-uH-DfX" secondAttribute="top" constant="5" id="isA-Aq-4zX"/>
+                            <constraint firstItem="V11-CP-qSW" firstAttribute="leading" secondItem="ydt-64-s5N" secondAttribute="leading" id="kUQ-r0-JGJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C0l-uH-DfX"/>
                     </view>
                     <connections>
+                        <outlet property="emailLabel" destination="PoK-rK-vLe" id="zHn-3H-N3z"/>
+                        <outlet property="fullNameLabel" destination="sYv-sn-vWw" id="3r3-uA-NdR"/>
                         <outlet property="modifyPasswordButton" destination="HT3-ae-dis" id="bIb-Ra-P2K"/>
+                        <outlet property="profileStackView" destination="V11-CP-qSW" id="ViM-Qq-ueB"/>
                         <outlet property="signInButton" destination="W1d-vq-IUd" id="FYG-sK-ETC"/>
                         <segue destination="kug-Lj-wTa" kind="presentation" identifier="SignInSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="ehd-9e-xfT"/>
                         <segue destination="awi-qg-9ab" kind="presentation" identifier="SignUpSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Ge0-6A-WR1"/>

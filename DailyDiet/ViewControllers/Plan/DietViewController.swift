@@ -43,19 +43,21 @@ class DietViewController: BaseViewController {
         let cell = (tableView.cellForRow(at: IndexPath(row: sender.tag, section: 0)) as! DietTableViewCell)
         if cell.isExpand {
             cell.isExpand = false
+            self.heightList[sender.tag] = 265
+            cell.detailViewHeight.constant = 0
             UIView.animate(withDuration: 0.5) {
-                self.heightList[sender.tag] = 265
-                cell.detailViewHeight.constant = 0
+
                 cell.detailView.isHidden = true
             }
             
         } else {
             cell.isExpand = true
+            cell.detailViewHeight.constant = 100
+            self.heightList[sender.tag] = 370
             UIView.animate(withDuration: 1) {
-                self.heightList[sender.tag] = 370
-                cell.detailViewHeight.constant = 100
                 cell.detailView.isHidden = false
             }
+
             
         }
         tableView.beginUpdates()

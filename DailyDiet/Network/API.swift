@@ -35,8 +35,8 @@ class API {
         return request(URLs.signIn(email: email, password: password))
     }
     
-    static func signUP(name: String, email: String, password: String) -> Observable<MessageResponse> {
-        return request(URLs.signup(fullName: name, email: email, password: password))
+    static func signUP(name: String, email: String, password: String, confirmPassword: String) -> Observable<MessageResponse> {
+        return request(URLs.signup(fullName: name, email: email, password: password, confirmPassword: confirmPassword))
     }
     
     static func signOut() -> Observable<EmptyResponse> {
@@ -47,12 +47,20 @@ class API {
         return request(URLs.auth)
     }
     
+    static func search(query: String, page:  Int, perPage: Int) -> Observable<Search> {
+        return request(URLs.search(text: query, page: page, pageItemCount: perPage))
+    }
+    
     static func getRecipe(foodID: Int) -> Observable<Recipe> {
         return request(URLs.getRecipe(foodID: foodID))
     }
     
     static func getDiet(mealsCount: Int, calorie: Int) -> Observable<Diet> {
         return request(URLs.getDiet(mealsCount: mealsCount, calorie: calorie))
+    }
+    
+    static func userInfo() -> Observable<UserInfo> {
+        return request(URLs.userInfo)
     }
     
     private static func request<T: Codable> (_ urlConvertible: URLRequestConvertible) -> Observable<T> {

@@ -64,7 +64,7 @@ extension SignUPViewController {
             signUpButton.backgroundColor = .darkGray
             APIDisposabelSignUp?.dispose()
             APIDisposabelSignUp = nil
-            APIDisposabelSignUp = API.signUP(name: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!)
+            APIDisposabelSignUp = API.signUP(name: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, confirmPassword: confirmPasswordTextField.text!)
                 .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
                 .subscribe(onNext: { (response) in
@@ -75,7 +75,7 @@ extension SignUPViewController {
                         
                         self.panToClose.animateDialogeDisappear {
                             DialogueHelper.showStatusBarErrorMessage(message: "Please check your inbox for the verification email", title: "Registered Successfully", image: UIImage.fontAwesomeIcon(name: .envelopeOpen, style: .solid,textColor: .black, size: CGSize(width: 30, height: 30)), .brandGreen)
-                            DashboardViewController.presentDelegate.showView(viewType: .SignIn)
+//                            DashboardViewController.presentDelegate.showView(viewType: .SignIn)
                         }
                     }
                     

@@ -10,19 +10,13 @@ import UIKit
 
 class DirectionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet var stepLabel: UILabel!
     @IBOutlet var detailLabel: UILabel!
-    @IBOutlet var detailLabelHeight: NSLayoutConstraint!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

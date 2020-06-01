@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		02F97D82D7DD3FCD05E18E10 /* Pods_DailyDiet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC996F4ADA8F260880EA09F /* Pods_DailyDiet.framework */; };
-		F50E1850247FF526009BEE50 /* SearchFoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */; };
+		F50E1850247FF526009BEE50 /* SearchFoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E184F247FF526009BEE50 /* SearchFoodTableViewCell.swift */; };
 		F50E1852248050B9009BEE50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1851248050B9009BEE50 /* LoginViewController.swift */; };
 		F50E1854248050E5009BEE50 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */; };
 		F51276A82482192700662A0E /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51276A72482192700662A0E /* DropDown.swift */; };
+		F5438955248539C200B0B750 /* ValueKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5438954248539C200B0B750 /* ValueKeeper.swift */; };
 		F5549E2E248111AC00A3BCF4 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */; };
 		F5549E332481483F00A3BCF4 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E322481483F00A3BCF4 /* DietViewController.swift */; };
 		F5549E352481486400A3BCF4 /* NutritionCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */; };
@@ -67,6 +68,7 @@
 		F5936B59247AF01C00B8A1E9 /* FoodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5936B58247AF01C00B8A1E9 /* FoodInfo.swift */; };
 		F5936B6C247AF7CB00B8A1E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5936B6A247AF7CB00B8A1E9 /* Main.storyboard */; };
 		F5936B6D247AF7CB00B8A1E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5936B6B247AF7CB00B8A1E9 /* LaunchScreen.storyboard */; };
+		F5CF63C2248386EC008FED8C /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CF63C1248386EC008FED8C /* Search.swift */; };
 		F5EAF41A247C28E900269810 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5EAF419247C28E900269810 /* Home.storyboard */; };
 		F5EAF41C247C2D0B00269810 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EAF41B247C2D0B00269810 /* TabBarViewController.swift */; };
 		F5EAF41E247C2D1500269810 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EAF41D247C2D1500269810 /* HomeViewController.swift */; };
@@ -79,10 +81,11 @@
 		4AC996F4ADA8F260880EA09F /* Pods_DailyDiet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyDiet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5EC1F19692EA4FD3667FE3 /* Pods-DailyDiet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDiet.release.xcconfig"; path = "Target Support Files/Pods-DailyDiet/Pods-DailyDiet.release.xcconfig"; sourceTree = "<group>"; };
 		EFA658285D1A79924F1D887F /* Pods-DailyDiet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDiet.debug.xcconfig"; path = "Target Support Files/Pods-DailyDiet/Pods-DailyDiet.debug.xcconfig"; sourceTree = "<group>"; };
-		F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		F50E184F247FF526009BEE50 /* SearchFoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodTableViewCell.swift; sourceTree = "<group>"; };
 		F50E1851248050B9009BEE50 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		F51276A72482192700662A0E /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
+		F5438954248539C200B0B750 /* ValueKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueKeeper.swift; sourceTree = "<group>"; };
 		F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
 		F5549E322481483F00A3BCF4 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCalculatorViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		F5936B58247AF01C00B8A1E9 /* FoodInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfo.swift; sourceTree = "<group>"; };
 		F5936B6A247AF7CB00B8A1E9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F5936B6B247AF7CB00B8A1E9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F5CF63C1248386EC008FED8C /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		F5EAF419247C28E900269810 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		F5EAF41B247C2D0B00269810 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F5EAF41D247C2D1500269810 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -181,7 +185,7 @@
 		F50E184E247FF4F2009BEE50 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				F50E184F247FF526009BEE50 /* SearchFoodCollectionViewCell.swift */,
+				F50E184F247FF526009BEE50 /* SearchFoodTableViewCell.swift */,
 				F5549E4A24819D6A00A3BCF4 /* DietTypeCollectionViewCell.swift */,
 				F5549E3D2481528E00A3BCF4 /* DietTableViewCell.swift */,
 				F5549E462481893C00A3BCF4 /* IngredientTableViewCell.swift */,
@@ -316,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				F5936B36247AD2B900B8A1E9 /* StoryboardName.swift */,
+				F5438954248539C200B0B750 /* ValueKeeper.swift */,
 				F5936B06247AD07600B8A1E9 /* Log.swift */,
 				F5936B05247AD07600B8A1E9 /* MainPagingViewController.swift */,
 				F51276A72482192700662A0E /* DropDown.swift */,
@@ -370,6 +375,7 @@
 				F5936B56247AEFC000B8A1E9 /* Recipe.swift */,
 				F5936B58247AF01C00B8A1E9 /* FoodInfo.swift */,
 				F5549E3B2481513A00A3BCF4 /* Diet.swift */,
+				F5CF63C1248386EC008FED8C /* Search.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -514,7 +520,7 @@
 				F5936B46247AD3AD00B8A1E9 /* StringHelper.swift in Sources */,
 				F5936B45247AD3AD00B8A1E9 /* SegueHelper.swift in Sources */,
 				F5936B37247AD2B900B8A1E9 /* StoryboardName.swift in Sources */,
-				F50E1850247FF526009BEE50 /* SearchFoodCollectionViewCell.swift in Sources */,
+				F50E1850247FF526009BEE50 /* SearchFoodTableViewCell.swift in Sources */,
 				F5EAF422247C2E0700269810 /* SearchViewController.swift in Sources */,
 				F5549E332481483F00A3BCF4 /* DietViewController.swift in Sources */,
 				F5936B25247AD0E200B8A1E9 /* UIImage.swift in Sources */,
@@ -527,6 +533,7 @@
 				F5936B07247AD07600B8A1E9 /* MainPagingViewController.swift in Sources */,
 				F5936B3B247AD38000B8A1E9 /* StoringData.swift in Sources */,
 				F5936B2F247AD0E200B8A1E9 /* UIFont.swift in Sources */,
+				F5438955248539C200B0B750 /* ValueKeeper.swift in Sources */,
 				F50E1852248050B9009BEE50 /* LoginViewController.swift in Sources */,
 				F5936B29247AD0E200B8A1E9 /* UIView.swift in Sources */,
 				F5936B44247AD3AD00B8A1E9 /* InteractionPanToClose.swift in Sources */,
@@ -549,6 +556,7 @@
 				F50E1854248050E5009BEE50 /* ChangePasswordViewController.swift in Sources */,
 				F5936B57247AEFC000B8A1E9 /* Recipe.swift in Sources */,
 				F5936B4F247AE9FF00B8A1E9 /* MessageResponse.swift in Sources */,
+				F5CF63C2248386EC008FED8C /* Search.swift in Sources */,
 				F5936B53247AEC3700B8A1E9 /* Auth.swift in Sources */,
 				F5EAF424247CD72700269810 /* SplashViewController.swift in Sources */,
 			);
@@ -685,7 +693,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alireza.DailyDiet;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alireza.Daily-Diet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
@@ -707,7 +715,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alireza.DailyDiet;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alireza.Daily-Diet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;

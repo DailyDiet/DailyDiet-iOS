@@ -23,6 +23,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet var panToClose: InteractionPanToClose!
     
     var APIDisposabelSignIn: Disposable!
+    var APIDisposableUserInfo: Disposable!
     var isFieldsFilled: Bool = false
     
     override func viewDidLoad() {
@@ -54,52 +55,87 @@ extension LoginViewController {
         Log.i()
         isFieldsFilled = (emailTextField.text != "") && (passwordTextField.text != "")
         if isFieldsFilled {
-        signInButton.isEnabled = false
-        signInButton.backgroundColor = .darkGray
-        APIDisposabelSignIn?.dispose()
-        APIDisposabelSignIn = nil
-        APIDisposabelSignIn = API.signIn(email: emailTextField.text!, password: passwordTextField.text!)
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .subscribe(onNext: { (response) in
-                Log.i("signIn => onNext => \(response)")
-                DispatchQueue.main.async {
-                    self.signInButton.isEnabled = true
-                    self.signInButton.backgroundColor = .brandBlue
+            signInButton.isEnabled = false
+            signInButton.backgroundColor = .darkGray
+            APIDisposabelSignIn?.dispose()
+            APIDisposabelSignIn = nil
+            APIDisposabelSignIn = API.signIn(email: emailTextField.text!, password: passwordTextField.text!)
+                .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                .subscribe(onNext: { (response) in
+                    Log.i("signIn => onNext => \(response)")
                     StoringData.token = response.accessToken
                     StoringData.refreshToken = response.refreshToken
                     StoringData.isLoggedIn = true
-                    self.panToClose.animateDialogeDisappear() {
-                        DashboardViewController.loginDelegate.updateLoginStatus()
+                    
+                    self.APIDisposableUserInfo?.dispose()
+                    self.APIDisposableUserInfo = nil
+                    self.APIDisposableUserInfo = API.userInfo()
+                        .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                        .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                        .subscribe(onNext: { (response) in
+                            Log.i("userInfo => onNext => \(response)")
+                            DispatchQueue.main.async {
+                                self.signInButton.isEnabled = true
+                                self.signInButton.backgroundColor = .brandBlue
+                                if response.confirmed == "True" {
+                                    ValueKeeper.User = UserInfo(confirmed: response.confirmed, email: response.email, fullName: response.fullName)
+                                    
+                                    self.panToClose.animateDialogeDisappear() {
+                                        DashboardViewController.loginDelegate.updateLoginStatus()
+                                    }
+                                } else if response.confirmed == "False"{
+                                    StoringData.token = ""
+                                    StoringData.refreshToken = ""
+                                    StoringData.isLoggedIn = false
+                                    
+                                    self.panToClose.animateDialogeDisappear() {
+                                        DashboardViewController.loginDelegate.updateLoginStatus()
+                                        DialogueHelper.showStatusBarErrorMessage(message: "Confirm your account with the link we sent to your email.")
+                                    }
+                                    
+                                }
+                            }
+                            
+                            //Login OK
+                        }, onError: { (error) in
+                            Log.e("userInfo => onError => \(error) => \((error as NSError).domain)")
+                            let customError = (error as NSError)
+                            print(customError.userInfo)
+                            DispatchQueue.main.async {
+                                self.signInButton.isEnabled = true
+                                self.signInButton.backgroundColor = .brandBlue
+                                StoringData.token = ""
+                                StoringData.refreshToken = ""
+                                StoringData.isLoggedIn = false
+                                DialogueHelper.showStatusBarErrorMessage(message: "Failed to sign in")
+                            }
+                        })
+                }, onError: { (error) in
+                    Log.e("signIn => onError => \(error) => \((error as NSError).domain)")
+                    let customError = (error as NSError)
+                    DispatchQueue.main.async {
+                        self.signInButton.isEnabled = true
+                        self.signInButton.backgroundColor = .brandBlue
+                        
                     }
-                }
-                
-                //Login OK
-            }, onError: { (error) in
-                Log.e("signIn => onError => \(error) => \((error as NSError).domain)")
-                let customError = (error as NSError)
-                DispatchQueue.main.async {
-                    self.signInButton.isEnabled = true
-                    self.signInButton.backgroundColor = .brandBlue
-                    DialogueHelper.showStatusBarErrorMessage(message: "Failed to sign in")
-                }
-                
-                switch customError.code {
-                case 403:
-                    if let errorMessage = customError.userInfo["error"] as? String {
-                        if errorMessage == "Email or Password does not match." {
-                            DialogueHelper.showStatusBarErrorMessage(message: errorMessage)
+                    
+                    switch customError.code {
+                    case 403:
+                        if let errorMessage = customError.userInfo["error"] as? String {
+                            if errorMessage == "Email or Password does not match." {
+                                DialogueHelper.showStatusBarErrorMessage(message: errorMessage)
+                            }
                         }
+                    case 400:
+                        if let errorJson = customError.userInfo["errors"] as? JSON {
+                            let errorMessage = errorJson.dictionary?["email"]?.string
+                            DialogueHelper.showStatusBarErrorMessage(message: errorMessage ?? "Error")
+                        }
+                    default:
+                        DialogueHelper.showStatusBarErrorMessage(message: "Failed to sign in")
                     }
-                case 400:
-                    if let errorJson = customError.userInfo["errors"] as? JSON {
-                        let errorMessage = errorJson.dictionary?["email"]?.string
-                        DialogueHelper.showStatusBarErrorMessage(message: errorMessage ?? "Error")
-                    }
-                default:
-                    DialogueHelper.showStatusBarErrorMessage(message: "Error")
-                }
-            })
+                })
         } else {
             showFillTheFieldsError()
         }
