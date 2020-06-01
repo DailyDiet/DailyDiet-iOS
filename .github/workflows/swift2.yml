@@ -51,6 +51,9 @@ jobs:
             -exportOptionsPlist $PWD/ci.plist \
             -exportPath $PWD/build
       - name: Publishing app
-        if: success()
-        run: |
-          xcrun altool --upload-app -t ios -f build/DailyDiet -u "${{ secrets.APPLEID_USERNAME }}" -p "${{ secrets.APPLEID_PASSWORD }}" --verbose
+        uses: apple-actions/upload-testflight-build@v1
+        with:
+          app-path: 'path/to/application.ipa`
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
