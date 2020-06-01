@@ -1,8 +1,11 @@
 #!/bin/sh
 set -eo pipefail
 
-gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/DailyDiet_Dist_profile.mobileprovision ./.github/secrets/profile.gpg
-gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Certificates.p12 ./.github/secrets/Certificates.gpg
+gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Certificates.p12 ./.github/secrets/profiles.gpg
+
+
+gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/DailyDiet_Dist_profile.mobileprovision ./.github/secrets/Certificates.gpg
+
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 
