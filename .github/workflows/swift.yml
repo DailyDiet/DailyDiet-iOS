@@ -8,11 +8,11 @@ jobs:
     name: Deploying to Testflight
     runs-on: macOS-latest
     steps:
-        - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v1
-        - name: Install gpg
+      - name: Install gpg
         run: brew install gnupg
-        - name: Setup provisioning profile
+      - name: Setup provisioning profile
         env:
             IOS_KEYS: ${{ secrets.IOS_KEYS }}
         run: ./secrets/decrypt_secrets.sh
@@ -20,11 +20,11 @@ jobs:
 #        run: sudo xcode-select -switch /Applications/Xcode_11.3.app
 #        - name: Xcode version
 #        run: /usr/bin/xcodebuild -version
-        - name: Build archive
+      - name: Build archive
         run: ./scripts/archive_app.sh
-        - name: Exporting .ipa
+      - name: Exporting .ipa
         run: ./scripts/export_ipa.sh
-        - name: Publishing app
+      - name: Publishing app
         if: success()
         env:
         APPLEID_USERNAME: ${{ secrets.APPLEID_USERNAME }}
