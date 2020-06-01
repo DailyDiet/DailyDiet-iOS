@@ -30,6 +30,8 @@ jobs:
         shell: bash
       - name: Setup provisioning profile
         run: ./secrets/decrypt_secrets.sh
+        env:
+          IOS_PROFILE_KEY: ${{ secrets.IOS_PROFILE_KEY }}
       - name: Build app
         run: |
           cd ios && xcodebuild archive \
