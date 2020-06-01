@@ -3,11 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
+	<dict/>
+	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>DailyDiet.xcscheme_^#shared#^_</key>
+		<key>F5936ADE247ACAE400B8A1E9</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>21</integer>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
