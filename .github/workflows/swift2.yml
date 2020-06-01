@@ -41,7 +41,7 @@ jobs:
             -configuration Release \
             -archivePath $PWD/build/DailyDiet.xcarchive \
             IPHONEOS_DEPLOYMENT_TARGET=11.0
-            PROVISIONING_PROFILE="DailyDiet/DailyDiet.entitlements" \
+            PROVISIONING_PROFILE="Developer_Profile" \
             CODE_SIGN_IDENTITY="iPhone Distribution: Aref Tarrah (AJLMAG95WU)"
       - name: Export app
         run: |
