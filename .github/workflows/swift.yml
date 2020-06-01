@@ -66,7 +66,5 @@ jobs:
             -exportPath $PWD/build
       - name: Publishing app
         if: success()
-        env:
-        APPLEID_USERNAME: ${{ secrets.APPLEID_USERNAME }}
-        APPLEID_PASSWORD: ${{ secrets.APPLEID_PASSWORD }}
-        run: ./scripts/publish_testflight.sh
+        run: |
+          xcrun altool --upload-app -t ios -f build/DailyDiet -u "${{ secrets.APPLEID_USERNAME }}" -p "${{ secrets.APPLEID_PASSWORD }}" --verbose
