@@ -9,7 +9,7 @@ gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./secrets/
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 
-cp ./.github/secrets/DailyDiet_Dist_profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/DailyDiet_Dist_profile.mobileprovision
+cp ./secrets/DailyDiet_Dist_profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/DailyDiet_Dist_profile.mobileprovision
 
 
 security create-keychain -p "" build.keychain
