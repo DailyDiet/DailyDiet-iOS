@@ -56,7 +56,7 @@ jobs:
           USERNAME: ${{ secrets.APPLEID_USERNAME }}
           PASSWORD: ${{ secrets.APPLEID_PASSWORD }}
         run: |
-           xcrun altool --upload-app -t ios -f build/DailyDiet.ipa --username "$USERNAME" --password  "$PASSWORD"--output-format normal
+           xcrun altool --upload-app -t ios -f build/DailyDiet.ipa --username "$USERNAME" --password  "$PASSWORD"
             
             
             
