@@ -43,7 +43,7 @@ jobs:
             IPHONEOS_DEPLOYMENT_TARGET=11.0
             PROVISIONING_PROFILE="Developer_Profile" \
             CODE_SIGN_IDENTITY="iPhone Distribution: Aref Tarrah (AJLMAG95WU)"
-        - name: Exporting .ipa
+      - name: Exporting .ipa
             run: |
               xcodebuild -archivePath $PWD/build/DailyDiet.xcarchive \
                 -exportOptionsPlist DailyDiet/ci.plist \
@@ -53,7 +53,7 @@ jobs:
       - name: Publishing app
         if: success()
         run: |
-           xcrun altool --upload-app -t ios -f build/helloworld.ipa -u ${{ secrets.APPLEID_USERNAME }} -p ${{ secrets.APPLEID_PASSWORD }} --verbose
+           xcrun altool --upload-app -t ios -f build/DailyDiet.ipa -u ${{ secrets.APPLEID_USERNAME }} -p ${{ secrets.APPLEID_PASSWORD }} --verbose
             
             
             
