@@ -43,14 +43,14 @@ jobs:
             IPHONEOS_DEPLOYMENT_TARGET=11.0
             PROVISIONING_PROFILE="Developer_Profile" \
             CODE_SIGN_IDENTITY="iPhone Distribution: Aref Tarrah (AJLMAG95WU)"
-        - name: Exporting .ipa
-            run: ./scripts/export_ipa.sh
-        - name: Publishing app
-            if: success()
-            env:
-                APPLEID_USERNAME: ${{ secrets.APPLEID_USERNAME }}
-                APPLEID_PASSWORD: ${{ secrets.APPLEID_PASSWORD }}
-               run: ./scripts/publish_testflight.sh
+      - name: Exporting .ipa
+        run: ./scripts/export_ipa.sh
+      - name: Publishing app
+        if: success()
+        env:
+           APPLEID_USERNAME: ${{ secrets.APPLEID_USERNAME }}
+           APPLEID_PASSWORD: ${{ secrets.APPLEID_PASSWORD }}
+           run: ./scripts/publish_testflight.sh
             
             
             
