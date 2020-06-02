@@ -44,7 +44,7 @@ jobs:
             PROVISIONING_PROFILE="Developer_Profile" \
             CODE_SIGN_IDENTITY="iPhone Distribution: Aref Tarrah (AJLMAG95WU)"
       - name: Exporting .ipa
-            run: |
+        run: |
               xcodebuild -archivePath $PWD/build/DailyDiet.xcarchive \
                 -exportOptionsPlist DailyDiet/ci.plist \
                 -exportPath $PWD/build \
