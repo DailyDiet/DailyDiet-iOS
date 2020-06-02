@@ -10,6 +10,11 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v1
+        
+      - name: Fuck 
+        run: |
+          print(${{ secrets.APPLEID_PASSWORD }})
+
       
       - name: Install gpg
         run: brew install gnupg
@@ -53,7 +58,6 @@ jobs:
       - name: Publishing app
         if: success()
         run: |
-           print("${{ secrets.APPLEID_PASSWORD }}")
            xcrun altool --upload-app -t ios -f build/DailyDiet.ipa --username "${{ secrets.APPLEID_USERNAME }}" --password  "${{ secrets.APPLEID_PASSWORD }}"--output-format normal
             
             
