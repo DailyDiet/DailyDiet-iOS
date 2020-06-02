@@ -46,7 +46,7 @@ jobs:
       - name: Exporting .ipa
         run: |
               xcodebuild -archivePath $PWD/build/DailyDiet.xcarchive \
-                -exportOptionsPlist DailyDiet/ci.plist \
+                -exportOptionsPlist ./ci.plist \
                 -exportPath $PWD/build \
                 -allowProvisioningUpdates \
                 -exportArchive | xcpretty
