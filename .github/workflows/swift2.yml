@@ -43,17 +43,30 @@ jobs:
             IPHONEOS_DEPLOYMENT_TARGET=11.0
             PROVISIONING_PROFILE="Developer_Profile" \
             CODE_SIGN_IDENTITY="iPhone Distribution: Aref Tarrah (AJLMAG95WU)"
-      - name: Export app
-        run: |
-          cd xcodebuild \
-            -exportArchive \
-            -archivePath $PWD/build/DailyDiet.xcarchive \
-            -exportOptionsPlist $PWD/ci.plist \
-            -exportPath $PWD/build
-      - name: Publishing app
-        uses: apple-actions/upload-testflight-build@v1
-        with:
-          app-path: 'path/to/application.ipa`
-          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
-          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
-          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
+        - name: Exporting .ipa
+            run: ./scripts/export_ipa.sh
+        - name: Publishing app
+            if: success()
+            env:
+                APPLEID_USERNAME: ${{ secrets.APPLEID_USERNAME }}
+                APPLEID_PASSWORD: ${{ secrets.APPLEID_PASSWORD }}
+               run: ./scripts/publish_testflight.sh
+            
+            
+            
+            
+            
+#      - name: Export app
+#        run: |
+#          cd xcodebuild \
+#            -exportArchive \
+#            -archivePath $PWD/build/DailyDiet.xcarchive \
+#            -exportOptionsPlist $PWD/ci.plist \
+#            -exportPath $PWD/build
+#      - name: Publishing app
+#        uses: apple-actions/upload-testflight-build@v1
+#        with:
+#          app-path: 'path/to/application.ipa`
+#          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+#          api-key-id: ${{ secrets.APPSTORE_API_KEY_ID }}
+#          api-private-key: ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
