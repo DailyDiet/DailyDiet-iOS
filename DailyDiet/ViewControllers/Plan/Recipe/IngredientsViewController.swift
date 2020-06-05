@@ -34,14 +34,15 @@ extension IngredientsViewController: UITableViewDelegate, UITableViewDataSource 
         let cellData = ingredientList[indexPath.row]
         
         cell.nameLabel.text = cellData.food.foodName
-        cell.amountLabel.text = "\(cellData.amount) \(cellData.units)"
+        cell.amountLabel.text = String(format: "%.3f \(cellData.units)", cellData.amount)
         if let preparation = cellData.preparation {
         cell.preparationLabel.text = preparation
             cell.preparationLabel.isHidden = false
         } else {
             cell.preparationLabel.isHidden = true
         }
-        cell.gramAmountLabel.text = "\(cellData.grams) grams"
+        cell.gramAmountLabel.text =  String(format: "%.3f grams", cellData.grams)
+        
         
         
         cell.ingredientImageView.sd_setImage(with: URL(string: cellData.food.primaryThumbnail))

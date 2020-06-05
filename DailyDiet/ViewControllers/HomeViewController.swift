@@ -104,7 +104,7 @@ class HomeViewController: BaseViewController {
         
         APIDisposableDiet?.dispose()
         APIDisposableDiet = nil
-        APIDisposableDiet = API.getDiet(mealsCount: mealsCount, calorie: Int(calorie    )!)
+        APIDisposableDiet = API.getDiet(mealsCount: mealsCountDropdown.selectedIndex ?? 0, calorie: Int(calorie    )!)
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .subscribe(onNext: { (response) in
@@ -112,13 +112,13 @@ class HomeViewController: BaseViewController {
                 DispatchQueue.main.async {
                     self.generateButton.isEnabled = true
                     self.generateButton.backgroundColor = .brandGreen
-                    
-                    var lst: [DietElement] = []
-                    for item in response.diet {
-                        if Diet.getDietJSON(item: item) != nil {
-                            lst.append(Diet.getDietJSON(item: item)!)
-                        }
+                    var lst: [DietClass] = []
+                    for i in 0..<response.diet.count {
+//                        if let dietItem = response.diet[i].encode(to: DietClass.self as! Encoder) {
+//                            lst.append(diet)
+//                        }
                     }
+                    
                     DietViewController.dietList = lst
                     TabBarViewController.changeTabBarDelegate.changeTabBarIndex(index: 0)
                 }
@@ -130,11 +130,8 @@ class HomeViewController: BaseViewController {
                     self.generateButton.isEnabled = true
                     self.generateButton.backgroundColor = .brandGreen
                 }
-                if customError.code == 404{
-                    DialogueHelper.showStatusBarErrorMessage(message: "Diet Not Fount")
-                } else {
-                    DialogueHelper.showStatusBarErrorMessage(message: "Failed to load diet data")
-                }
+                DialogueHelper.showStatusBarErrorMessage(message: customError.userInfo["error"] as? String ?? "Faiiled to load diet")
+
             })
     }
 }

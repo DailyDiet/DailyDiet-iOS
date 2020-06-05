@@ -108,7 +108,7 @@ extension DashboardViewController {
         Log.i()
         self.signInButton.isEnabled = false
         self.signInButton.borderColor = .darkGray
-        self.signInButton.backgroundColor = .darkGray
+        self.signInButton.setTitleColor(.darkGray, for: .normal)
         
         APIDisposableSignOut?.dispose()
         APIDisposableSignOut = nil
@@ -120,7 +120,7 @@ extension DashboardViewController {
                 DispatchQueue.main.async {
                     self.signInButton.isEnabled = true
                     self.signInButton.borderColor = .brandBlue
-                    self.signInButton.backgroundColor = .white
+                    self.signInButton.setTitleColor(.brandBlue, for: .normal)
                     StoringData.isLoggedIn = false
                     StoringData.password = ""
                     StoringData.email = ""

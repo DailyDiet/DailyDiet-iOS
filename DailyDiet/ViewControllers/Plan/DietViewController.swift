@@ -15,10 +15,7 @@ class DietViewController: BaseViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    static var dietList: [DietElement] = [
-        DietElement(id: 412923, category: "breakfast", image: "https://images.eatthismuch.com/site_media/img/412923_simmyras_ddc29085-a105-4a41-b99c-66c4d070afab.png", thumbnail: "https://images.eatthismuch.com/site_media/thmb/412923_simmyras_ddc29085-a105-4a41-b99c-66c4d070afab.png", title: "Greek Yogurt and Berry Parfait", nutrition: DietNutrition(calories: 344, fat: 10.6, fiber: 5.5, protein: 29.2)),
-        DietElement(id: 45429, category: "appetizers", image: "https://images.eatthismuch.com/site_media/img/45429_Shamarie84_dbb8c936-5488-44ca-b915-8b1771725f0f.png", thumbnail: "https://images.eatthismuch.com/site_media/thmb/45429_Shamarie84_dbb8c936-5488-44ca-b915-8b1771725f0f.png", title: "Fried Mozzarella Balls", nutrition: DietNutrition(calories: 3952, fat: 405.1, fiber: 3.6, protein: 50.4))
-    ]
+    static var dietList: [DietClass] = []
     var heightList: [CGFloat] = []
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
@@ -77,26 +74,26 @@ extension DietViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DietTableViewCell", for: indexPath) as! DietTableViewCell
         let cellData = DietViewController.dietList[indexPath.row]
         cell.moreButton.setImage(UIImage.fontAwesomeIcon(name: .infoCircle, style: .solid, textColor: .black, size: CGSize(width: 25, height: 25)), for: .normal)
-        
-        cell.nameLabel.text = cellData.title
-        cell.foodImageView.sd_setImage(with: URL(string: cellData.thumbnail))
-        
-        cell.calorieLabel.text = "\(cellData.nutrition.calories) Calories"
-        cell.fatLabel.text = "\(cellData.nutrition.fat)"
-        cell.fiberLabel.text = "\(cellData.nutrition.fiber)"
-        cell.proteinLabel.text = "\(cellData.nutrition.protein)"
+        print("HOOOOOOOO \(cellData)")
+//        cell.nameLabel.text = cellData.
+//        cell.foodImageView.sd_setImage(with: URL(string: cellData.thumbnail))
+//
+//        cell.calorieLabel.text = "\(cellData.nutrition.calories) Calories"
+//        cell.fatLabel.text = "\(cellData.nutrition.fat)"
+//        cell.fiberLabel.text = "\(cellData.nutrition.fiber)"
+//        cell.proteinLabel.text = "\(cellData.nutrition.protein)"
         
         cell.moreButton.tag = indexPath.row
 
-//        if cell.isExpand {
-//            heightList[indexPath.row] = 370
-//            cell.detailViewHeight.constant = 100
-//            cell.detailView.isHidden = false
-//        } else {
+        if cell.isExpand {
+            heightList[indexPath.row] = 370
+            cell.detailViewHeight.constant = 100
+            cell.detailView.isHidden = false
+        } else {
             heightList[indexPath.row] = 265
             cell.detailViewHeight.constant = 0
             cell.detailView.isHidden = true
-//        }
+        }
         
         
         
@@ -112,7 +109,7 @@ extension DietViewController: UITableViewDelegate, UITableViewDataSource {
         let cellData = DietViewController.dietList[indexPath.row]
         selectedIndex = indexPath
         let foodRecepieVC = FoodRecipeViewController.instantiateFromStoryboardName(storyboardName: .Plan)
-        foodRecepieVC.foodID = cellData.id
+//        foodRecepieVC.foodID = cellData.id
         SegueHelper.pushViewController(sourceViewController: self, destinationViewController: foodRecepieVC)
     }
 }
