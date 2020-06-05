@@ -9,8 +9,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install and run xcodegen
       run: |
-        brew install xcodegen
-        xcodegen generate
+        brew install fastlane
     - name: Run fastlane setup
       env:
         APPLE_ACCOUNT: ${{ secrets.APPLEID_USERNAME }}
