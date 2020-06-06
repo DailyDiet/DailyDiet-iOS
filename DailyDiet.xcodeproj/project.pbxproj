@@ -684,8 +684,8 @@
 			baseConfigurationReference = EFA658285D1A79924F1D887F /* Pods-DailyDiet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DailyDiet/DailyDiet.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ENTITLEMENTS = DailyDiet.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AJLMAG95WU;
 				INFOPLIST_FILE = DailyDiet/Info.plist;
@@ -709,8 +709,8 @@
 			baseConfigurationReference = BF5EC1F19692EA4FD3667FE3 /* Pods-DailyDiet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DailyDiet/DailyDiet.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_ENTITLEMENTS = DailyDiet.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AJLMAG95WU;
 				INFOPLIST_FILE = DailyDiet/Info.plist;
