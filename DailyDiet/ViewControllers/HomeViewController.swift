@@ -114,9 +114,7 @@ class HomeViewController: BaseViewController {
                     self.generateButton.backgroundColor = .brandGreen
                     var lst: [DietClass] = []
                     for i in 0..<response.diet.count {
-//                        if let dietItem = response.diet[i].encode(to: DietClass.self as! Encoder) {
-//                            lst.append(diet)
-//                        }
+
                     }
                     
                     DietViewController.dietList = lst

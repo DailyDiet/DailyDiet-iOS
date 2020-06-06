@@ -43,6 +43,7 @@ class API {
         return request(URLs.signOut)
     }
     
+    
     static func refreshToken() -> Observable<Auth> {
         return request(URLs.auth)
     }
