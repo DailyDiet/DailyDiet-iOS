@@ -11,9 +11,12 @@
 import Foundation
 
 lane :beta do
+
   build_app(scheme: "MyApp",
             workspace: "Example.xcworkspace",
-            include_bitcode: false)
+            include_bitcode: false,
+export_xcargs: "-allowProvisioningUpdates"
+)
   upload_to_testflight
   increment_build_number(build_number: number_of_commits)
   increment_build_number(xcodeproj: "Example.xcodeproj")
