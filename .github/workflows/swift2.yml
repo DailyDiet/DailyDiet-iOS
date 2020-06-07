@@ -1,7 +1,7 @@
 name: Deploy iOS to App Center
  
 on:
-push:
+ push:
   tags:
   - version*
  
