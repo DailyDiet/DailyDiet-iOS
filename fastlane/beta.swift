@@ -12,12 +12,18 @@ import Foundation
 
 lane :beta do
 
-  build_app(scheme: "MyApp",
-            workspace: "Example.xcworkspace",
-            include_bitcode: false,
-export_xcargs: "-allowProvisioningUpdates"
-)
-  upload_to_testflight
-  increment_build_number(build_number: number_of_commits)
-  increment_build_number(xcodeproj: "Example.xcodeproj")
+  increment_build_number(xcodeproj: './DailyDiet.xcodeproj')
+  gym(scheme: 'DailyDiet', workspace: './DailyDiet.xcworkspace')
+  deliver(
+    username: "aliireza12t@icloud.com",
+    team_id: 'AJLMAG95WU',
+    app_identifier: 'com.Alireza.Daily-Diet-X',
+    submit_for_review: true,
+    skip_metadata: true,
+    skip_binary_upload: false,
+    skip_screenshots: true,
+    skip_app_version_update: false,
+    force: true
+  )
+//  upload_to_testflight
 end
