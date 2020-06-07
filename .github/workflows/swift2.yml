@@ -19,7 +19,7 @@ jobs:
         TEAM_ID: ${{ secrets.TEAM_ID }}
       run: |
         export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD="eprr-bwug-vfjd-ofxi"
-        fastlane beta --verbose
+        fastlane beta
         
         
         
