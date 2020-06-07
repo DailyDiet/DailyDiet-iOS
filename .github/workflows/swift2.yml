@@ -15,10 +15,9 @@ jobs:
         brew install fastlane
     - name: Run fastlane setup
       env:
-        APPLE_ACCOUNT: ${{ secrets.APPLEID_USERNAME }}
-        TEAM_ID: ${{ secrets.TEAM_ID }}
+        APPLE_PASSWORD: ${{ secrets.APPLE_APPLICATION_SPECIFIC_PASSWORD }}
       run: |
-        export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD="eprr-bwug-vfjd-ofxi"
+        export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD="APPLE_PASSWORD"
         fastlane beta
         
         
