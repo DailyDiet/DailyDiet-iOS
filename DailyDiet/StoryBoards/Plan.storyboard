@@ -176,7 +176,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whK-Xg-8kc">
-                                                            <rect key="frame" x="158" y="8" width="236" height="77"/>
+                                                            <rect key="frame" x="158" y="8" width="231" height="77"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -184,9 +184,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="whK-Xg-8kc" secondAttribute="trailing" id="2cF-QT-cVs"/>
                                                         <constraint firstAttribute="bottom" secondItem="whK-Xg-8kc" secondAttribute="bottom" constant="5" id="693-Ge-7Nm"/>
                                                         <constraint firstItem="whK-Xg-8kc" firstAttribute="leading" secondItem="SN6-Ka-a3C" secondAttribute="trailing" constant="10" id="J8n-LG-hIy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="whK-Xg-8kc" secondAttribute="trailing" constant="5" id="O5s-B3-3be"/>
                                                         <constraint firstAttribute="height" constant="90" id="hoG-cY-qam"/>
                                                         <constraint firstItem="SN6-Ka-a3C" firstAttribute="leading" secondItem="Ga2-GR-S92" secondAttribute="leadingMargin" constant="5" id="wBx-Dq-OnI"/>
                                                         <constraint firstItem="SN6-Ka-a3C" firstAttribute="top" secondItem="Ga2-GR-S92" secondAttribute="topMargin" id="xfG-hg-9fH"/>

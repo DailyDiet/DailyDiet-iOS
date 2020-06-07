@@ -1,6 +1,9 @@
 name: Deploy iOS to App Center
  
-on: [push]
+on:
+push:
+  tags:
+  - version*
  
 jobs:
   build:
@@ -16,7 +19,7 @@ jobs:
         TEAM_ID: ${{ secrets.TEAM_ID }}
       run: |
         export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD="eprr-bwug-vfjd-ofxi"
-        fastlane beta
+        bundle exec fastlane beta --verbose
         
         
         
