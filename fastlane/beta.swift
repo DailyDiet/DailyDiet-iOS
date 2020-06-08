@@ -12,12 +12,11 @@ import Foundation
 
 lane :beta do
 
-  increment_build_number(xcodeproj: './DailyDiet.xcodeproj')
-  gym(scheme: 'DailyDiet', workspace: './DailyDiet.xcworkspace')
+  increment_build_number(xcodeproj: "./DailyDiet.xcodeproj")
+  gym(scheme: "DailyDiet", workspace: "./DailyDiet.xcworkspace")
   deliver(
     username: "aliireza12t@icloud.com",
-    team_id: 'AJLMAG95WU',
-    app_identifier: 'com.Alireza.Daily-Diet-X',
+    app_identifier: "com.Alireza.Daily-Diet-X",
     submit_for_review: true,
     skip_metadata: true,
     skip_binary_upload: false,
