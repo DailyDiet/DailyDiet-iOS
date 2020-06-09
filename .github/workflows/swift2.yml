@@ -13,6 +13,8 @@ jobs:
     - name: Install and run xcodegen
       run: |
         brew install fastlane
+        gem install bundler
+        bundle install
     - name: Run fastlane setup
       env:
         APPLE_PASSWORD: ${{ secrets.APPLE_APPLICATION_SPECIFIC_PASSWORD }}
@@ -22,6 +24,13 @@ jobs:
         
         
         
+        
+        
+        
+
+
+
+
         
         
     
