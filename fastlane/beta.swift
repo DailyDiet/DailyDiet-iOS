@@ -12,17 +12,23 @@ import Foundation
 
 lane :beta do
 
-  increment_build_number(xcodeproj: "./DailyDiet.xcodeproj")
-  gym(scheme: "DailyDiet", workspace: "./DailyDiet.xcworkspace")
-  deliver(
-    username: "aliireza12t@icloud.com",
-    app_identifier: "com.Alireza.Daily-Diet-X",
-    submit_for_review: true,
-    skip_metadata: true,
-    skip_binary_upload: false,
-    skip_screenshots: true,
-    skip_app_version_update: false,
-    force: true
-  )
-//  upload_to_testflight
+increment_build_number(xcodeproj: "./.xcodeproj")
+
+sync_code_signing
+disable_automatic_code_signing(path: "DailyDiet.xcworkspace")
+build_app
+enable_automatic_code_signing(path: "DailyDiet.xcworkspace")
+upload_to_testflight
+//  gym(scheme: "DailyDiet", workspace: "./DailyDiet.xcworkspace")
+//  deliver(
+//    username: "aliireza12t@icloud.com",
+//    app_identifier: "com.Alireza.Daily-Diet-X",
+//    submit_for_review: true,
+//    skip_metadata: true,
+//    skip_binary_upload: false,
+//    skip_screenshots: true,
+//    skip_app_version_update: false,
+//    force: true
+//  )
+////  upload_to_testflight
 end
