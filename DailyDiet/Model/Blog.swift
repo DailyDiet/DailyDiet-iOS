@@ -9,23 +9,19 @@
 import Foundation
 
 
-
 // MARK: - BlogValue
 struct BlogValue: Codable {
     var authorEmail, authorFullname, category, content: String
-    var currentUserMail, slug, summary, title: String
+    var slug, summary, title: String
 
     enum CodingKeys: String, CodingKey {
         case authorEmail = "author_email"
         case authorFullname = "author_fullname"
-        case category, content
-        case currentUserMail = "current_user_mail"
-        case slug, summary, title
+        case category, content, slug, summary, title
     }
 }
 
 typealias Blog = [String: BlogValue]
-
 
 
 // MARK: - BlogItem

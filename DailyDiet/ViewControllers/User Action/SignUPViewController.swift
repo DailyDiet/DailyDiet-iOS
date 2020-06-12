@@ -71,10 +71,10 @@ extension SignUPViewController {
                     Log.i("signUP => onNext => \(response)")
                     DispatchQueue.main.async {
                         self.signUpButton.isEnabled = true
-                        self.signUpButton.backgroundColor = .brandBlue
+                        self.signUpButton.backgroundColor = .brandOrange
                         
                         self.panToClose.animateDialogeDisappear {
-                            DialogueHelper.showStatusBarErrorMessage(message: "Please check your inbox for the verification email", title: "Registered Successfully", image: UIImage.fontAwesomeIcon(name: .envelopeOpen, style: .solid,textColor: .black, size: CGSize(width: 30, height: 30)), .brandGreen)
+                            DialogueHelper.showStatusBarErrorMessage(message: "Please check your inbox for the verification email", title: "Registered Successfully", image: UIImage.fontAwesomeIcon(name: .envelopeOpen, style: .solid,textColor: .black, size: CGSize(width: 30, height: 30)), .darkGreen)
 //                            DashboardViewController.presentDelegate.showView(viewType: .SignIn)
                         }
                     }
@@ -85,7 +85,7 @@ extension SignUPViewController {
                     let customError = (error as NSError)
                     DispatchQueue.main.async {
                         self.signUpButton.isEnabled = true
-                        self.signUpButton.backgroundColor = .brandBlue
+                        self.signUpButton.backgroundColor = .brandOrange
                         
                         let errorList = customError.userInfo["errors"] as? [String : [String]]
                         if let emailError = errorList?["email"]?[0] {

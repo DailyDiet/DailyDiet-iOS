@@ -77,7 +77,7 @@ extension LoginViewController {
                             Log.i("userInfo => onNext => \(response)")
                             DispatchQueue.main.async {
                                 self.signInButton.isEnabled = true
-                                self.signInButton.backgroundColor = .brandBlue
+                                self.signInButton.backgroundColor = .brandOrange
                                 if response.confirmed == "True" {
                                     ValueKeeper.User = UserInfo(confirmed: response.confirmed, email: response.email, fullName: response.fullName)
                                     
@@ -104,7 +104,7 @@ extension LoginViewController {
                             print(customError.userInfo)
                             DispatchQueue.main.async {
                                 self.signInButton.isEnabled = true
-                                self.signInButton.backgroundColor = .brandBlue
+                                self.signInButton.backgroundColor = .brandOrange
                                 StoringData.token = ""
                                 StoringData.refreshToken = ""
                                 StoringData.isLoggedIn = false
@@ -116,7 +116,7 @@ extension LoginViewController {
                     let customError = (error as NSError)
                     DispatchQueue.main.async {
                         self.signInButton.isEnabled = true
-                        self.signInButton.backgroundColor = .brandBlue
+                        self.signInButton.backgroundColor = .brandOrange
                         
                     }
                     

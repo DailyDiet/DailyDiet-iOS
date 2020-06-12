@@ -55,10 +55,13 @@ class TabBarViewController: BaseViewController {
         titlesArray.append("Home")
         viewControllerArray.append(homeVC)
         
+        let blogVC = BlogViewController.instantiateFromStoryboardName(storyboardName: .Blog)
+        titlesArray.append("Blog")
+        viewControllerArray.append(blogVC)
+        
         let dashboardVC = DashboardViewController.instantiateFromStoryboardName(storyboardName: .UserAction)
         titlesArray.append("Dashboard")
         viewControllerArray.append(dashboardVC)
-        
         return (titlesArray, viewControllerArray)
     }
     

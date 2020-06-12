@@ -25,11 +25,12 @@ enum URLs: APIConfiguration {
     case blog
     case blogItem(slug: String)
     case postBlogItem(category: String, content: String, slug: String, summary: String, title:  String)
-    case deleteBlogItem(postID: Int)
+    case deleteBlogItem(postID: String)
+    case myBlogItems
     
     var METHOD: HTTPMethod {
         switch self {
-        case .confirmSignup, .resendConfirmationLink, .getRecipe, .foodInfo, .getDiet, .search, .userInfo, .blog, .blogItem:
+        case .confirmSignup, .resendConfirmationLink, .getRecipe, .foodInfo, .getDiet, .search, .userInfo, .blog, .blogItem, .myBlogItems:
             return .get
         case .auth:
             return .put
@@ -89,6 +90,8 @@ enum URLs: APIConfiguration {
             return BaseURL + "/blog/posts/new/"
         case .deleteBlogItem(let postID):
             return BaseURL + "/posts/delete/\(postID)"
+        case .myBlogItems:
+            return BaseURL + "/blog/posts/user"
         }
     }
     
@@ -126,18 +129,6 @@ enum URLs: APIConfiguration {
         case .calculateCalorie(let goal, let gender, let height, let weight, let age, let activity):
             urlRequest.httpBody = "goal=\(goal)&gender=\(gender)&height=\(height)&weight=\(weight)&age=\(age)&activity=\(activity)".data(using: .utf8)!
         case .signup(let fullName, let email, let password, let confirmPassword):
-            //            let json: [String: Any] = [
-            //                "full_name": fullName,
-            //                "email": email,
-            //                "password": password,
-            //                "confirm_password": password
-            //            ]
-            //            Log.i("HTTP Body =>  \(json)")
-            //            do {
-            //                  urlRequest.httpBody = try JSONSerialization.data(withJSONObject: json)
-            //              } catch let error {
-            //                  Log.e(error.localizedDescription)
-            //              }
             urlRequest.httpBody = "full_name=\(fullName)&email=\(email)&password=\(password)&confirm_password=\(confirmPassword)".data(using: .utf8)!
         case .signIn(let email, let password):
             urlRequest.httpBody = "email=\(email)&password=\(password)".data(using: .utf8)!
@@ -150,7 +141,6 @@ enum URLs: APIConfiguration {
         }
         
         
-        let token: String = StoringData.token
         switch self {
         case .auth:
             urlRequest.setValue("Bearer \(StoringData.refreshToken)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
@@ -159,6 +149,8 @@ enum URLs: APIConfiguration {
         case .changePassword:
             urlRequest.setValue(NetworkConstant.ContentType.urlencoded, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
             urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
+        case .blog,  .blogItem:
+            break
         default:
             urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
         }

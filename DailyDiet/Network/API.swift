@@ -96,7 +96,7 @@ class API {
                         completion(responseArray)
                     }
                     
-                case .failure(let _):
+                case .failure( _):
                     API.callRefreshToken()
                     DialogueHelper.showStatusBarErrorMessage(message: "Try Again")
                     completion([])
@@ -116,7 +116,7 @@ class API {
         return request(URLs.blog)
     }
     
-    static func blogItem(slug: String) -> Observable<BlogItem> {
+    static func blogItem(slug: String) -> Observable<Blog> {
         return request(URLs.blogItem(slug: slug))
     }
     
@@ -124,8 +124,12 @@ class API {
         return request(URLs.postBlogItem(category: category, content: content, slug: slug, summary: summary, title: title))
     }
     
-    static func deleteBlogItem(itemID: Int) -> Observable<UserInfo> {
+    static func deleteBlogItem(itemID: String) -> Observable<EmptyResponse> {
         return request(URLs.deleteBlogItem(postID: itemID))
+    }
+    
+    static func myBlogPosts() -> Observable<MyBlogItemList> {
+        return request(URLs.myBlogItems)
     }
     
     static func callRefreshToken() {

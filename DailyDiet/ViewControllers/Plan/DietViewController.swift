@@ -67,6 +67,11 @@ class DietViewController: BaseViewController {
 
 extension DietViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if DietViewController.dietList.count == 0 {
+            tableView.tableHeaderView?.isHidden = false
+        } else {
+            tableView.tableHeaderView?.isHidden = true
+        }
         return DietViewController.dietList.count
     }
     

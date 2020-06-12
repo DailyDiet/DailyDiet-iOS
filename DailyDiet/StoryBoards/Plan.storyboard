@@ -401,9 +401,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="06V-sQ-JYH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FZf-Kx-vrT">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DietTableViewCell" rowHeight="370" id="0XL-C9-hDq" customClass="DietTableViewCell" customModule="DailyDiet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="370"/>
+                                        <rect key="frame" x="0.0" y="72" width="320" height="370"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0XL-C9-hDq" id="KQF-kY-Hqx">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
@@ -685,7 +692,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3r-Qh-vzk">
-                                        <rect key="frame" x="100.5" y="49" width="89" height="18"/>
+                                        <rect key="frame" x="100" y="49" width="88.5" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="Vnt-ZK-sNa"/>
                                             <constraint firstAttribute="width" constant="88.666666666666657" id="kNe-ex-w0G"/>
@@ -745,6 +752,7 @@
                                     <constraint firstItem="faa-pF-9SX" firstAttribute="centerY" secondItem="uiP-F2-Ca6" secondAttribute="centerY" id="16W-fJ-782"/>
                                     <constraint firstItem="8EQ-mY-hwX" firstAttribute="top" secondItem="7b0-nC-X8I" secondAttribute="bottom" constant="25" id="6UK-8F-mXD"/>
                                     <constraint firstAttribute="bottom" secondItem="8EQ-mY-hwX" secondAttribute="bottom" constant="25" id="AWv-jE-iQv"/>
+                                    <constraint firstItem="i3r-Qh-vzk" firstAttribute="leading" secondItem="7b0-nC-X8I" secondAttribute="leading" id="Cq7-vu-4Kv"/>
                                     <constraint firstItem="MuJ-DQ-YcC" firstAttribute="centerY" secondItem="7b0-nC-X8I" secondAttribute="centerY" id="D8y-Gg-4C1"/>
                                     <constraint firstItem="7b0-nC-X8I" firstAttribute="height" secondItem="lh0-Gb-5W6" secondAttribute="height" id="DeC-ca-9Da"/>
                                     <constraint firstItem="lh0-Gb-5W6" firstAttribute="centerY" secondItem="uTK-hU-MtV" secondAttribute="centerY" id="Ea5-g4-tgc"/>
@@ -760,7 +768,6 @@
                                     <constraint firstAttribute="trailing" secondItem="8EQ-mY-hwX" secondAttribute="trailing" constant="20" id="j48-8G-X3l"/>
                                     <constraint firstAttribute="trailing" secondItem="7b0-nC-X8I" secondAttribute="trailing" constant="10" id="pez-nQ-eqJ"/>
                                     <constraint firstItem="8EQ-mY-hwX" firstAttribute="leading" secondItem="9pt-hM-m2R" secondAttribute="leading" constant="20" id="xKy-tR-EKr"/>
-                                    <constraint firstItem="i3r-Qh-vzk" firstAttribute="centerX" secondItem="9pt-hM-m2R" secondAttribute="centerX" id="xnS-tX-Lcf"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

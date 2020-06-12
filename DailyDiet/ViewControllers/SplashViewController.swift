@@ -34,6 +34,7 @@ class SplashViewController: BaseViewController {
                 DispatchQueue.main.async {
                     StoringData.token = response.accessToken
                     StoringData.isLoggedIn = true
+                    
                     self.navigationController?.viewControllers = [TabBarViewController.instantiateFromStoryboardName(storyboardName: .Home)]
                 }
                 
@@ -44,6 +45,7 @@ class SplashViewController: BaseViewController {
                     StoringData.token = ""
                     StoringData.refreshToken = ""
                     StoringData.isLoggedIn = false
+
                     self.navigationController?.viewControllers = [TabBarViewController.instantiateFromStoryboardName(storyboardName: .Home)]
                 }
 

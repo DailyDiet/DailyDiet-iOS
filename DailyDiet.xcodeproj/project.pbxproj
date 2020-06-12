@@ -13,7 +13,13 @@
 		F50E1854248050E5009BEE50 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */; };
 		F51276A82482192700662A0E /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51276A72482192700662A0E /* DropDown.swift */; };
 		F5438955248539C200B0B750 /* ValueKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5438954248539C200B0B750 /* ValueKeeper.swift */; };
+		F54A50A92493B1F800B897F4 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54A50A82493B1F800B897F4 /* AboutUsViewController.swift */; };
+		F54A50AB2493B48D00B897F4 /* MyBlog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54A50AA2493B48D00B897F4 /* MyBlog.swift */; };
+		F54A50AD2493B51D00B897F4 /* BlogItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54A50AC2493B51D00B897F4 /* BlogItemTableViewCell.swift */; };
 		F54BCAA12493402B0067696C /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BCAA02493402B0067696C /* Blog.swift */; };
+		F54BCAA32493A8DF0067696C /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F54BCAA22493A8DF0067696C /* Blog.storyboard */; };
+		F54BCAA52493A9FD0067696C /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BCAA42493A9FD0067696C /* BlogViewController.swift */; };
+		F54BCAA82493AA190067696C /* PostBlogItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BCAA72493AA190067696C /* PostBlogItemViewController.swift */; };
 		F5549E2E248111AC00A3BCF4 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */; };
 		F5549E332481483F00A3BCF4 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E322481483F00A3BCF4 /* DietViewController.swift */; };
 		F5549E352481486400A3BCF4 /* NutritionCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */; };
@@ -87,7 +93,13 @@
 		F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		F51276A72482192700662A0E /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		F5438954248539C200B0B750 /* ValueKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueKeeper.swift; sourceTree = "<group>"; };
+		F54A50A82493B1F800B897F4 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		F54A50AA2493B48D00B897F4 /* MyBlog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBlog.swift; sourceTree = "<group>"; };
+		F54A50AC2493B51D00B897F4 /* BlogItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogItemTableViewCell.swift; sourceTree = "<group>"; };
 		F54BCAA02493402B0067696C /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
+		F54BCAA22493A8DF0067696C /* Blog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Blog.storyboard; sourceTree = "<group>"; };
+		F54BCAA42493A9FD0067696C /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
+		F54BCAA72493AA190067696C /* PostBlogItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBlogItemViewController.swift; sourceTree = "<group>"; };
 		F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
 		F5549E322481483F00A3BCF4 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCalculatorViewController.swift; sourceTree = "<group>"; };
@@ -192,8 +204,18 @@
 				F5549E3D2481528E00A3BCF4 /* DietTableViewCell.swift */,
 				F5549E462481893C00A3BCF4 /* IngredientTableViewCell.swift */,
 				F5549E482481895500A3BCF4 /* DirectionTableViewCell.swift */,
+				F54A50AC2493B51D00B897F4 /* BlogItemTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		F54BCAA62493AA060067696C /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				F54BCAA42493A9FD0067696C /* BlogViewController.swift */,
+				F54BCAA72493AA190067696C /* PostBlogItemViewController.swift */,
+			);
+			name = Blog;
 			sourceTree = "<group>";
 		};
 		F5549E2F248147F900A3BCF4 /* User Action */ = {
@@ -202,6 +224,7 @@
 				F50E1851248050B9009BEE50 /* LoginViewController.swift */,
 				F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */,
 				F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */,
+				F54A50A82493B1F800B897F4 /* AboutUsViewController.swift */,
 			);
 			path = "User Action";
 			sourceTree = "<group>";
@@ -288,6 +311,7 @@
 				F5549E4C2481A8DA00A3BCF4 /* BMIViewController.swift */,
 				F5549E302481480100A3BCF4 /* TabBar */,
 				F5549E312481482900A3BCF4 /* Search */,
+				F54BCAA62493AA060067696C /* Blog */,
 				F5549E2F248147F900A3BCF4 /* User Action */,
 				F5549E3A24814C7600A3BCF4 /* Plan */,
 			);
@@ -301,6 +325,7 @@
 				F5936B6A247AF7CB00B8A1E9 /* Main.storyboard */,
 				F5549E3824814BEA00A3BCF4 /* UserAction.storyboard */,
 				F5EAF419247C28E900269810 /* Home.storyboard */,
+				F54BCAA22493A8DF0067696C /* Blog.storyboard */,
 				F5549E3624814B5000A3BCF4 /* Plan.storyboard */,
 			);
 			path = StoryBoards;
@@ -379,6 +404,7 @@
 				F5549E3B2481513A00A3BCF4 /* Diet.swift */,
 				F5CF63C1248386EC008FED8C /* Search.swift */,
 				F54BCAA02493402B0067696C /* Blog.swift */,
+				F54A50AA2493B48D00B897F4 /* MyBlog.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -449,6 +475,7 @@
 				F5936B6C247AF7CB00B8A1E9 /* Main.storyboard in Resources */,
 				F5549E3724814B5000A3BCF4 /* Plan.storyboard in Resources */,
 				F5EAF41A247C28E900269810 /* Home.storyboard in Resources */,
+				F54BCAA32493A8DF0067696C /* Blog.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +555,7 @@
 				F5549E332481483F00A3BCF4 /* DietViewController.swift in Sources */,
 				F5936B25247AD0E200B8A1E9 /* UIImage.swift in Sources */,
 				F5936B49247AE2D100B8A1E9 /* BMI.swift in Sources */,
+				F54A50AB2493B48D00B897F4 /* MyBlog.swift in Sources */,
 				F5936B2D247AD0E200B8A1E9 /* UIColor.swift in Sources */,
 				F5549E492481895500A3BCF4 /* DirectionTableViewCell.swift in Sources */,
 				F5549E402481643F00A3BCF4 /* FoodRecipeViewController.swift in Sources */,
@@ -538,10 +566,14 @@
 				F5936B2F247AD0E200B8A1E9 /* UIFont.swift in Sources */,
 				F5438955248539C200B0B750 /* ValueKeeper.swift in Sources */,
 				F50E1852248050B9009BEE50 /* LoginViewController.swift in Sources */,
+				F54A50AD2493B51D00B897F4 /* BlogItemTableViewCell.swift in Sources */,
 				F5936B29247AD0E200B8A1E9 /* UIView.swift in Sources */,
+				F54BCAA82493AA190067696C /* PostBlogItemViewController.swift in Sources */,
 				F5936B44247AD3AD00B8A1E9 /* InteractionPanToClose.swift in Sources */,
+				F54A50A92493B1F800B897F4 /* AboutUsViewController.swift in Sources */,
 				F54BCAA12493402B0067696C /* Blog.swift in Sources */,
 				F5936B30247AD0E200B8A1E9 /* UIViewController.swift in Sources */,
+				F54BCAA52493A9FD0067696C /* BlogViewController.swift in Sources */,
 				F5936B43247AD3AD00B8A1E9 /* DialogueHelper.swift in Sources */,
 				F5936AE3247ACAE400B8A1E9 /* AppDelegate.swift in Sources */,
 				F5936B39247AD2EC00B8A1E9 /* BaseViewController.swift in Sources */,
@@ -691,7 +723,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = AJLMAG95WU;
 				INFOPLIST_FILE = DailyDiet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -717,7 +749,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = AJLMAG95WU;
 				INFOPLIST_FILE = DailyDiet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
