@@ -2,4 +2,4 @@
 
 You can download it from testflight :
 
-https://testflight.apple.com/join/EqEVB3y3
+https://testflight.apple.com/join/iukz5jSv
