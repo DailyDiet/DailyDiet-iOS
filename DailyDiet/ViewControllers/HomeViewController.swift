@@ -48,7 +48,7 @@ class HomeViewController: BaseViewController {
     
     override func configureViews() {
         setupDropDown()
-        generateButton.backgroundColor = .brandGreen
+        generateButton.backgroundColor = .brandOrange
         
         notSureButton.setImage(UIImage.fontAwesomeIcon(name: .calculator, style: .solid, textColor: .brandOrange, size: CGSize(width: 15, height: 15)), for: .normal)
         notSureButton.setTitleColor(.brandOrange, for: .normal)

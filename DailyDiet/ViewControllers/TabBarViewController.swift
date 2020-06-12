@@ -66,7 +66,7 @@ class TabBarViewController: BaseViewController {
         Log.i()
         (titles, viewControllers) = makeArrays()
         pagingViewController = MainPagingViewController(viewControllers: viewControllers)
-        pagingViewController.configure(backgroundColor: .gray85, indicatorColor: .brandGreen)
+        pagingViewController.configure(backgroundColor: .brandOrange, indicatorColor: .brandGreen)
         pagingViewController.dataSource = self
         pagingViewController.delegate = self
         pagingViewController.menuItemSpacing = 15

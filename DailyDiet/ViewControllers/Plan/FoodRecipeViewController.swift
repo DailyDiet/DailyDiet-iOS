@@ -89,7 +89,7 @@ class FoodRecipeViewController: BaseViewController {
         Log.i()
         (titles, viewControllers) = makeArrays()
         let pagingViewController = MainPagingViewController(viewControllers: viewControllers)
-        pagingViewController.configure(backgroundColor: .clear, indicatorColor: .darkGray)
+        pagingViewController.configure(backgroundColor: .clear, indicatorColor: .brandGreen)
         pagingViewController.dataSource = self
         pagingViewController.delegate = self
         pagingViewController.menuItemSpacing = 15

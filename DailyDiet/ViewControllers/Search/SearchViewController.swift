@@ -35,6 +35,7 @@ class SearchViewController: BaseViewController {
     }
     
     func doSearchAction(page: Int, count: Int = 10){
+        tableView.tableHeaderView?.isHidden = false
         if let text = searchTextField.text {
             if text.count >= 3{
                 let searchText: String = searchTextField.text!
@@ -46,6 +47,7 @@ class SearchViewController: BaseViewController {
                     .subscribe(onNext: { (response) in
                         Log.i("search => onNext => \(response)")
                         DispatchQueue.main.async {
+                            self.tableView.tableHeaderView?.isHidden = true
                             self.searchResult += response.results
                             self.total = response.totalResultsCount
                             self.isLoadingMore = false
@@ -56,7 +58,9 @@ class SearchViewController: BaseViewController {
                         Log.e("search => onError => \(error) => \((error as NSError).domain)")
                         let customError = (error as NSError)
                         self.isLoadingMore = false
-                        
+                        DispatchQueue.main.async {
+                            self.tableView.tableHeaderView?.isHidden = true
+                        }
                         
                         if let error = (customError.userInfo["error"] as? String) {
                             if error == "" {
