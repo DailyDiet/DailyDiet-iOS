@@ -199,7 +199,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gcl-rc-xk4">
                                                             <rect key="frame" x="10" y="65" width="305" height="20"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTF-8S-Vvw">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lTF-8S-Vvw">
                                                                     <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="20"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                     <nil key="textColor"/>
@@ -1470,7 +1470,7 @@
         <image name="close" width="17" height="17"/>
         <image name="lock.open" catalog="system" width="128" height="112"/>
         <namedColor name="brandGreen">
-            <color red="0.65499997138977051" green="0.76499998569488525" blue="0.30199998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.14901960784313725" green="0.20000000000000001" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="brandOrange">
             <color red="0.93300002813339233" green="0.49799999594688416" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

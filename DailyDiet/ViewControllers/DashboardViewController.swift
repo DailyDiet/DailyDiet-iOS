@@ -263,8 +263,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentLabel.sizeToFit()
         cell.contentViewHeight.constant = cell.contentLabel.frame.height + 10
         
-        expandedCellHeights[indexPath.row] = 250 + cell.summaryLabelHeight.constant +  cell.contentViewHeight.constant
-        cellHeights[indexPath.row] = 220 + cell.summaryLabelHeight.constant + 30
+        
+        expandedCellHeights[indexPath.row] = 220 + cell.summaryLabelHeight.constant +  cell.contentViewHeight.constant
+        cellHeights[indexPath.row] = 220 + cell.summaryLabelHeight.constant
         shownCellHeight[indexPath.row] =  cell.isExpand ? expandedCellHeights[indexPath.row] : cellHeights[indexPath.row]
         
         if cell.isExpand {
