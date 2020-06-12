@@ -26,42 +26,22 @@ protocol CalorieDelegate {
 
 class HomeViewController: BaseViewController {
     
+    @IBOutlet weak var notSureButton: UIButton!
     @IBOutlet var mealsCountDropdown: iOSDropDown!
     @IBOutlet var calorieAmountLabel: UILabel!
-    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var generateButton: DesignableButton!
     @IBOutlet var calorieStepper: UIStepper!
-
-    static var delegate: CalorieDelegate!
-    var selectedItem: IndexPath!
-    var selectedDietType: DietType? = nil
-    var mealsCount: Int = 1
     
-    var cellWidth: [CGFloat] = []
+    static var delegate: CalorieDelegate!
+    var mealsCount: Int = 1
     
     var APIDisposableDiet: Disposable!
     
-    var dietTypeList: [DietType] = [
-        DietType.sandwich,
-        DietType.paleo,
-        DietType.broccoli,
-        DietType.vegan,
-        DietType.noGluten,
-        DietType.olive
-    ]
-    
-    var collectionList: [String] = ["vegan", "noGluten", "olive", "paleo", "sandwich", "broccoli"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-//        collectionView.de
         HomeViewController.delegate = self
         
-        for _ in 0..<dietTypeList.count {
-            cellWidth.append(100)
-        }
     }
     
     
@@ -69,6 +49,9 @@ class HomeViewController: BaseViewController {
     override func configureViews() {
         setupDropDown()
         generateButton.backgroundColor = .brandGreen
+        
+        notSureButton.setImage(UIImage.fontAwesomeIcon(name: .calculator, style: .solid, textColor: .brandOrange, size: CGSize(width: 15, height: 15)), for: .normal)
+        notSureButton.setTitleColor(.brandOrange, for: .normal)
     }
     
     func setupDropDown(){
@@ -89,7 +72,6 @@ class HomeViewController: BaseViewController {
     
     @IBAction func notSureButtonDidTap(_ sender: Any) {
         let BMIVC = BMIViewController.instantiateFromStoryboardName(storyboardName: .Home)
-        BMIVC.dietType = selectedDietType?.rawValue ?? "Not Selected"
         SegueHelper.presentViewController(sourceViewController: self, destinationViewController: BMIVC)
     }
     
@@ -102,78 +84,46 @@ class HomeViewController: BaseViewController {
         generateButton.backgroundColor = .darkGray
         let calorie = (calorieAmountLabel.text ?? "100").replacingOccurrences(of: ",", with: "")
         
-        APIDisposableDiet?.dispose()
-        APIDisposableDiet = nil
-        APIDisposableDiet = API.getDiet(mealsCount: mealsCountDropdown.selectedIndex ?? 0, calorie: Int(calorie    )!)
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .subscribe(onNext: { (response) in
-                Log.i("getDiet => onNext => \(response)")
-                DispatchQueue.main.async {
-                    self.generateButton.isEnabled = true
-                    self.generateButton.backgroundColor = .brandGreen
-                    var lst: [DietClass] = []
-                    for i in 0..<response.diet.count {
-
-                    }
-                    
-                    DietViewController.dietList = lst
-                    TabBarViewController.changeTabBarDelegate.changeTabBarIndex(index: 0)
-                }
-                
-            }, onError: { (error) in
-                Log.e("getDiet => onError => \(error) => \((error as NSError).domain)")
-                let customError = (error as NSError)
-                DispatchQueue.main.async {
-                    self.generateButton.isEnabled = true
-                    self.generateButton.backgroundColor = .brandGreen
-                }
-                DialogueHelper.showStatusBarErrorMessage(message: customError.userInfo["error"] as? String ?? "Faiiled to load diet")
-
-            })
-    }
-}
-
-
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dietTypeList.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellData = collectionList[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DietTypeCollectionViewCell", for: indexPath) as? DietTypeCollectionViewCell else {
-            fatalError("Unable to dequeue Cell.")
+        API.getDiet(mealsCount: (mealsCountDropdown.selectedIndex ?? 0) + 1, calorie: Int(calorie)!) { (dietList) in
+            print("Result => \(dietList)")
+            DietViewController.dietList = dietList
+            TabBarViewController.changeTabBarDelegate.changeTabBarIndex(index: 0)
+            self.generateButton.isEnabled = true
+            self.generateButton.backgroundColor = .brandOrange
         }
+        //        APIDisposableDiet?.dispose()
+        //        APIDisposableDiet = nil
+        //        APIDisposableDiet = API.getDiet(mealsCount: (mealsCountDropdown.selectedIndex ?? 0) + 1, calorie: Int(calorie)!)
+        //            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+        //            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+        //            .subscribe(onNext: { (response) in
+        //                Log.i("getDiet => onNext => \(response)")
+        //                DispatchQueue.main.async {
+        //                    self.generateButton.isEnabled = true
+        //                    self.generateButton.backgroundColor = .brandGreen
+        //
+        //
+        //
+        //                    var lst: [DietClass] = []
+        //                    for i in 0..<response.diet.count {
+        //                        Log.i("\(response.diet[i])   \(type(of: response.diet[i]))")
+        //                        response.diet[i]
+        //                    }
+        //
+        //
         
-        cell.iconImageView.image = UIImage(named: cellData)
-        cell.nameLabel.text = dietTypeList[indexPath.row].rawValue.uppercased()
-        cell.nameLabel.sizeToFit()
-        cellWidth[indexPath.row] = cell.nameLabel.frame.width + 10
-        collectionView.reloadItems(at: [indexPath])
-        cell.containerView.backgroundColor = .white
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cellData = dietTypeList[indexPath.row]
-        if selectedItem != nil {
-            if let cell = collectionView.cellForItem(at: selectedItem) as? DietTypeCollectionViewCell{
-            cell.containerView.backgroundColor = .white
-            cell.nameLabel.textColor = .black
-            }
-        }
-        selectedItem = indexPath
-        selectedDietType = cellData
-        let cell = collectionView.cellForItem(at: indexPath) as! DietTypeCollectionViewCell
-        cell.containerView.backgroundColor = .brandGreen
-        cell.nameLabel.textColor = .white
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 90)
+        //                }
+        //
+        //            }, onError: { (error) in
+        //                Log.e("getDiet => onError => \(error) => \((error as NSError).domain)")
+        //                let customError = (error as NSError)
+        //                DispatchQueue.main.async {
+        //                    self.generateButton.isEnabled = true
+        //                    self.generateButton.backgroundColor = .brandGreen
+        //                }
+        //                DialogueHelper.showStatusBarErrorMessage(message: customError.userInfo["error"] as? String ?? "Faiiled to load diet")
+        //
+        //            })
     }
 }
 

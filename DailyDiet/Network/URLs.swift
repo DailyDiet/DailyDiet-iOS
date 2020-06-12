@@ -22,14 +22,19 @@ enum URLs: APIConfiguration {
     case foodInfo(foodID: Int)
     case getDiet(mealsCount: Int, calorie: Int)
     case search(text: String, page: Int, pageItemCount: Int)
-    
+    case blog
+    case blogItem(slug: String)
+    case postBlogItem(category: String, content: String, slug: String, summary: String, title:  String)
+    case deleteBlogItem(postID: Int)
     
     var METHOD: HTTPMethod {
         switch self {
-        case .confirmSignup, .resendConfirmationLink, .getRecipe, .foodInfo, .getDiet, .search, .userInfo:
+        case .confirmSignup, .resendConfirmationLink, .getRecipe, .foodInfo, .getDiet, .search, .userInfo, .blog, .blogItem:
             return .get
         case .auth:
             return .put
+        case .deleteBlogItem:
+            return .delete
         case .changePassword, .signOut:
             return .patch
         default:
@@ -76,7 +81,14 @@ enum URLs: APIConfiguration {
             }
         case .search:
             return BaseURL + "/foods/search"
-            
+        case .blog:
+            return BaseURL + "/blog/"
+        case .blogItem(let slug):
+            return BaseURL + "/blog/\(slug)"
+        case .postBlogItem:
+            return BaseURL + "/blog/posts/new/"
+        case .deleteBlogItem(let postID):
+            return BaseURL + "/posts/delete/\(postID)"
         }
     }
     
@@ -131,6 +143,8 @@ enum URLs: APIConfiguration {
             urlRequest.httpBody = "email=\(email)&password=\(password)".data(using: .utf8)!
         case .changePassword(let oldPassword, let newPassword):
             urlRequest.httpBody = "old_password=\(oldPassword)&new_password=\(newPassword)&confirm_password=\(newPassword)".data(using: .utf8)!
+        case .postBlogItem(let category, let content , let slug, let summary, let title):
+            urlRequest.httpBody = "category=\(category)&content=\(content)&slug=\(slug)&summary=\(summary)&title=\(title)".data(using: .utf8)!
         default:
             break
         }
@@ -145,12 +159,8 @@ enum URLs: APIConfiguration {
         case .changePassword:
             urlRequest.setValue(NetworkConstant.ContentType.urlencoded, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.contentType)
             urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
-        case .userInfo:
-            urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
-        case .getDiet:
-            break
         default:
-            urlRequest.setValue(token, forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
+            urlRequest.setValue("Bearer \(StoringData.token)", forHTTPHeaderField: NetworkConstant.HTTPHeaderField.authorization)
         }
         
         

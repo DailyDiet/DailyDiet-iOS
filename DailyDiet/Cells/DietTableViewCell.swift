@@ -27,12 +27,13 @@ class DietTableViewCell: UITableViewCell {
     var isExpand: Bool = false
     override func awakeFromNib() {
         super.awakeFromNib()
-        topView.makeTopRound()
-        detailView.makeBottomRound()
-        
-        
+//        topView.makeTopRound()
+//        detailView.makeBottomRound()
+//
+//
         
     }
+    
 
 
 

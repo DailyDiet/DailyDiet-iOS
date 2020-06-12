@@ -7,6 +7,20 @@
 //
 import Foundation
 
+
+extension NSDictionary{
+
+func toString() throws -> String? {
+    do {
+        let data = try JSONSerialization.data(withJSONObject: self, options: .prettyPrinted)
+        return String(data: data, encoding: .utf8)
+    }
+    catch (let error){
+        throw error
+    }
+}
+}
+
 // MARK: - Diet
 struct Diet: Codable {
     var diet: [DietElement]
@@ -15,6 +29,11 @@ struct Diet: Codable {
 enum DietElement: Codable {
     case dietClass(DietClass)
     case integer(Int)
+    
+    enum Key: CodingKey {
+        case rawValue
+        case associatedValue
+    }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -39,6 +58,9 @@ enum DietElement: Codable {
         }
     }
 }
+
+
+
 
 // MARK: - DietClass
 struct DietClass: Codable {

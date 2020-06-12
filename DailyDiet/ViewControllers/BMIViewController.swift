@@ -31,7 +31,6 @@ class BMIViewController: BaseViewController, UIGestureRecognizerDelegate {
     @IBOutlet var dismissView: UIView!
     @IBOutlet var generateButton: DesignableButton!
     @IBOutlet var activityLabelDropDown: iOSDropDown!
-    @IBOutlet var dietTypeLabel: UILabel!
     @IBOutlet var weightSegmentedControl: UISegmentedControl!
     @IBOutlet var heightTextField: UITextField!
     @IBOutlet var ageTextField: UITextField!
@@ -44,7 +43,6 @@ class BMIViewController: BaseViewController, UIGestureRecognizerDelegate {
     var APIDisposableCalorie: Disposable!
     var APIDisposableBMI: Disposable!
 
-    var dietType: String!
     var height: Int = 0
     var weight: Int = 0
     var age: Int = 0
@@ -106,15 +104,14 @@ class BMIViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     func configureSegmentedControls(){
         Log.i()
-        let selectedTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.brandBlue]
+        let selectedTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.brandOrange]
         
         UISegmentedControl.appearance().setTitleTextAttributes(selectedTitleTextAttributes, for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
     }
     
     override func configureViews() {
-        dietTypeLabel.text = dietType.uppercased()
         configureDropDown()
         configureSegmentedControls()
         
@@ -161,7 +158,7 @@ class BMIViewController: BaseViewController, UIGestureRecognizerDelegate {
                                 Log.i("calculateCalorie => onNext => \(response)")
                                 DispatchQueue.main.async {
                                     self.generateButton.isEnabled = true
-                                    self.generateButton.backgroundColor = .brandGreen
+                                    self.generateButton.backgroundColor = .brandOrange
                                     
                                     self.dismiss(animated: true) {
                                     HomeViewController.delegate.setCalorie(calorie: response.calorie)
@@ -175,7 +172,7 @@ class BMIViewController: BaseViewController, UIGestureRecognizerDelegate {
                                 let customError = (error as NSError)
                                 DispatchQueue.main.async {
                                     self.generateButton.isEnabled = true
-                                    self.generateButton.backgroundColor = .brandGreen
+                                    self.generateButton.backgroundColor = .brandOrange
                                 }
                                 
                                 if let errorList = (customError.userInfo["errors"] as? [String : [String]]) {
@@ -199,7 +196,7 @@ class BMIViewController: BaseViewController, UIGestureRecognizerDelegate {
                     let customError = (error as NSError)
                     DispatchQueue.main.async {
                         self.generateButton.isEnabled = true
-                        self.generateButton.backgroundColor = .brandGreen
+                        self.generateButton.backgroundColor = .brandOrange
                     }
                     
                     if let heightError = (customError.userInfo["errors"] as? [String : [String]])?["height"]?[0] {

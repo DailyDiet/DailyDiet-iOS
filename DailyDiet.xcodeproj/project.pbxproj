@@ -13,6 +13,7 @@
 		F50E1854248050E5009BEE50 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */; };
 		F51276A82482192700662A0E /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51276A72482192700662A0E /* DropDown.swift */; };
 		F5438955248539C200B0B750 /* ValueKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5438954248539C200B0B750 /* ValueKeeper.swift */; };
+		F54BCAA12493402B0067696C /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54BCAA02493402B0067696C /* Blog.swift */; };
 		F5549E2E248111AC00A3BCF4 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */; };
 		F5549E332481483F00A3BCF4 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E322481483F00A3BCF4 /* DietViewController.swift */; };
 		F5549E352481486400A3BCF4 /* NutritionCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */; };
@@ -86,6 +87,7 @@
 		F50E1853248050E5009BEE50 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		F51276A72482192700662A0E /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		F5438954248539C200B0B750 /* ValueKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueKeeper.swift; sourceTree = "<group>"; };
+		F54BCAA02493402B0067696C /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
 		F5549E2D248111AC00A3BCF4 /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
 		F5549E322481483F00A3BCF4 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		F5549E342481486400A3BCF4 /* NutritionCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCalculatorViewController.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				F5936B58247AF01C00B8A1E9 /* FoodInfo.swift */,
 				F5549E3B2481513A00A3BCF4 /* Diet.swift */,
 				F5CF63C1248386EC008FED8C /* Search.swift */,
+				F54BCAA02493402B0067696C /* Blog.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				F50E1852248050B9009BEE50 /* LoginViewController.swift in Sources */,
 				F5936B29247AD0E200B8A1E9 /* UIView.swift in Sources */,
 				F5936B44247AD3AD00B8A1E9 /* InteractionPanToClose.swift in Sources */,
+				F54BCAA12493402B0067696C /* Blog.swift in Sources */,
 				F5936B30247AD0E200B8A1E9 /* UIViewController.swift in Sources */,
 				F5936B43247AD3AD00B8A1E9 /* DialogueHelper.swift in Sources */,
 				F5936AE3247ACAE400B8A1E9 /* AppDelegate.swift in Sources */,
@@ -687,7 +691,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = AJLMAG95WU;
 				INFOPLIST_FILE = DailyDiet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -713,7 +717,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = AJLMAG95WU;
 				INFOPLIST_FILE = DailyDiet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
