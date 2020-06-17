@@ -420,8 +420,8 @@
                                                             <constraint firstAttribute="bottom" secondItem="WV5-0Q-46V" secondAttribute="bottom" id="y9g-7b-LY2"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkX-j2-6Ox" customClass="DesignableButton" customModule="Spring">
-                                                        <rect key="frame" x="15" y="311" width="290" height="45"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkX-j2-6Ox" customClass="DesignableButton" customModule="Spring">
+                                                        <rect key="frame" x="15" y="311" width="345" height="45"/>
                                                         <color key="backgroundColor" name="brandOrange"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="cwy-yt-7u6"/>
@@ -442,12 +442,14 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="zkX-j2-6Ox" firstAttribute="trailing" secondItem="Tyo-ov-Agk" secondAttribute="trailing" id="5dJ-di-mOv"/>
                                                     <constraint firstItem="l9v-J5-WhC" firstAttribute="trailing" secondItem="Tyo-ov-Agk" secondAttribute="trailing" id="7bK-Cz-Q2G"/>
                                                     <constraint firstItem="bp7-eA-68O" firstAttribute="top" secondItem="Tyo-ov-Agk" secondAttribute="bottom" constant="5" id="7cl-ea-BLg"/>
                                                     <constraint firstItem="Tyo-ov-Agk" firstAttribute="leading" secondItem="D19-cx-OrE" secondAttribute="leading" constant="15" id="7gQ-7Y-dtH"/>
                                                     <constraint firstItem="bp7-eA-68O" firstAttribute="trailing" secondItem="Tyo-ov-Agk" secondAttribute="trailing" id="86s-Na-KvZ"/>
                                                     <constraint firstItem="i2T-bo-ktR" firstAttribute="leading" secondItem="Tyo-ov-Agk" secondAttribute="leading" id="8nU-QI-6kR"/>
                                                     <constraint firstItem="bp7-eA-68O" firstAttribute="leading" secondItem="Tyo-ov-Agk" secondAttribute="leading" id="Hfj-Ke-aWN"/>
+                                                    <constraint firstItem="zkX-j2-6Ox" firstAttribute="leading" secondItem="Tyo-ov-Agk" secondAttribute="leading" id="HyQ-3y-EvJ"/>
                                                     <constraint firstItem="i2T-bo-ktR" firstAttribute="trailing" secondItem="Tyo-ov-Agk" secondAttribute="trailing" id="PPk-1j-8yb"/>
                                                     <constraint firstItem="Tyo-ov-Agk" firstAttribute="top" secondItem="D19-cx-OrE" secondAttribute="top" constant="10" id="VE1-qF-EW2"/>
                                                     <constraint firstItem="4yT-ZW-wan" firstAttribute="trailing" secondItem="Tyo-ov-Agk" secondAttribute="trailing" id="VdK-c6-mbU"/>

@@ -80,7 +80,7 @@ extension DietViewController: UITableViewDelegate, UITableViewDataSource {
         let cellData = DietViewController.dietList[indexPath.row]
         cell.moreButton.setImage(UIImage.fontAwesomeIcon(name: .infoCircle, style: .solid, textColor: .black, size: CGSize(width: 25, height: 25)), for: .normal)
         cell.nameLabel.text = cellData.title
-        cell.foodImageView.sd_setImage(with: URL(string: cellData.thumbnail!))
+        cell.foodImageView.sd_setImage(with: URL(string: (cellData.image ?? cellData.thumbnail)!))
         
         cell.calorieLabel.text = "\(cellData.nutrition.calories) Calories"
         cell.fatLabel.text = "\(cellData.nutrition.fat)"

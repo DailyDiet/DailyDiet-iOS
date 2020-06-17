@@ -91,6 +91,8 @@ class HomeViewController: BaseViewController {
             self.generateButton.isEnabled = true
             self.generateButton.backgroundColor = .brandOrange
         }
+//        self.generateButton.isEnabled = true
+//        self.generateButton.backgroundColor = .brandOrange
         //        APIDisposableDiet?.dispose()
         //        APIDisposableDiet = nil
         //        APIDisposableDiet = API.getDiet(mealsCount: (mealsCountDropdown.selectedIndex ?? 0) + 1, calorie: Int(calorie)!)
