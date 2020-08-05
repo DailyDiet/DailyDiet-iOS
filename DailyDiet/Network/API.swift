@@ -146,7 +146,7 @@ class API {
                 //Login OK
             }, onError: { (error) in
                 Log.e("refreshToken => onError => \(error) => \((error as NSError).domain)")
-                let customError = (error as NSError)
+                _ = (error as NSError)
                 DispatchQueue.main.async {
                     StoringData.token = ""
                     StoringData.refreshToken = ""

@@ -1,0 +1,28 @@
+ENV["MATCH_GIT_URL"] = "https://gitlab.com/Alireza12t/developer-profile.git"
+ENV["FASTLANE_OUTPUT_DIRECTORY"] = "fastlane/output"
+@output_directory = ENV["FASTLANE_OUTPUT_DIRECTORY"]
+# git url of match
+@match_git_url = ENV["MATCH_GIT_URL"]
+
+default_platform(:ios)
+
+platform :ios do
+
+desc "TestFlight Test"
+lane :beta do
+match(git_url: @match_git_url,
+type: "appstore",
+app_identifier: "com.Alireza.Daily-Diet-X",
+readonly: true)
+
+# increase build number everytime when packaging a new build
+increment_build_number
+
+build_app(scheme: "DailyDiet")
+ 
+upload_to_testflight(username: "aliireza12t@icloud.com")
+
+end
+        
+end
+        
