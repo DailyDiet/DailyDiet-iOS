@@ -19,12 +19,15 @@ jobs:
       env:
         APPLE_PASSWORD: ${{ secrets.APPLE_APPLICATION_SPECIFIC_PASSWORD }}
       run: |
-        export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD="$APPLE_PASSWORD"
+#        export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD="$APPLE_PASSWORD"
         fastlane beta
         
         
         
         
+        
+        
+
         
         
 
